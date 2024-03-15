@@ -1,8 +1,9 @@
 @extends('layout.layout')
 
 @section('conteudo')
-    {{-- TESTE PARA OS ICONES --}}
 
+{{-- CSS DOS PARCEIROS --}}
+    {{-- TESTE PARA OS ICONES --}}
     <!-- For favicon png -->
     <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/logo/favicon.png') }}">
 
@@ -439,13 +440,6 @@
             </script>
 
     </section>
-
-
-
-
-
-
-
 
 
 

@@ -820,7 +820,7 @@ a i{
                                     </li>
                                     <li>
 
-                                        <a href="/servico/cabelos">Serviço</a>
+                                        <a href="/servico">Serviço</a>
                                     </li>
                                     <li>
                                         <a href="/contato">Contato</a>
