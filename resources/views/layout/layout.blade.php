@@ -923,7 +923,7 @@ a i{
     ==============================-->
     <div style="" class="hero-wrapper hero-2" id="hero">
         <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true">
-            <div class="hero-slider" style="position: relative;">
+            <div class="hero-slider" style="margin-bottom: -8px" style="position: relative;">
 
                 <!-- Adicione o vídeo -->
                 <video class="videoLeFlower" autoplay muted loop playsinline style="">
