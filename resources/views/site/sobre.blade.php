@@ -1,5 +1,7 @@
 @extends('layout.layout')
 
+@section('title', 'Sobre - Le Flower')
+
 @section('conteudo')
 
 {{-- CSS DOS PARCEIROS --}}

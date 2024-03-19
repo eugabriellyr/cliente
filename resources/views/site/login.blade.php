@@ -1,7 +1,8 @@
+{{-- <title>Login - Le FLower</title> --}}
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Formulário de login </title>
+	<title>Login - Le Flower</title>
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>

@@ -1,5 +1,7 @@
 @extends('layout.layout')
 
+@section('title', 'Home - Le Flower')
+
 @section('conteudo')
 
 
