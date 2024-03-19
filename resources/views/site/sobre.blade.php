@@ -231,7 +231,7 @@
     </section>
 
     {{-- Perguntas frequentes --}}
-    <section class="margin" data-aos="fade-up">
+    {{-- <section class="margin" data-aos="fade-up">
         <div class="separadora">
 
             <div class='masthead-image' id='master-container' style="border-radius: 2px">
@@ -421,6 +421,7 @@
                         inspirando-se na beleza efêmera das flores.</p>
                 </div>
             </div>
+
             <script>
                 var acordion = document.getElementsByClassName('accordion');
 
@@ -439,9 +440,7 @@
                 }
             </script>
 
-    </section>
-
-
+    </section> --}}
 
     <!--profiles start -->
     <section id="profiles" class="profiles" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">

@@ -212,7 +212,7 @@ a:hover {
 }
 
 #master-container-scroller .master-container-scroller_item[href]:hover {
-   text-decoration: underline
+   /* text-decoration: underline */
 }
 
 #master-container-scroller .master-container-scroller_item:nth-child(1),
