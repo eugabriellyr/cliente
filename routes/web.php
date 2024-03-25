@@ -37,6 +37,9 @@ Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboa
 route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
+// teste do dashboard
+route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
+
 
 // Serviços
 Route::get('/servico/cabelo', [ServicoController::class, 'servicoCabelo'])->name('servicoCabelo');
@@ -104,3 +107,9 @@ Route::post('/login', [LoginController::class, 'autenticar'])->name('login.auten
 
 // Rota de cadastro de usuário
 Route::post('/', [CadastroController::class, 'cadastroCliente'])->name('cadastro.store');
+
+route::get('/sair', function(){
+    session()->flush();
+    return redirect('/');
+})->name('sair');
+// rota para limpar a e voltar para a página home
