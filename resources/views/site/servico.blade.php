@@ -412,12 +412,13 @@
 
 .team .team-social a:hover {
     color: #343148;
-    background: #F7CAC9;
+    background: #e4b48d;
 }
 
 
 .team .team-item:hover .team-social {
     background: rgba(256, 256, 256, .5);
+    background: rgba(89, 132, 142, 0.562)
 }
 
 .team .team-item:hover .team-social a:first-child {
@@ -454,10 +455,16 @@
 .team .team-text h2 {
     font-size: 18px;
     font-weight: 600;
+    color: #e4b48d;
 }
 
-.team .team-text p {
+.team h2{
     margin: 0;
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 5%;
+    line-height: 45px%
+
 }
 
     </style>
@@ -559,14 +566,14 @@ data-aos-duration="500">
   <div class="team">
     <div class="container">
         <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-            <p>Escolha quem ira fazer seu cabelo</p>
-            <h2>Cabelereiras</h2>
+            <h2>Alguns integrantes que fazem parte do time <br>
+                 <span style="color: #e4b48d; font-weight: 600;">Le Flower</span></h2>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.0s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="assets/img/team-1.jpg" alt="Image">
+                        <img src="assets/img/team-1.png" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -575,15 +582,15 @@ data-aos-duration="500">
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Millie Harper</h2>
-                        <p>Cabelereira</p>
+                        <h2>Ana Silva</h2>
+                        <p>Esteticista</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="assets/img/team-2.jpg" alt="Image">
+                        <img src="assets/img/team-2.png" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -592,7 +599,7 @@ data-aos-duration="500">
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Lilly Fry</h2>
+                        <h2>Mariana Santos</h2>
                         <p>Cabelereira</p>
                     </div>
                 </div>
@@ -609,15 +616,15 @@ data-aos-duration="500">
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Elise Moran</h2>
-                        <p>Cabelereira</p>
+                        <h2>Camila Oliveira</h2>
+                        <p>Manicure e Pedicure</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="assets/img/team-4.jpg" alt="Image">
+                        <img src="assets/img/team-4.png" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>

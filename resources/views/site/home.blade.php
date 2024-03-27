@@ -5,48 +5,149 @@
 @section('conteudo')
 
 
+    <div style="" class="hero-wrapper hero-2" id="hero">
+        <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1"
+            data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true" data-xl-arrows="true"
+            data-ml-arrows="true">
+            <div class="hero-slider" style="margin-bottom: -8px" style="position: relative;">
+
+                <!-- Adicione o vídeo -->
+                <video class="videoLeFlower" autoplay muted loop playsinline style="">
+                    <source src="{{ asset('assets/videos/a1e9727e-c0c9-46ab-a382-e0fd61b5ff73.mov') }}" type="video/mp4">
+                </video>
+
+                <!-- Adicione outros elementos acima do vídeo -->
+                <div class="container"
+                    style="position: absolute; top: 40%; left: 48%; transform: translate(-50%, -50%); z-index: 2; text-align: center;">
+
+                    <div style="" class="hero-style2">
+                        <img class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo">
+                        <div>
+                            <span class="hero-subtitle fw-medium" data-ani="slideinup" data-ani-delay="0s">É aqui onde
+                                sua</span>
+                            <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s">BELEZA</h1>
+                            <span class="hero-subtitle fw-semibold" data-ani="slideinup"
+                                data-ani-delay="0.2s">FLORESCE</span>
+                        </div>
+
+                    </div>
+
+                    <div style="justify-content: center; align-items: center; align-content: center; margin-left:4.5%;"
+                        class="btn-group" data-ani="slideinup" data-ani-delay="0.3s">
+                        <a href="/cadastrar-se">
+                            <button class="btn-flower">
+                                <div class="wrapper">
+
+                                    <div class="flower flower1">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+
+                                    <div class="flower flower2">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+                                    <div class="flower flower3">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+                                    <p
+                                        style='background: transparent; color:rgb(255, 255, 255); z-index: 6; font-size: 25pt; display: flex; letter-spacing:2pt; font-weight: 600; margin-top: 8%;'class="">
+                                        Agendar</p>
+                                    <div class="flower flower4">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+                                    <div class="flower flower5">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+                                    <div class="flower flower6">
+                                        <div class="petal one"></div>
+                                        <div class="petal two"></div>
+                                        <div class="petal three"></div>
+                                        <div class="petal four"></div>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{-- ESTILIZAÇÃO MOBILE BANNER HOME --}}
+    <Style>
+        @media (max-width: 700px) {
+            .hero-slider {
+                height: 550px;
+                background: url('assets/banner/bannerRespons.jpeg');
+                background-size: cover;
+            }
+
+
+        }
+    </Style>
 
 
     {{-- ABOUT GABY --}}
     <div class="responsive-container-block bigContainer" data-aos="fade-down" style="background: #59848e ">
         <div class="responsive-container-block Container bottomContainer">
-          <div class="ultimateImg">
-            <img class="mainImg" src="{{ asset('assets/img-gaby/helena-flores.png') }}">
+            <div class="ultimateImg">
+                <img class="mainImg" src="{{ asset('assets/img-gaby/helena-flores.png') }}">
 
-            <div class="purpleBox"  data-aos="fade-right">
-              <p class="purpleText">
-                O nome "Leflower" não é apenas uma escolha casual; é um reflexo do compromisso de Helena com a beleza e o crescimento pessoal.
-              </p>
-              <img class="stars" style="width: 45%" src="{{ asset('assets/img-gaby/estrela2.svg') }}">
+                <div class="purpleBox" data-aos="fade-right">
+                    <p class="purpleText">
+                        O nome "Leflower" não é apenas uma escolha casual; é um reflexo do compromisso de Helena com a
+                        beleza e o crescimento pessoal.
+                    </p>
+                    <img class="stars" style="width: 45%" src="{{ asset('assets/img-gaby/estrela2.svg') }}">
+                </div>
             </div>
-          </div>
-          <div class="allText bottomText">
-            <p class="text-blk headingText">
-              Sobre nós
-            </p>
-            <p class="text-blk subHeadingText">
-                Florescendo em Beleza: A História do Leflower
-            </p>
-            <p class="text-blk description">
-                No coração do Leflower está a visão e dedicação de nossa fundadora, Helena Flores. Ela começou sua jornada no mundo da beleza com a convicção de que, assim como as flores desabrocham em sua própria época, a beleza de cada pessoa floresce em momentos específicos. Com essa filosofia, ela estabeleceu o Leflower como mais do que um salão de beleza comum, mas como um espaço que abraça a singularidade de cada indivíduo.
-            </p>
-            <a href="/sobre">
-            <button class="cta">
-                <svg width="15px" height="10px" viewBox="0 0 13 10">
-                    <path d="M1,5 L11,5"></path>
-                    <polyline points="8 1 12 5 8 9"></polyline>
-                  </svg>
-                <span>Leia mais</span>
+            <div class="allText bottomText">
+                <p class="text-blk headingText">
+                    Sobre nós
+                </p>
+                <p class="text-blk subHeadingText">
+                    Florescendo em Beleza: A História do Leflower
+                </p>
+                <p class="text-blk description">
+                    No coração do Leflower está a visão e dedicação de nossa fundadora, Helena Flores. Ela começou sua
+                    jornada no mundo da beleza com a convicção de que, assim como as flores desabrocham em sua própria
+                    época, a beleza de cada pessoa floresce em momentos específicos. Com essa filosofia, ela estabeleceu o
+                    Leflower como mais do que um salão de beleza comum, mas como um espaço que abraça a singularidade de
+                    cada indivíduo.
+                </p>
+                <a href="/sobre">
+                    <button class="cta">
+                        <svg width="15px" height="10px" viewBox="0 0 13 10">
+                            <path d="M1,5 L11,5"></path>
+                            <polyline points="8 1 12 5 8 9"></polyline>
+                        </svg>
+                        <span>Leia mais</span>
 
-              </button>
-            </a>
-          </div>
+                    </button>
+                </a>
+            </div>
         </div>
-      </div>
+    </div>
 
 
-       {{-- Perguntas frequentes --}}
-       <section class="margin" data-aos="fade-up">
+    {{-- Perguntas frequentes --}}
+    <section class="margin" data-aos="fade-up">
         <div class="separadora">
 
             <div class='masthead-image' id='master-container' style="border-radius: 2px">
@@ -258,357 +359,359 @@
     </section>
 
     {{-- Galeria --}}
-      <style>
+    <style>
         .cta {
-  position: relative;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 50px;
-  background: #e4b48d;
-  width: 45px;
-  height: 45px;
-  transition: all 0.3s ease;
-}
-
-.cta span {
-  position: relative;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #fff;
-  margin-left: 12px
-}
-
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #fff;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-  margin-bottom: 10px;
-  margin-left: 3px
-}
-
-.cta:hover:before {
-  width: 100%;
-  background: #e4b48d;
-
-}
-.cta:hover svg{
-  stroke: #59848e;
-
-
-}
-
-.cta:hover span{
-    color: #59848e
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active {
-  transform: scale(0.95);
-}
-
-      </style>
-<style>
-.service-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.service {
-  background-color: transparent;
-  margin: 10px;
-  padding: 0% 5% 1% 5%;
-  width: calc(25% - 40px);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-
-.service img {
-  width: 100%;
-  height: auto;
-}
-
-.service h2 {
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-.service p {
-  margin: 10px 0;
-  color: #202020;
-}
+            position: relative;
+            padding: 12px 18px;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .cta:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 50px;
+            background: #e4b48d;
+            width: 45px;
+            height: 45px;
+            transition: all 0.3s ease;
+        }
+
+        .cta span {
+            position: relative;
+            font-family: "Ubuntu", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #fff;
+            margin-left: 12px
+        }
+
+        .cta svg {
+            position: relative;
+            top: 0;
+            margin-left: 10px;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: #fff;
+            stroke-width: 2;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+            margin-left: 3px
+        }
+
+        .cta:hover:before {
+            width: 100%;
+            background: #e4b48d;
+
+        }
+
+        .cta:hover svg {
+            stroke: #59848e;
+
+
+        }
+
+        .cta:hover span {
+            color: #59848e
+        }
+
+        .cta:hover svg {
+            transform: translateX(0);
+        }
+
+        .cta:active {
+            transform: scale(0.95);
+        }
+    </style>
+    <style>
+        .service-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service {
+            background-color: transparent;
+            margin: 10px;
+            padding: 0% 5% 1% 5%;
+            width: calc(25% - 40px);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .service img {
+            width: 100%;
+            height: auto;
+        }
+
+        .service h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .service p {
+            margin: 10px 0;
+            color: #202020;
+        }
 
-.price {
-  font-weight: bold;
-}
+        .price {
+            font-weight: bold;
+        }
 
-.descricoes{
-    display: block;
-}
+        .descricoes {
+            display: block;
+        }
 
-.service{
-    width: 500px;
-    display: block;
-}
+        .service {
+            width: 500px;
+            display: block;
+        }
 
-.service h4{
-    color: #202020;
+        .service h4 {
+            color: #202020;
 
 
-}
+        }
 
-.
-.service-description{
-    color: gainsboro;
-    text-align: start;
-}
+        . .service-description {
+            color: gainsboro;
+            text-align: start;
+        }
 
-.test-bg {
-    background-position: center;
-    background: linear-gradient( 180deg, rgba(89, 132, 142, 0.23), rgba(89, 132, 142, 0.23) ), url({{ asset('assets/AdobeStock_587067399.jpeg') }});
+        .test-bg {
+            background-position: center;
+            background: linear-gradient(180deg, rgba(89, 132, 142, 0.23), rgba(89, 132, 142, 0.23)), url({{ asset('assets/AdobeStock_587067399.jpeg') }});
 
-}
+        }
 
-.servico{
-    padding: 0% 13% 0% 13%;
-}
+        .servico {
+            padding: 0% 13% 0% 13%;
+        }
 
-.card-header{
-    padding-left: 6.5%;
-}
+        .card-header {
+            padding-left: 6.5%;
+        }
 
-.card-header h3{
-    font-size: 28pt;
-}
+        .card-header h3 {
+            font-size: 28pt;
+        }
 
-.about-thumb-2{
-    top: 12%;
-}
+        .about-thumb-2 {
+            top: 12%;
+        }
 
-.justify-content-between h4{
-    font-weight: 400;
-}
+        .justify-content-between h4 {
+            font-weight: 400;
+        }
 
-.card-menu2{
-    margin-left:15%;
-}
+        .card-menu2 {
+            margin-left: 15%;
+        }
 
-.buttonAgendar1{
-    margin-right:70%;
-}
+        .buttonAgendar1 {
+            margin-right: 70%;
+        }
 
-.buttonAgendar2{
-    margin-left:63.5%;
-}
+        .buttonAgendar2 {
+            margin-left: 63.5%;
+        }
 
-.buttonAgendar3{
-    margin-right:70%;
-}
+        .buttonAgendar3 {
+            margin-right: 70%;
+        }
 
 
 
 
 
-@media (max-width: 700px) {
-  .about-thumb-2 img{
-    display: none;
-  }
+        @media (max-width: 700px) {
+            .about-thumb-2 img {
+                display: none;
+            }
 
-  .about-thumb-num{
-    display: none;
-  }
+            .about-thumb-num {
+                display: none;
+            }
 
-  .servico{
-    padding: 0% 0% 0% 0%;
-  }
+            .servico {
+                padding: 0% 0% 0% 0%;
+            }
 
-  .service p{
-    font-size: 8pt
-  }
+            .service p {
+                font-size: 8pt
+            }
 
-  .service{
-    width: 100%;
-  }
+            .service {
+                width: 100%;
+            }
 
-  .card-menu2{
-    margin-left:0%;
-  }
+            .card-menu2 {
+                margin-left: 0%;
+            }
 
- .buttonAgendar1{
-    margin-right:0%;
- }
+            .buttonAgendar1 {
+                margin-right: 0%;
+            }
 
- .buttonAgendar2{
-    margin-left:0%;
-}
+            .buttonAgendar2 {
+                margin-left: 0%;
+            }
 
-.buttonAgendar3{
-    margin-right:0%;
-}
+            .buttonAgendar3 {
+                margin-right: 0%;
+            }
 
-.card-header h3{
-    font-size: 20pt;
-    text-align: center;
-}
+            .card-header h3 {
+                font-size: 20pt;
+                text-align: center;
+            }
 
-.selecao {
-    height: 200px;
-    display: block;
-    margin-bottom: 250px;
-}
+            .selecao {
+                height: 200px;
+                display: block;
+                margin-bottom: 250px;
+            }
 
-}
+        }
 
-@media (min-width: 701px) and (max-width:1354px){
+        @media (min-width: 701px) and (max-width:1354px) {
 
-.about-thumb-2 img{
-    display: none;
-  }
+            .about-thumb-2 img {
+                display: none;
+            }
 
-  .about-thumb-num{
-    display: none;
-  }
+            .about-thumb-num {
+                display: none;
+            }
 
-  .servico{
-    padding: 0% 0% 0% 0%;
-  }
+            .servico {
+                padding: 0% 0% 0% 0%;
+            }
 
-  .service p{
-    font-size: 17pt
-  }
+            .service p {
+                font-size: 17pt
+            }
 
-  .service{
-    width: 700px;
-  }
+            .service {
+                width: 700px;
+            }
 
-  .card-menu2{
-    margin-left:0%;
-  }
+            .card-menu2 {
+                margin-left: 0%;
+            }
 
- .buttonAgendar1{
-    margin-right:0%;
-    margin-left: 3.5%;
- }
+            .buttonAgendar1 {
+                margin-right: 0%;
+                margin-left: 3.5%;
+            }
 
- .buttonAgendar2{
-    margin-left:0%;
-    margin-left: 3%;
+            .buttonAgendar2 {
+                margin-left: 0%;
+                margin-left: 3%;
 
-}
+            }
 
-.buttonAgendar3{
-    margin-right:0%;
-    margin-left: 3.5%;
+            .buttonAgendar3 {
+                margin-right: 0%;
+                margin-left: 3.5%;
 
-}
+            }
 
-.container1{
-    display: none;
-}
-.container2{
-    display: none;
-}
-.container3{
-    display: none;
-}
-.col-md-6 {
-    width: 100%;
-}
+            .container1 {
+                display: none;
+            }
 
-.card-header h3{
-    text-align: center;
-}
+            .container2 {
+                display: none;
+            }
 
-.servico .row{
-    margin: 0 auto;
-}
+            .container3 {
+                display: none;
+            }
 
-.col-md-6 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 100%;
-}
+            .col-md-6 {
+                width: 100%;
+            }
 
+            .card-header h3 {
+                text-align: center;
+            }
 
+            .servico .row {
+                margin: 0 auto;
+            }
 
+            .col-md-6 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 100%;
+            }
 
-}
 
-.about-thumb-num {
-    position: absolute;
-    left: 40px;
-    bottom: 0;
-    font-size: 17pt;
-    font-weight: 700;
-    font-family: var(--title-font);
-    color: transparent;
-    -webkit-text-stroke: 1px var(--white-color);
-    line-height: initial;
-}
-</style>
 
-    <section class="insta-photos" data-aos="fade-up"
-    data-aos-anchor-placement="top-center">
-        <div class="container" >
+
+        }
+
+        .about-thumb-num {
+            position: absolute;
+            left: 40px;
+            bottom: 0;
+            font-size: 17pt;
+            font-weight: 700;
+            font-family: var(--title-font);
+            color: transparent;
+            -webkit-text-stroke: 1px var(--white-color);
+            line-height: initial;
+        }
+    </style>
+
+    <section class="insta-photos" data-aos="fade-up" data-aos-anchor-placement="top-center">
+        <div class="container">
             <h1 class="heading">Nosso Instagram <span href="https://instagram.com/leflower_salon"></span>
             </h1>
             <a href="https://instagram.com/leflower_salon">
-            <button class="buttonGaleria">
-                <span class="icon"><svg height="33" viewBox="0 0 128 128" width="33"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <linearGradient id="a" gradientTransform="matrix(1 0 0 -1 594 633)"
-                            gradientUnits="userSpaceOnUse" x1="-566.711" x2="-493.288" y1="516.569" y2="621.43">
-                            <stop offset="0" stop-color="#ffb900"></stop>
-                            <stop offset="1" stop-color="#9100eb"></stop>
-                        </linearGradient>
-                        <circle cx="64" cy="64" fill="url(#a)" r="64"></circle>
-                        <g fill="#fff">
-                            <path
-                                d="m82.333 104h-36.666c-11.947 0-21.667-9.719-21.667-21.667v-36.666c0-11.948 9.72-21.667 21.667-21.667h36.666c11.948 0 21.667 9.719 21.667 21.667v36.667c0 11.947-9.719 21.666-21.667 21.666zm-36.666-73.333c-8.271 0-15 6.729-15 15v36.667c0 8.271 6.729 15 15 15h36.666c8.271 0 15-6.729 15-15v-36.667c0-8.271-6.729-15-15-15z">
-                            </path>
-                            <path
-                                d="m64 84c-11.028 0-20-8.973-20-20 0-11.029 8.972-20 20-20s20 8.971 20 20c0 11.027-8.972 20-20 20zm0-33.333c-7.352 0-13.333 5.981-13.333 13.333 0 7.353 5.981 13.333 13.333 13.333s13.333-5.98 13.333-13.333c0-7.352-5.98-13.333-13.333-13.333z">
-                            </path>
-                            <circle cx="85.25" cy="42.75" r="4.583"></circle>
-                        </g>
-                    </svg></span>
-                <span class="text1">Follow me</span>
-                <span class="text2">@leflower</span>
+                <button class="buttonGaleria">
+                    <span class="icon"><svg height="33" viewBox="0 0 128 128" width="33"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <linearGradient id="a" gradientTransform="matrix(1 0 0 -1 594 633)"
+                                gradientUnits="userSpaceOnUse" x1="-566.711" x2="-493.288" y1="516.569"
+                                y2="621.43">
+                                <stop offset="0" stop-color="#ffb900"></stop>
+                                <stop offset="1" stop-color="#9100eb"></stop>
+                            </linearGradient>
+                            <circle cx="64" cy="64" fill="url(#a)" r="64"></circle>
+                            <g fill="#fff">
+                                <path
+                                    d="m82.333 104h-36.666c-11.947 0-21.667-9.719-21.667-21.667v-36.666c0-11.948 9.72-21.667 21.667-21.667h36.666c11.948 0 21.667 9.719 21.667 21.667v36.667c0 11.947-9.719 21.666-21.667 21.666zm-36.666-73.333c-8.271 0-15 6.729-15 15v36.667c0 8.271 6.729 15 15 15h36.666c8.271 0 15-6.729 15-15v-36.667c0-8.271-6.729-15-15-15z">
+                                </path>
+                                <path
+                                    d="m64 84c-11.028 0-20-8.973-20-20 0-11.029 8.972-20 20-20s20 8.971 20 20c0 11.027-8.972 20-20 20zm0-33.333c-7.352 0-13.333 5.981-13.333 13.333 0 7.353 5.981 13.333 13.333 13.333s13.333-5.98 13.333-13.333c0-7.352-5.98-13.333-13.333-13.333z">
+                                </path>
+                                <circle cx="85.25" cy="42.75" r="4.583"></circle>
+                            </g>
+                        </svg></span>
+                    <span class="text1">Follow me</span>
+                    <span class="text2">@leflower</span>
 
-            </button>
-        </a>
+                </button>
+            </a>
 
             <div class="gallery">
-                <div class="gallery-item" >
+                <div class="gallery-item">
                     <img class="gallery-image" src="../assets/img/nail.png"
                         alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer">
                 </div>

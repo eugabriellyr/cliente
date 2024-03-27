@@ -688,7 +688,6 @@
     .service h4 {
         color: #202020;
     }
-
 </style>
 
 <body>
@@ -809,10 +808,10 @@
             <!-- Main Menu Area -->
             <div class="menu-area">
                 <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-start justify-content-between">
+                    <div class="row align-items-center justify-content-lg-start justify-content-between"  style="flex-wrap: unset">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="/"><img style="width:50%;" src="{{ asset('assets/logo-sobre.png') }}"
+                                <a href="/"><img class="logo-banner" style="width:50%;" src="{{ asset('assets/logo-sobre.png') }}"
                                         alt="logo"></a>
                             </div>
                         </div>
@@ -1145,24 +1144,42 @@
         .content {
             /* Estilos para o conteúdo abaixo da imagem */
         }
+
+
+
+        @media (max-width: 700px){
+
+            .col-auto{
+            width: 50%;
+            justify-content: end;
+            display: flex;
+        }
+        .logo-banner{
+            width: 75%!important;
+        }
+            }
     </style>
 
     {{-- Back --}}
 
 
     <div style="" class="hero-wrapper hero-2" id="hero">
-        <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true">
+        <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1"
+            data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true"
+            data-xl-arrows="true" data-ml-arrows="true">
             <div class="hero-slider" style="margin-bottom: -8px" style="position: relative;">
 
                 <img class="videoLeFlower" src="{{ asset('assets/banner/bannerFlores.jpeg') }}" alt="Your Image">
 
                 <!-- Adicione outros elementos acima do vídeo -->
-                <div class="container" style="position: absolute; top: 40%; left: 48%; transform: translate(-50%, -50%); z-index: 2; text-align: center;">
+                <div class="container"
+                    style="position: absolute; top: 40%; left: 48%; transform: translate(-50%, -50%); z-index: 2; text-align: center;">
 
                     <div style="" class="hero-style2">
                         <img class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo">
                         <div>
-                        <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s" style="font-size: 120px;">SOBRE</h1>
+                            <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s"
+                                style="font-size: 120px; letter-spacing: 5px">SOBRE</h1>
                         </div>
 
                     </div>
@@ -1346,25 +1363,7 @@
     </div><!--/.timeline-->
 
 
-
-
-
-
-
-
-
     </section>
-
-
-
-
-
-
-
-
-
-
-
 
     {{-- Teste fonts --}}
     <!--modernizr.min.js-->

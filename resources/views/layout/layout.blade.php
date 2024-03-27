@@ -552,11 +552,12 @@ a i{
         height: 650px;
     }
 
-    .hero-slider{
+    /* .hero-slider{
         height: 550px;
         background: url('assets/banner/bannerRespons.jpeg');
         background-size: cover;
-    }
+        background: url(none)
+    } */
 
     .videoLeFLower{
         display: none;
@@ -924,81 +925,6 @@ a i{
     <!--==============================
     Hero Area
     ==============================-->
-    <div style="" class="hero-wrapper hero-2" id="hero">
-        <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true" data-xl-arrows="true" data-ml-arrows="true">
-            <div class="hero-slider" style="margin-bottom: -8px" style="position: relative;">
-
-                <!-- Adicione o vídeo -->
-                <video class="videoLeFlower" autoplay muted loop playsinline style="">
-                    <source src="{{asset('assets/videos/a1e9727e-c0c9-46ab-a382-e0fd61b5ff73.mov')}}" type="video/mp4">
-                </video>
-
-                <!-- Adicione outros elementos acima do vídeo -->
-                <div class="container" style="position: absolute; top: 40%; left: 48%; transform: translate(-50%, -50%); z-index: 2; text-align: center;">
-
-                    <div style="" class="hero-style2">
-                        <img class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo">
-                        <div>
-                        <span class="hero-subtitle fw-medium" data-ani="slideinup" data-ani-delay="0s">É aqui onde sua</span>
-                        <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s">BELEZA</h1>
-                        <span class="hero-subtitle fw-semibold" data-ani="slideinup" data-ani-delay="0.2s">FLORESCE</span>
-                        </div>
-
-                    </div>
-
-                    <div style="justify-content: center; align-items: center; align-content: center; margin-left:4.5%;" class="btn-group" data-ani="slideinup" data-ani-delay="0.3s">
-                        <a href="/cadastrar-se">
-                        <button class="btn-flower">
-                            <div class="wrapper">
-
-                              <div class="flower flower1">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-
-                              <div class="flower flower2">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-                              <div class="flower flower3">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-                              <p style='background: transparent; color:rgb(255, 255, 255); z-index: 6; font-size: 25pt; display: flex; letter-spacing:2pt; font-weight: 600; margin-top: 8%;'class="">Agendar</p>
-                              <div class="flower flower4">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-                              <div class="flower flower5">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-                              <div class="flower flower6">
-                                <div class="petal one"></div>
-                                <div class="petal two"></div>
-                                <div class="petal three"></div>
-                                <div class="petal four"></div>
-                              </div>
-                            </div>
-                          </button>
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     </div>
     <!--======== / Hero Section ========-->
@@ -1052,6 +978,7 @@ a i{
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
