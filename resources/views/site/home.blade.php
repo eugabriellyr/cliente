@@ -2,6 +2,11 @@
 
 @section('title', 'Home - Le Flower')
 
+
+@section('logo')
+    <a href="/"><img style="width:50%;" class="banner" src="{{ asset('assets/logo4.png') }}" alt="logo"></a>
+@endsection
+
 @section('conteudo')
 
 
@@ -96,8 +101,18 @@
                 height: 550px;
                 background: url('assets/banner/bannerRespons.jpeg');
                 background-size: cover;
+
             }
 
+            .banner {
+                width: 85% !important;
+            }
+
+            .col-auto {
+                width: 50% ;
+                justify-content: end;
+                display: flex;
+            }
 
         }
     </Style>

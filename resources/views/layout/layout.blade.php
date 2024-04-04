@@ -807,12 +807,13 @@ a i{
             <!-- Main Menu Area -->
             <div class="menu-area">
                 <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-start justify-content-between">
+                    <div class="row infeliz align-items-center justify-content-lg-start justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="/"><img style="width:50%;" src="{{ asset('assets/logo4.png') }}" alt="logo"></a>
+                                @yield('logo')
                             </div>
                         </div>
+
                         <div class="col-auto m-lg-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
@@ -1107,104 +1108,8 @@ a i{
 }
 
 </style>
-
 </html>
 
-
-
-
-
-    {{-- <!--==============================
-        Footer Area
-    ==============================-->
-    <footer class="footer-wrapper footer-layout1" data-bg-src="assets/img/bg/footer-1-bg.png">
-        <div style="padding 1% 0%;" class="container-fluid">
-            <div class="widget-area">
-                <div class="row justify-content-between">
-                    <div style="padding: 5% 0%;" class="col-md-6 col-xl-3">
-                        <div class="widget footer-widget">
-                            <div class="widget-about">
-                                <div class="footer-logo">
-                                    <a href="/"><img src="{{ asset('assets/logo4.png') }}" alt="Viva Bem"></a>
-                                </div>
-                                <p class="about-text">Junte-se a nós e descubra um ambiente que vai além dos limites convencionais da preparação física. Oferecemos não apenas equipamentos de última geração, mas uma comunidade que incentiva o seu crescimento pessoal.</p>
-                                <div style="margin-left:10%;display:none;" class="social-btn">
-                                    <a href="https://twitter.com/" tabindex="0"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://linkedin.com/" tabindex="0"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.discord.com/" tabindex="0"><i class="fab fa-discord"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="padding: 10% 0%;" class="col-md-6 col-xl-auto">
-                        <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Link Rápidos</h3>
-                            <div class="menu-all-pages-container">
-                                <ul class="menu">
-                                    <li><a href="/sobre">Sobre nós</a></li>
-                                    <li><a href="/sobre">Nossa Missão</a></li>
-                                    <li><a href="/servico/cabelos">Nossos Serviços</a></li>
-                                    <li><a href="/contato">Contate-nos</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="padding: 10% 0%;" class="col-md-6 col-xl-auto">
-                        <div class="widget footer-widget" style="max-width: 400px;">
-                            <h3 class="widget_title">Galeria</h3>
-                            <div class="sidebar-gallery" style="">
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Cabelos.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Cabelos.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Maquiagem.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Maquiagem.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Unhas.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Unhas.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Cabelos2.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Cabelos2.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Maquiagem2.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Maquiagem2.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                                <div class="gallery-thumb">
-                                    <img src="{{ asset('assets/Galeria/Unhas2.jpeg') }}" alt="Gallery Image">
-                                    <a href="{{ asset('assets/Galeria/Unhas2.jpeg') }}" class="gallery-btn popup-image"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3" style="padding: 10% 0%;">
-                        <div class="widget footer-widget">
-                            <h3 class="widget_title">Receba boletim informativo</h3>
-                            <p class="footer-text">Ganhe 10% de desconto no seu primeiro pedido! Se apresse</p>
-                            <form action="" method="POST" class="newsletter-form" id="formContatoNew">
-                                @csrf
-                                <div class="form-group">
-                                    <i class=""></i>
-                                    <input id="emailDeContato" name="emailDeContato" type="email" placeholder="Endereço de email" required="" value="{{old('emailDeContato')}}">
-                                </div>
-                                <button onclick="newsLetter();" class="btn style-r0 style2">Se inscrever</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright-wrap">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-auto align-self-center"><p class="copyright-text text-center">© 2024 <a href="#">Le Flower.</a> Todos os direitos reservados.</p></div>
-                </div>
-            </div>
-        </div>
-    </footer> --}}
 
     <!--********************************
 			Code End  Here

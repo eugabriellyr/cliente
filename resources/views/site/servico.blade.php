@@ -467,7 +467,69 @@
 
 }
 
+/* ESTILOS USADOS HEADER RESPONSIVEL */
+
+.logoVideo {
+            display: none!important;
+            margin-right: 3%;
+        }
+
+        @media (max-width: 700px) {
+
+            .col-auto {
+                width: 40%;
+                justify-content: end;
+                display: flex;
+            }
+
+        }
+
+        @media screen and (max-width: 700px) {
+        .banner {
+            /* Insira aqui o link da nova imagem */
+            content: url('../assets/logo-contato.png');
+            width: 85%!important
+
+        }
+        .infeliz{
+            flex-wrap: unset;
+            flex-direction: row
+        }
+    }
+
+
     </style>
+
+
+@section('logo')
+<a href="/"><img style="width:50%;" class="banner" src="{{ asset('assets/logo4.png') }}" alt="logo"></a>
+@endsection
+
+    <div style="" class="hero-wrapper hero-2" id="hero">
+        <div class="global-carousel" id="heroSlider2" data-fade="true" data-slide-show="1" data-lg-slide-show="1"
+            data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true" data-xl-arrows="true"
+            data-ml-arrows="true">
+            <div class="hero-slider" style="margin-bottom: -8px" style="position: relative;">
+
+                <img class="videoLeFlower" src="{{ asset('assets/banner/banner-contato.png') }}" alt="Your Image">
+
+                <!-- Adicione outros elementos acima do vídeo -->
+                <div class="container"
+                    style="position: absolute; top: 40%; left: 48%; transform: translate(-50%, -50%); z-index: 2; text-align: center;">
+
+                    <div style="" class="hero-style2">
+                        <img style="width:70%;" class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo">
+                        <div>
+                            <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s"
+                                style="font-size: 120px;">SERVIÇOS</h1>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 {{-- Cards --}}
 <div id="services" class="services section" data-aos="fade-down" style="margin-bottom: 50px"
