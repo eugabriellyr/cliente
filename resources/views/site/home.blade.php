@@ -109,7 +109,7 @@
             }
 
             .col-auto {
-                width: 50% ;
+                width: 50%;
                 justify-content: end;
                 display: flex;
             }
@@ -162,9 +162,10 @@
 
 
     {{-- Perguntas frequentes --}}
-    <section class="margin" data-aos="fade-up">
-        <div class="separadora">
+    {{-- <section class="margin" data-aos="fade-up">  Com animação (Quebra) --}}
 
+    <section class="margin">
+        <div class="separadora">
             <div class='masthead-image' id='master-container' style="border-radius: 2px">
                 <div class='content center'>
                     <h1 id='master'>
@@ -295,6 +296,30 @@
             </style>
             <div class="containerr">
                 <h1>Perguntas Frequentes</h1>
+                {{-- <div class="accordion" data-aos="fade-left"> COM ANIMAÇÃO (QUEBRA) --}}
+                {{-- <div class="accordion" > --}}
+                <script>
+                    window.addEventListener('DOMContentLoaded', (event) => {
+                        // Verifica a largura da tela quando a página é carregada
+                        checkWidth();
+
+                        // Verifica a largura da tela quando a janela é redimensionada
+                        window.addEventListener('resize', checkWidth);
+                    });
+
+                    function checkWidth() {
+                        var screenWidth = window.innerWidth;
+
+                        // Define a largura limite na qual você deseja remover a animação
+                        var maxWidth = 700;
+
+                        if (screenWidth < maxWidth) {
+                            // Remove o atributo data-aos da div com a classe accordion
+                            var accordion = document.querySelector('.accordion');
+                            accordion.removeAttribute('data-aos');
+                        }
+                    }
+                </script>
                 <div class="accordion" data-aos="fade-left">
                     <h5> Qual é o segredo para alcançar um cabelo saudável e vibrante?</h5>
                     <i class="fas fa-minus"></i>
@@ -354,23 +379,7 @@
             </div>
 
             {{-- SCRIPT  ACORDION --}}
-            <script>
-                var acordion = document.getElementsByClassName('accordion');
 
-                var i;
-                var len = acordion.length;
-                for (i = 0; i < len; i++) {
-                    acordion[i].addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        var panal = this.nextElementSibling;
-                        if (panal.style.maxHeight) {
-                            panal.style.maxHeight = null;
-                        } else {
-                            panal.style.maxHeight = panal.scrollHeight + 'px';
-                        }
-                    })
-                }
-            </script>
     </section>
 
     {{-- Galeria --}}
@@ -787,6 +796,57 @@
     </section>
 
 
+
+    {{-- SCRIPT PARA A ANIMAÇÃO DO FAC SAIR QUANDO A TELA FOR MENOR QUE 700PX, REMOVENDO O ATRIBUTO data-aos DAS SEÇÃO/DIV, ASSIM EVITA QUEBRAR NO MOBILE --}}
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Verifica a largura da tela quando a página é carregada
+            checkWidth();
+
+            // Verifica a largura da tela quando a janela é redimensionada
+            window.addEventListener('resize', checkWidth);
+        });
+
+        function checkWidth() {
+            var screenWidth = window.innerWidth;
+
+            // Define a largura limite na qual você deseja remover a animação
+            var maxWidth = 700;
+
+            if (screenWidth < maxWidth) {
+                // Remove o atributo data-aos de todas as divs com a classe accordion
+                var accordions = document.querySelectorAll('.accordion');
+                accordions.forEach(function(accordion) {
+                    accordion.removeAttribute('data-aos');
+                });
+
+                var instaPhotos = document.querySelector('.insta-photos');
+                instaPhotos.removeAttribute('data-aos');
+
+                var instaPhotos = document.querySelector('.purpleBox');
+                instaPhotos.removeAttribute('data-aos');
+            }
+        }
+    </script>
+
+    {{-- SCRIPT ACCORDION FUNCIONAR --}}
+    <script>
+        var acordion = document.getElementsByClassName('accordion');
+
+        var i;
+        var len = acordion.length;
+        for (i = 0; i < len; i++) {
+            acordion[i].addEventListener('click', function() {
+                this.classList.toggle('active');
+                var panal = this.nextElementSibling;
+                if (panal.style.maxHeight) {
+                    panal.style.maxHeight = null;
+                } else {
+                    panal.style.maxHeight = panal.scrollHeight + 'px';
+                }
+            })
+        }
+    </script>
 
 
 

@@ -487,7 +487,7 @@
         @media screen and (max-width: 700px) {
         .banner {
             /* Insira aqui o link da nova imagem */
-            content: url('../assets/logo-contato.png');
+            content: url('../assets/logo-servico.png');
             width: 85%!important
 
         }

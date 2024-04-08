@@ -575,6 +575,7 @@
 
     .mainImg {
       width: 100%;
+      margin-bottom: 3%;
     }
 
     .responsive-container-block.bigContainer {
@@ -632,7 +633,7 @@
     }
 
     .allText.bottomText {
-      margin-top: 75px;
+      margin-top: 50px;
       margin-right: 0px;
       margin-bottom: 0px;
       margin-left: 0px;

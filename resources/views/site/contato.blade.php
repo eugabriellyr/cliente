@@ -35,7 +35,7 @@
 
         .lf-form {
             width: 100%;
-            max-width: 60%;
+            max-width: 70%;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);

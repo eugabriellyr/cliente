@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADMINISTRADOR</title>
+    {{-- <title>@yield('title', 'Título Padrão')</title> --}}
     <link rel="shortcut icon" type="image/png" href="{{ asset('dash/images/logos/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('dash/css/styles.min.css') }}" />
 </head>
@@ -65,6 +65,7 @@
 
     <!--  Body CLIENTE -->
     @if (session('tipoUsuario_type') == 'cliente')
+        <title>Cliente - Le Flower</title>
         <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
             data-sidebar-position="fixed" data-header-position="fixed">
             <!-- Sidebar Start -->
@@ -256,6 +257,8 @@
 
         <!--  Body ADMINISTRADOR -->
     @elseif(session('nivelFuncionario') == 'Administrador')
+        <title>Administrador - Le Flower</title>
+
         <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
             data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
             <!-- Sidebar Start -->
@@ -268,15 +271,14 @@
                         <a href="./index.html" class="text-nowrap logo-img">
                             <img src="{{ asset('dash/images/logos/logo2.png') }}" width="80" alt="" />
                         </a>
-                        <h2 style="color: #fff; font-size: 1.50rem; text-align: center; text-transform: capitalize; ">Administrador (a) <br> {{ $func->nomeFuncionario }}</h2>
+                        <h2 style="color: #fff; font-size: 1.50rem; text-align: center; text-transform: capitalize; ">
+                            Administrador (a) <br> {{ $func->nomeFuncionario }}</h2>
                         <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                             <i class="ti ti-x fs-8"></i>
 
                         </div>
-                        <style>.
-                        .v{
-
-                        }
+                        <style>
+                            . .v {}
                         </style>
                     </div>
 
@@ -454,6 +456,7 @@
 
             {{-- BODT FUNCIONÁRIO --}}
         @elseif(session('nivelFuncionario') == 'Esteticista')
+            <title>Funcionário - Le Flower</title>
             <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
                 data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
                 <!-- Sidebar Start -->
@@ -467,7 +470,9 @@
                                 <img src="{{ asset('dash/images/logos/logo2.png') }}" width="100"
                                     style="margin-top: 2%" alt="" />
                             </a>
-                            <h2 style="color: #fff; font-size: 1.50rem; text-align: center; text-transform: capitalize; ">{{ $func->cargoFuncionario }} <br> {{ $func->nomeFuncionario }}</h2>
+                            <h2
+                                style="color: #fff; font-size: 1.50rem; text-align: center; text-transform: capitalize; ">
+                                {{ $func->cargoFuncionario }} <br> {{ $func->nomeFuncionario }}</h2>
 
                             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
                                 id="sidebarCollapse">
