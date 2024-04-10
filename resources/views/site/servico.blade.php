@@ -58,6 +58,8 @@
     .container {
         width: 1300px!important;
     }
+
+     }
   </style>
     <style>
         .h3-gaby {

@@ -91,7 +91,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
 
 
-
 </head>
 
 <style>
@@ -145,6 +144,7 @@ a i{
     border: 2px solid #ffffff;
     box-shadow: 4px 4px #000000;
 }
+
 
 .input {
   cursor: pointer;
