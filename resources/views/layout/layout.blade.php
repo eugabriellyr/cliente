@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" style="border: none">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -403,6 +403,7 @@ a i{
   transform: rotate(30deg);
 }
 
+/* FIM */
 .petal {
   height: 1em;
   width: 1em;
