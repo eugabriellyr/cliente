@@ -70,8 +70,6 @@ Route::middleware(['autenticacao:cliente'])->group(function(){
     Route::get('/cliente',[ClienteController::class,'index'])->name('dashboard.cliente');
 
 
-
-
     Route::get('/agendar',[ClienteController::class,'agendar'])->name('dashboard.agendar');
 
     // Rota AJAX

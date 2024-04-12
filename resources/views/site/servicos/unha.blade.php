@@ -169,7 +169,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 d-flex align-items-stretch" style="  flex-direction: column;">
                 <div id="accordion" class="myaccordion w-100 text-center py-5 px-1 px-md-4">
                     <div>
