@@ -26,7 +26,6 @@ class ClienteController extends Controller
 
 
 
-    
     public function agendar(){
 
         $idCliente = session('id');

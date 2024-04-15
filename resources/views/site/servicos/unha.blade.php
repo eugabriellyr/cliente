@@ -65,7 +65,7 @@
         @media (max-width: 700px) {
 
             .shadow__btn {
-                margin: 8% auto ;
+                margin: 8% auto;
 
             }
         }
@@ -120,7 +120,7 @@
                                 {{-- <span class="flaticon-candle"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%"  src="../assets/img-gaby/nail1.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
                                 <h3>Manicure Tradicional </h3>
                                 <p>A manicure tradicional inclui corte, lixamento e modelagem das unhas, remoção de
                                     cutículas, hidratação das mãos e aplicação de esmalte.</p>
@@ -145,7 +145,7 @@
                                 {{-- <span class="flaticon-massage"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%"  src="../assets/img-gaby/nail3.png" alt="">
+                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
                                 <h3>Manutenção de Unhas</h3>
                                 <p>Manutenção de unhas é essencial para garantir a saúde e beleza das suas unhas.
                                     Inclui retoques, reparos e remoção adequada de alongamentos ou esmaltes antigos.
@@ -159,7 +159,7 @@
                                 {{-- <span class="flaticon-lotus"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img  style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
                                 <h3>Nail Art</h3>
                                 <p>Uma forma de expressão criativa onde designs e padrões são aplicados às unhas.
                                     Pode incluir desde simples desenhos até técnicas mais elaboradas como decoração
@@ -173,7 +173,7 @@
                 <div id="accordion" class="myaccordion w-100 text-center py-5 px-1 px-md-4">
                     <div>
                         <h3 class="preco">Preços</h3>
-                        <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;">Faça suas unhas com
+                        <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;   text-align: center; ">Faça suas unhas com
                             nossas especialistas</p>
                     </div>
                     <div class="carde">
@@ -282,12 +282,6 @@
                         </div>
                     </div> --}}
                 </div>
-
-                {{-- BOTÃO AGENDAR  --}}
-                <button class="shadow__btn">
-                    Agendar
-                </button>
-
             </div>
 
             <div class="col-lg-4">
@@ -342,6 +336,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div style="margin: 1% auto">
+
+                {{-- BOTÃO AGENDAR  --}}
+                <button class="shadow__btn">
+                    Agendar
+                </button>
             </div>
         </div>
     </div>

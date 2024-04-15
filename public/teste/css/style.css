@@ -74,7 +74,17 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+/* text-align: justify; */
+ }
+ @media (max-width: 700px){
+    p {
+      text-align: justify;
+      letter-spacing: 0!important;
+       }
+    }
+
+
 
 abbr[title],
 abbr[data-original-title] {
