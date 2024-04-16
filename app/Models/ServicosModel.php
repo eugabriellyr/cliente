@@ -16,6 +16,7 @@ class ServicosModel extends Model
         'nomeServico',
         'duracaoServico',
         'descricaoServico',
+        'valorServico',
     ];
 
 }

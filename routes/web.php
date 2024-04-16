@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\CadastroController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
@@ -36,6 +37,10 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
 route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
+
+// AGENDAMENTO
+route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
+route::get('/agendamento',[AgendamentoController::class, 'ListarCategorias'])->name('agendamento');
 
 // teste do dashboard
 route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
