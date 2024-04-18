@@ -91,11 +91,11 @@
                                 <span class="hide-menu">Agendar</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                                <a class="sidebar-link" href="/agendamento" aria-expanded="false">
                                     <span>
                                         <i class="ti ti-layout-dashboard"></i>
                                     </span>
-                                    <span class="hide-menu">Agendamento</span>
+                                    <span href="/agendamento" class="hide-menu">Agendamento</span>
                                 </a>
                             </li>
                             <li class="nav-small-cap">
@@ -248,6 +248,7 @@
                 <!--  Header End -->
                 <div class="container-fluid">
                     {{-- Conteudo do Dashboard vem aqui!! --}}
+                    @yield('dash')
 
 
                 </div>
@@ -613,10 +614,13 @@
                     <!--  Header End -->
                     <div class="container-fluid">
                         {{-- Conteudo do Dashboard vem aqui!! --}}
+                        @yield('dashboard')
+
                     </div>
                 </div>
             </div>
     @endif
+
 
     {{-- SCRIPT SUB MENU --}}
     <script>
@@ -628,6 +632,7 @@
         }
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('dash/libs/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('dash/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dash/js/sidebarmenu.js') }}"></script>

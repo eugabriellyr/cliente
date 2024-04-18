@@ -24,13 +24,11 @@ class ClienteController extends Controller
         return view('site.dashboard.cliente.cliente', compact('cliente', 'usuario'));
     }
 
-
-
     public function agendar(){
 
         $idCliente = session('id');
         $cliente = Cliente::find($idCliente);
 
-        return view('site.dashboard.cliente.agendar', compact('cliente'));
+        return view('site.dashboard.cliente.agendamento', compact('cliente'));
     }
 }

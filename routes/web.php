@@ -40,7 +40,7 @@ route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
 // AGENDAMENTO
 route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
-route::get('/agendamento',[AgendamentoController::class, 'ListarCategorias'])->name('agendamento');
+// route::get('/agendamento',[AgendamentoController::class, 'ListarCategorias'])->name('agendamento');
 
 // teste do dashboard
 route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
