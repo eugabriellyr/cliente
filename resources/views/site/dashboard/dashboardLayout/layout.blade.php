@@ -249,8 +249,7 @@
                 <div class="container-fluid">
                     {{-- Conteudo do Dashboard vem aqui!! --}}
                     @yield('dash')
-
-
+                    <h1>TESTE</h1>
                 </div>
             </div>
         </div>
