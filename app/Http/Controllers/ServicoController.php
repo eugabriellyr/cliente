@@ -37,9 +37,6 @@ class ServicoController extends Controller
     public function servicoRosto(){
         return view('site.servicos.rosto');
     }
-    public function servicoBarba(){
-        return view('site.servicos.barba');
-    }
     public function servico(){
         return view('site.servicos.cabelo');
     }

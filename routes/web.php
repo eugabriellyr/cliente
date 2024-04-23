@@ -49,7 +49,6 @@ route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
 // Serviços
 Route::get('/servico/cabelo', [ServicoController::class, 'servicoCabelo'])->name('servicoCabelo');
 Route::get('/servico/maquiagem', [ServicoController::class, 'servicoMaquiagem'])->name('servicoMaquiagem');
-Route::get('/servico/barba', [ServicoController::class, 'servicoBarba'])->name('servicoBarba');
 Route::get('/servico/cilios', [ServicoController::class, 'servicoCilios'])->name('servicoCilios');
 Route::get('/servico/massagem', [ServicoController::class, 'servicoMassagem'])->name('servicoMassagens');
 Route::get('/servico/unhas', [ServicoController::class, 'servicoUnha'])->name('servicoUnhas');

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('dash/css/styles.min.css') }}" />
 </head>
 
-<body>
+{{-- <body> --}}
     {{-- PEQUENOS AJUSTES NO DASH --}}
     <style>
         .sidebar-nav ul .sidebar-item .sidebar-link,
@@ -147,7 +147,7 @@
                                 <span class="hide-menu">AUTH</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                                <a class="sidebar-link" href="{{ route('sair') }}" aria-expanded="false">
                                     <span>
                                         <i class="ti ti-login"></i>
                                     </span>
@@ -639,6 +639,6 @@
     <script src="{{ asset('dash/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('dash/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('dash/js/dashboard.js') }}"></script>
-</body>
+{{-- </body> --}}
 
 </html>

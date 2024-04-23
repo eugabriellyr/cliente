@@ -144,7 +144,7 @@
               <span class="hide-menu">AUTH</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link" href="/sair" aria-expanded="false">
                 <span>
                   <i class="ti ti-login"></i>
                 </span>
@@ -227,7 +227,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="{{ route('/sair') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -353,7 +353,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('/sair') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-login"></i>
                                 </span>
@@ -414,7 +414,7 @@
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">Meu Compromissos</p>
                                         </a>
-                                        <a href="./authentication-login.html"
+                                        <a href="{{ route('/sair') }}"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
@@ -510,7 +510,7 @@
                     </li>
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('/sair') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-login"></i>
                             </span>
@@ -571,7 +571,7 @@
                                         <i class="ti ti-list-check fs-6"></i>
                                         <p class="mb-0 fs-3">Meu Compromissos</p>
                                     </a>
-                                    <a href="./authentication-login.html"
+                                    <a href="{{ route('/sair') }}"
                                         class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                 </div>
                             </div>
