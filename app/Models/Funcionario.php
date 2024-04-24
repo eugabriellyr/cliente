@@ -16,3 +16,4 @@ class Funcionario extends Model
         return $this->morphOne(Usuario::class, 'tipo_usuario');
     }
 }
+

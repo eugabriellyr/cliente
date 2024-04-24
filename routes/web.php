@@ -40,7 +40,12 @@ route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
 // AGENDAMENTO
 route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
-// route::get('/agendamento',[AgendamentoController::class, 'ListarCategorias'])->name('agendamento');
+// route::get('/agendamento',[AgendamentoController::class, 'ListarEspecialidade'])->name('agendamento');
+// route::get('/agendamento',[AgendamentoController::class, 'listarServicos'])->name('agendamento');
+Route::get('/listar-servicos',[AgendamentoController::class, 'listarServicos'])->name('listarServicos');
+
+
+
 
 // teste do dashboard
 route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
