@@ -176,18 +176,27 @@
                         $.ajax({
                             url: "{{ route('listarServicos') }}",
                             method: 'GET',
-                            data: { especialidade: especialidadeSelecionada },
+                            data: {
+                                especialidade: especialidadeSelecionada
+                            },
                             success: function(data) {
                                 // Limpa o dropdown de serviços
                                 $('#servico').empty();
                                 // Adiciona a opção padrão
-                                $('#servico').append($('<option>', { value: '', text: 'Selecione...' }));
+                                $('#servico').append($('<option>', {
+                                    value: '',
+                                    text: 'Selecione...'
+                                }));
                                 // Preenche o dropdown com os serviços retornados
                                 $.each(data, function(index, servico) {
                                     // Cria uma string com os dados desejados
-                                    var optionText = servico.nomeServico + ' - ' + servico.duracaoServico + ' - ' + servico.valorServico;
+                                    var optionText = servico.nomeServico + ' - ' + servico
+                                        .duracaoServico + ' - ' + servico.valorServico;
                                     // Adiciona a opção ao dropdown
-                                    $('#servico').append($('<option>', { value: servico.id, text: optionText }));
+                                    $('#servico').append($('<option>', {
+                                        value: servico.id,
+                                        text: optionText
+                                    }));
                                 });
                             },
                             error: function(xhr, status, error) {
@@ -198,8 +207,6 @@
                 });
             });
         </script>
-
-
 
     </body>
 

@@ -11,11 +11,8 @@ use App\Models\ServicosModel;
 use Illuminate\Http\Request;
 
 
-
 class AgendamentoController extends Controller
 {
-
-
     //
     // public function ListarCategorias(){
     //     $categorias = ServicosModel::select('tipoServico')->distinct()->get();
@@ -58,5 +55,4 @@ class AgendamentoController extends Controller
         // Retorna os serviços
         return $servicos;
     }
-
 }
