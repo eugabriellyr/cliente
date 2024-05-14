@@ -38,11 +38,13 @@ Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboa
 route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
+
 // AGENDAMENTO
 route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
 // route::get('/agendamento',[AgendamentoController::class, 'ListarEspecialidade'])->name('agendamento');
 // route::get('/agendamento',[AgendamentoController::class, 'listarServicos'])->name('agendamento');
-Route::get('/listar-servicos',[AgendamentoController::class, 'listarServicos'])->name('listarServicos');
+Route::get('/listar-servicos', [AgendamentoController::class, 'listarServicos'])->name('listarServicos');
+
 
 
 
@@ -68,18 +70,15 @@ route::post('/contatos/newsLetter', [ContatoController::class, 'salvarNoemail'])
 
 
 
-
-
-
 // Rotas com middleware
 // Dashboard cliente
-Route::middleware(['autenticacao:cliente'])->group(function(){
+Route::middleware(['autenticacao:cliente'])->group(function () {
 
 
-    Route::get('/cliente',[ClienteController::class,'index'])->name('dashboard.cliente');
+    Route::get('/cliente', [ClienteController::class, 'index'])->name('dashboard.cliente');
 
 
-    Route::get('/agendar',[ClienteController::class,'agendar'])->name('dashboard.agendar');
+    Route::get('/agendar', [ClienteController::class, 'agendar'])->name('dashboard.agendar');
 
     // Rota AJAX
     Route::get('/agendar-cabelo', [ServicoController::class, 'AjaxCabelo'])->name('ajax.cabelo');
@@ -90,19 +89,17 @@ Route::middleware(['autenticacao:cliente'])->group(function(){
         return response()->json($servicos);
     });
 
-    Route::get('/servicos',[ServicoController::class, 'indexServico']);
-
-
+    Route::get('/servicos', [ServicoController::class, 'indexServico']);
 });
 
 
-Route::middleware(['autenticacao:Administrador'])->group(function(){
-    Route::get('/admin',[AdminController::class,'index'])->name('dashboard.funcionarios.admin');
+Route::middleware(['autenticacao:Administrador'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.funcionarios.admin');
 });
 
 
-Route::middleware(['autenticacao:Esteticista'])->group(function(){
-    Route::get('/esteticista',[EsteticaController::class,'index'])->name('dashboard.funcionarios.estetica');
+Route::middleware(['autenticacao:Esteticista'])->group(function () {
+    Route::get('/esteticista', [EsteticaController::class, 'index'])->name('dashboard.funcionarios.estetica');
 });
 
 
@@ -115,7 +112,7 @@ Route::post('/login', [LoginController::class, 'autenticar'])->name('login.auten
 // Rota de cadastro de usuário
 Route::post('/', [CadastroController::class, 'cadastroCliente'])->name('cadastro.store');
 
-route::get('/sair', function(){
+route::get('/sair', function () {
     session()->flush();
     return redirect('/');
 })->name('sair');

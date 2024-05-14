@@ -44,7 +44,6 @@ class AgendamentoController extends Controller
         return view('site.dashboard.cliente.agendamento', compact('cliente', 'especialidades'));
     }
 
-
     public function listarServicos(Request $request)
     {
         $especialidadeSelecionada = $request->input('especialidade');
@@ -54,5 +53,9 @@ class AgendamentoController extends Controller
 
         // Retorna os serviços
         return $servicos;
+    }
+
+    public function ListarHorarios(){
+
     }
 }

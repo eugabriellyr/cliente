@@ -12,6 +12,23 @@ class Funcionario extends Model
     protected $table = 'tblfuncionarios';
     protected $primaryKey = 'idFuncionario';
 
+    protected $fillable = [
+        'nomeFuncionario',
+        'dataNascFuncionario',
+        'emailFuncionario',
+        'telefoneFuncionario',
+        'senhaFuncionario',
+        'salarioFuncionario',
+        'enderecoFuncionario',
+        'nivelFuncionario',
+        'statusFuncionario',
+        'cargoFuncionario',
+        'created_at',
+        'updated_at',
+        'idEspecialidade ',
+    ];
+
+
     public function usuario(){
         return $this->morphOne(Usuario::class, 'tipo_usuario');
     }
