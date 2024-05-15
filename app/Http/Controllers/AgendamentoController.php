@@ -57,5 +57,7 @@ class AgendamentoController extends Controller
 
     public function ListarHorarios(){
 
+
     }
+    
 }
