@@ -248,7 +248,7 @@
                 <!--  Header End -->
                 <div class="container-fluid">
                     {{-- Conteudo do Dashboard vem aqui!! --}}
-                    @yield('dash')
+                    @yield('dash-cliente')
                     <h1>TESTE</h1>
                 </div>
             </div>
