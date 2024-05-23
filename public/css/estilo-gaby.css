@@ -38,7 +38,6 @@
 /* .cards-gaby{
     display: flex;
     justify-content: space-between;
-
 } */
 .about {
     padding: 40px;
@@ -106,7 +105,6 @@
 #card2:hover:after {
     content: "QUE";
 }
-
 #card3 {
     background-image: url("../img/flor3.png");
     border-radius: 15px 0 0 15px;
