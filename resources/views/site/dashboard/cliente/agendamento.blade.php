@@ -363,26 +363,7 @@
                     <label for="data">Selecione uma data:</label>
                     <input type="text" id="data" name="data">
                 </div>
-
-
-                {{-- <div class="funcionario">
-                    <div class="info">
-                        <img src="maria.jpg" alt="Maria Souza" style="width: 80px; height: 80px;" />
-                        <h3 style="text-align: center;">Maria Souza</h3>
-                    </div>
-                    <div class="horarios">
-                        <div class="horario">09:00</div>
-                        <div class="horario">11:00</div>
-                        <div class="horario">15:00</div>
-                        <div class="horario">17:00</div>
-                        <div class="horario">09:00</div>
-                        <div class="horario">11:00</div>
-                        <div class="horario">15:00</div>
-                        <div class="horario">17:00</div>
-                    </div>
-                </div> --}}
-
-
+                
                 <div class="funcionario">
                     <div class="cartao">
                         <img src="funcionario1.jpg" alt="João Silva" class="foto">
