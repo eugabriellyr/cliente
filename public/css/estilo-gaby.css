@@ -51,6 +51,7 @@
 .about-text {
     flex-direction: column;
     width: 50%;
+    color: rgba(72, 201, 175, 0.411);
 }
 .about-text h1 {
     color: var(--white-color);

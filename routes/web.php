@@ -47,6 +47,8 @@ Route::get('/listar-servicos', [AgendamentoController::class, 'listarServicos'])
 
 
 Route::get('/agendamento/listarHorarios', [AgendamentoController::class, 'ListarHorarios'])->name('listarHorarios');
+// Route::get('/listar-horarios', [AgendamentoController::class, 'listarHorarios'])->name('listarHorarios');
+
 
 
 

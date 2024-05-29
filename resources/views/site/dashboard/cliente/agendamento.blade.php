@@ -146,7 +146,6 @@
             .flatpickr-day.disabled.in-range,
             .flatpickr-day.disabled.out-of-range,
             .flatpickr-day.disabled:hover {
-                /* background-color: rgba(224, 224, 224, 0.5); */
                 color: rgba(89, 132, 142, 0.205);
                 cursor: not-allowed;
             }
@@ -169,22 +168,17 @@
 
             .flatpickr-current-month .numInputWrapper input[type="number"] {
                 color: #ffffff;
-                /* Define a cor do texto preto */
             }
 
             /* Select Meses */
             .flatpickr-current-month .flatpickr-monthDropdown-months option {
                 background-color: black;
-                /* Fundo branco para opções */
                 color: #ffffff;
-                /* Cor do texto preto */
             }
 
             .flatpickr-current-month .flatpickr-monthDropdown-months option:hover {
                 background-color: #416f7a;
-                /* Fundo para opção ao passar o mouse */
                 color: #ffffff;
-                /* Cor do texto ao passar o mouse */
             }
 
             /* Setas  */
@@ -203,12 +197,27 @@
                 color: #ffffff;
             }
 
+            #horariosContainer {
+                display: flex;
+                justify-content: space-between;
+            }
+
             /* Horários */
             .funcionario {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 margin: 40px 0;
-                flex-wrap: wrap;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                position: relative;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 45%;
+            }
+
+
+            .funcionario:hover {
+                background-color: #f0f0f0;
             }
 
             .cartao {
@@ -219,6 +228,7 @@
                 width: 35%;
                 margin-right: 20px;
                 margin-bottom: 10px;
+                transition: margin 0.3s;
             }
 
             .foto {
@@ -238,13 +248,28 @@
             }
 
             .horarios {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 60%;
+                background-color: #ffffff;
+                padding: 10px;
+                border: 1px solid #e0e0e0;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 10;
                 display: flex;
                 flex-wrap: wrap;
-                width: 60%;
+                max-height: 260px;
+                /* Define a altura máxima para a área de horários */
+                overflow-y: auto;
+                /* Adiciona a rolagem vertical */
             }
 
             .horario {
                 margin: 5px;
+                width: 30%
             }
 
             .horario input[type="radio"] {
@@ -254,10 +279,11 @@
             .horario label {
                 border: 1px solid #e4b48d;
                 border-radius: 20px;
-                padding: 5px 10px;
+                padding: 3px 10px;
                 color: #e4b48d;
                 cursor: pointer;
                 transition: background-color 0.3s, color 0.3s;
+                display: inline-block;
             }
 
             .horario input[type="radio"]:checked+label {
@@ -273,74 +299,106 @@
                 cursor: pointer;
             }
 
-            * Desktop Large */ @media (max-width: 1200px) {
-                .horarios {
-                    width: 90%;
-                }
-            }
-
-            /* Tablet */
-            @media (max-width: 900px) {
-                .horarios {
-                    width: 60%;
-                }
-            }
-
-            /* Tablet Small */
-            @media (max-width: 768px) {
+            /* Responsividade */
+            @media (max-width: 1200px) {
                 .funcionario {
+                    flex-direction: column;
                     align-items: flex-start;
                 }
 
                 .cartao {
+                    width: 100%;
                     margin-right: 0;
-                    margin-bottom: 10px;
-                    width: 75%;
-                    margin: auto;
-                    margin-bottom: 20px;
-                }
-
-                .reservar {
-                    margin-top: 10px;
-                    margin-left: 0;
                 }
 
                 .horarios {
+                    position: static;
                     width: 100%;
-                    justify-content: center
-                }
-
-                .horario {
-                    width: 25%;
-                    margin: 5px ;
+                    margin-top: 10px;
                 }
             }
 
-            /* Mobile Large */
-            @media (max-width: 600px) {
+            @media (max-width: 900px) {
                 .funcionario {
-                    justify-content: center
-                }
-
-                .horarios {
                     flex-direction: column;
-                    width: 100%;
+                    align-items: flex-start;
                 }
 
                 .cartao {
-                    width: 80%;
-                    margin-bottom: 20px;
+                    width: 100%;
+                    margin-right: 0;
+                }
+
+                .horarios {
+                    position: static;
+                    width: 100%;
+                    margin-top: 10px;
+                    justify-content: center;
                 }
 
                 .horario {
-                    width: 80%;
-                    margin: 5px auto
+                    margin: 5px;
+                    width: 45%
+                }
+            }
+
+            @media (max-width: 768px) {
+                #horariosContainer{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                }
+
+                .funcionario {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 95%
+                }
+
+                .cartao {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+
+                .horarios {
+                    position: static;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                .horario {
+                    width: 30%!important;
+                    margin: 5px;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .funcionario {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                .cartao {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+
+                .horarios {
+                    position: static;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                .horario {
+                    width: 100%;
+                    margin: 5px;
                 }
             }
         </style>
     </head>
-
-
 
     <body>
         <div class="container">
@@ -351,69 +409,28 @@
                 <select name="especialidade" id="especialidade">
                     <option value="">Selecione...</option>
                     @foreach ($especialidades as $especialidade)
-                        <option value="{{ $especialidade->especialidade }}">{{ $especialidade->especialidade }}
-                        </option>
+                        <option value="{{ $especialidade->especialidade }}">{{ $especialidade->especialidade }}</option>
                     @endforeach
                 </select>
 
-                <div id="servicosAcordeao" class="acordeao">
-                </div>
+                <div id="servicosAcordeao" class="acordeao"></div>
 
                 <div id="calendarioContainer">
                     <label for="data">Selecione uma data:</label>
                     <input type="text" id="data" name="data">
                 </div>
-                
-                <div class="funcionario">
-                    <div class="cartao">
-                        <img src="funcionario1.jpg" alt="João Silva" class="foto">
-                        <div class="nome">João Silva</div>
-                        <div class="funcao">Corte</div>
-                    </div>
-                    <div class="horarios">
-                        <div class="horario">
-                            <input type="radio" id="joao-09" name="horario-joao">
-                            <label for="joao-09">09:00 AM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-10" name="horario-joao">
-                            <label for="joao-10">10:00 AM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-11" name="horario-joao">
-                            <label for="joao-11">11:00 AM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-13" name="horario-joao">
-                            <label for="joao-13">01:00 PM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-14" name="horario-joao">
-                            <label for="joao-14">02:00 PM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-15" name="horario-joao">
-                            <label for="joao-15">03:00 PM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-16" name="horario-joao">
-                            <label for="joao-16">04:00 PM</label>
-                        </div>
-                        <div class="horario">
-                            <input type="radio" id="joao-17" name="horario-joao">
-                            <label for="joao-17">05:00 PM</label>
-                        </div>
 
-                    </div>
+                <div id="horariosContainer">
+                    <!-- Horários disponíveis serão inseridos aqui -->
                 </div>
 
                 <button class="agendar-btn" type="submit">Agendar</button>
             </form>
         </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
                 $('#especialidade').change(function() {
@@ -430,8 +447,10 @@
                                 $.each(data, function(index, servico) {
                                     var acordeaoItem = $(
                                         '<div class="acordeao-item"></div>');
-                                    var header = $('<div class="acordeao-item-header">' +
-                                        servico.nomeServico + '</div>');
+                                    var header = $(
+                                        '<div class="acordeao-item-header" data-tipo-servico="' +
+                                        servico.idServico + '">' + servico.nomeServico +
+                                        '</div>');
                                     var body = $(
                                         '<div class="acordeao-item-body">Duração: ' +
                                         servico.duracaoServico +
@@ -449,9 +468,16 @@
                                             $('.acordeao-item-body').slideUp();
                                             itemBody.slideDown();
                                         }
-                                        // Adiciona a classe 'selected' ao item clicado e remove dos outros
                                         $('.acordeao-item').removeClass('selected');
                                         acordeaoItem.addClass('selected');
+
+                                        var tipoServicoSelecionado = $(this).data(
+                                            'tipo-servico');
+                                        var dataSelecionada = $('#data').val();
+                                        carregarHorariosDisponiveis(
+                                            especialidadeSelecionada,
+                                            tipoServicoSelecionado,
+                                            dataSelecionada);
                                     });
                                 });
                             },
@@ -461,61 +487,103 @@
                         });
                     }
                 });
-            });
 
+                function carregarHorariosDisponiveis(especialidade, tipoServico, data) {
+                    if (especialidade && tipoServico && data) {
+                        $.ajax({
+                            url: "{{ route('listarHorarios') }}",
+                            method: 'GET',
+                            data: {
+                                especialidade: especialidade,
+                                tipoServico: tipoServico,
+                                data: data
+                            },
+                            success: function(data) {
+                                $('#horariosContainer').empty();
+                                var funcionarios = {};
+                                data.forEach(function(horario) {
+                                    if (!funcionarios[horario.idFuncionario]) {
+                                        funcionarios[horario.idFuncionario] = {
+                                            nome: horario.nomeFuncionario,
+                                            horarios: []
+                                        };
+                                    }
+                                    funcionarios[horario.idFuncionario].horarios.push(horario
+                                        .horario);
+                                });
 
-            // Função para calcular a data máxima
-            function getMaxDate() {
-                var today = new Date();
-                var maxDate = new Date();
-                maxDate.setMonth(today.getMonth() + 3);
-                return maxDate;
-            }
+                                $.each(funcionarios, function(id, funcionario) {
+                                    var card = $('<div class="funcionario"></div>');
+                                    var info = $('<div class="cartao"><div class="nome">' +
+                                        funcionario.nome +
+                                        '</div><div class="funcao">Corte</div></div>');
+                                    var horariosDiv = $('<div class="horarios"></div>');
+                                    funcionario.horarios.forEach(function(horario, index) {
+                                        var horarioItem = $(
+                                            '<div class="horario"><input type="radio" id="horario-' +
+                                            id + '-' + index +
+                                            '" name="horario" value="' + horario +
+                                            '"><label for="horario-' + id + '-' +
+                                            index + '">' + horario + '</label></div>');
+                                        horariosDiv.append(horarioItem);
+                                    });
+                                    card.append(info).append(horariosDiv);
+                                    $('#horariosContainer').append(card);
 
-            // Inicialize o flatpickr no campo de entrada com localidade em português e desabilitando domingos
-            document.addEventListener("DOMContentLoaded", function() {
+                                    card.click(function() {
+                                        if (horariosDiv.is(':visible')) {
+                                            horariosDiv.slideUp();
+                                        } else {
+                                            $('.horarios').slideUp();
+                                            horariosDiv.slideDown();
+                                        }
+                                    });
+                                });
+                            },
+                            error: function() {
+                                console.error("Erro ao carregar os horários");
+                            }
+                        });
+                    }
+                }
+
+                function getMaxDate() {
+                    var today = new Date();
+                    var maxDate = new Date();
+                    maxDate.setMonth(today.getMonth() + 3);
+                    return maxDate;
+                }
+
                 flatpickr("#data", {
-                    locale: "pt", // Define a localidade para português
+                    locale: "pt",
                     enableTime: false,
                     dateFormat: "Y-m-d",
                     altInput: true,
-                    altFormat: "d F, Y", // Exibindo dia e mês por extenso em português
-                    minDate: "today", // Data mínima é hoje
-                    maxDate: getMaxDate(), // Data máxima é 3 meses a partir de hoje
-                    disable: [
-                        function(date) {
-                            // Desabilitar todos os domingos
-                            return (date.getDay() === 0);
-                        }
-                    ],
+                    altFormat: "d F, Y",
+                    minDate: "today",
+                    maxDate: getMaxDate(),
+                    disable: [function(date) {
+                        return (date.getDay() === 0);
+                    }],
                     onDayCreate: function(dObj, dStr, fp, dayElem) {
-                        // Adicionar uma classe personalizada para os domingos
                         if (dayElem.dateObj.getDay() === 0) {
                             dayElem.classList.add('disabled');
                         }
-                        // Adicionar uma classe para datas fora do intervalo
                         const today = new Date();
                         const maxDate = new Date();
                         maxDate.setMonth(today.getMonth() + 3);
                         if (dayElem.dateObj < today || dayElem.dateObj > maxDate) {
                             dayElem.classList.add('disabled', 'out-of-range');
                         }
+                    },
+                    onChange: function(selectedDates, dateStr, instance) {
+                        var especialidadeSelecionada = $('#especialidade').val();
+                        var tipoServicoSelecionado = $('.acordeao-item.selected .acordeao-item-header')
+                            .data('tipo-servico');
+                        carregarHorariosDisponiveis(especialidadeSelecionada, tipoServicoSelecionado,
+                            dateStr);
                     }
                 });
-            });
-
-            // Ao clicar em um serviço role até a parte do calendário
-            header.click(function() {
-                var itemBody = $(this).next('.acordeao-item-body');
-                if (itemBody.is(':visible')) {
-                    itemBody.slideUp();
-                } else {
-                    $('.acordeao-item-body').slideUp();
-                    itemBody.slideDown();
-                }
-                $('html, body').animate({
-                    scrollTop: $("#calendarioContainer").offset().top
-                }, 1000);
             });
         </script>
     </body>
