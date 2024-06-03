@@ -12,6 +12,8 @@ class Agendamento extends Model
 
     protected $primaryKey = 'idAgendamento';
 
+    public $timestamps = false;
+    
     protected $fillable = [
         'dataAgendamento',
         'categoriaAgendamento',
@@ -22,5 +24,4 @@ class Agendamento extends Model
         'idFuncionario',
         'idServico ',
     ];
-
 }

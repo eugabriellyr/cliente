@@ -8,8 +8,10 @@ use App\Models\Especialidade;
 use App\Models\Funcionario;
 use App\Models\Usuario;
 use App\Models\ServicosModel;
+use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 
@@ -57,14 +59,15 @@ class AgendamentoController extends Controller
     }
 
     public function listarHorarios(Request $request)
-{
-    $especialidade = $request->input('especialidade');
-    $tipoServico = $request->input('tipoServico');
-    $data = $request->input('data');
+    {
+        $especialidade = $request->input('especialidade');
+        $tipoServico = $request->input('tipoServico');
+        $data = $request->input('data');
 
-    $sql = "SELECT
+        $sql = "SELECT
                 f.idFuncionario,
                 f.nomeFuncionario,
+                f.cargoFuncionario,
                 h.horario,
                 s.duracaoServico
             FROM
@@ -90,13 +93,53 @@ class AgendamentoController extends Controller
                 f.nomeFuncionario,
                 h.horario";
 
-    $horarios = DB::select(DB::raw($sql), [
-        'tipoServico' => $tipoServico,
-        'data' => $data,
-        'especialidade' => $especialidade
+        $horarios = DB::select(DB::raw($sql), [
+            'tipoServico' => $tipoServico,
+            'data' => $data,
+            'especialidade' => $especialidade
+        ]);
+
+        // Verifique a estrutura dos dados antes de retornar
+        return response()->json($horarios);
+    }
+
+    public function agendar(Request $request)
+{
+    // Validação dos campos
+    $request->validate([
+        'data' => 'required|date',
+        'especialidade' => 'required|string|max:100',
+        'horario' => 'required|date_format:H:i',
+        'idCliente' => 'required|integer',
+        'idFuncionario' => 'required|integer',
+        'idServico' => 'required|integer'
     ]);
 
-    return response()->json($horarios);
+    // Buscar a duração do serviço
+    $servico = ServicosModel::find($request->input('idServico'));
+    if (!$servico) {
+        return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
+    }
+
+    // Calcular data_hora_final
+    $dataHoraInicial = Carbon::createFromFormat('Y-m-d H:i', $request->input('data') . ' ' . $request->input('horario'));
+    $dataHoraFinal = $dataHoraInicial->copy()->addMinutes($servico->duracaoServico);
+
+    // Criar novo agendamento
+    $agendamento = new Agendamento();
+
+    $agendamento->dataAgendamento = $request->input('data');
+    $agendamento->categoriaAgendamento = $request->input('especialidade');
+    $agendamento->data_hora_inicial = $dataHoraInicial->format('H:i');
+    $agendamento->data_hora_final = $dataHoraFinal->format('H:i');
+    $agendamento->statusAgendamento = 'pendente';
+    $agendamento->idCliente = $request->input('idCliente');
+    $agendamento->idFuncionario = $request->input('idFuncionario');
+    $agendamento->idServico = $request->input('idServico');
+
+    $agendamento->save();
+
+    return redirect()->route('dashboard.cliente.agendamentos')->with('success', 'Agendamento criado com sucesso');
 }
 
 }
