@@ -3,7 +3,8 @@
 <html>
 <head>
 	<title>Login - Le Flower</title>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	{{-- <link rel="stylesheet" type="text/css" href="estilo.css"> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">

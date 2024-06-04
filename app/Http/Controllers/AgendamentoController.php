@@ -8,10 +8,10 @@ use App\Models\Especialidade;
 use App\Models\Funcionario;
 use App\Models\Usuario;
 use App\Models\ServicosModel;
+use Carbon\Carbon;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 
 
@@ -104,42 +104,52 @@ class AgendamentoController extends Controller
     }
 
     public function agendar(Request $request)
-{
-    // Validação dos campos
-    $request->validate([
-        'data' => 'required|date',
-        'especialidade' => 'required|string|max:100',
-        'horario' => 'required|date_format:H:i',
-        'idCliente' => 'required|integer',
-        'idFuncionario' => 'required|integer',
-        'idServico' => 'required|integer'
-    ]);
+    {
+        // Validação dos campos
+        $request->validate([
+            'data' => 'required|date',
+            'especialidade' => 'required|string|max:100',
+            'horario' => 'required|date_format:H:i',
+            'idCliente' => 'required|integer',
+            'idFuncionario' => 'required|integer',
+            'idServico' => 'required|integer'
+        ]);
 
-    // Buscar a duração do serviço
-    $servico = ServicosModel::find($request->input('idServico'));
-    if (!$servico) {
-        return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
+        // Buscar a duração do serviço
+        $servico = ServicosModel::find($request->input('idServico'));
+        if (!$servico) {
+            return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
+        }
+
+        // Calcular data_hora_final
+        $dataHoraInicial = Carbon::createFromFormat('Y-m-d H:i', $request->input('data') . ' ' . $request->input('horario'));
+        $dataHoraFinal = $dataHoraInicial->copy()->addMinutes($servico->duracaoServico);
+
+        // Verificar os horários antes de prosseguir
+        // dd($dataHoraInicial->format('H:i'), $dataHoraFinal->format('H:i'));
+
+        // dd($servico->duracaoServico);
+        dd($dataHoraFinal);
+
+
+
+        // Criar novo agendamento
+        $agendamento = new Agendamento();
+
+        $agendamento->dataAgendamento = $request->input('data');
+        $agendamento->categoriaAgendamento = $request->input('especialidade');
+        $agendamento->data_hora_inicial = $dataHoraInicial->format('H:i');
+        $agendamento->data_hora_final = $dataHoraFinal->format('H:i');
+        $agendamento->statusAgendamento = 'pendente';  // Valor deve ser um dos permitidos pelo ENUM
+        $agendamento->idCliente = $request->input('idCliente');
+        $agendamento->idFuncionario = $request->input('idFuncionario');
+        $agendamento->idServico = $request->input('idServico');
+
+        // Verificar os dados antes de salvar
+        dd($agendamento);
+
+        $agendamento->save();
+
+        return redirect()->route('dashboard.cliente.agendamentos')->with('success', 'Agendamento criado com sucesso');
     }
-
-    // Calcular data_hora_final
-    $dataHoraInicial = Carbon::createFromFormat('Y-m-d H:i', $request->input('data') . ' ' . $request->input('horario'));
-    $dataHoraFinal = $dataHoraInicial->copy()->addMinutes($servico->duracaoServico);
-
-    // Criar novo agendamento
-    $agendamento = new Agendamento();
-
-    $agendamento->dataAgendamento = $request->input('data');
-    $agendamento->categoriaAgendamento = $request->input('especialidade');
-    $agendamento->data_hora_inicial = $dataHoraInicial->format('H:i');
-    $agendamento->data_hora_final = $dataHoraFinal->format('H:i');
-    $agendamento->statusAgendamento = 'pendente';
-    $agendamento->idCliente = $request->input('idCliente');
-    $agendamento->idFuncionario = $request->input('idFuncionario');
-    $agendamento->idServico = $request->input('idServico');
-
-    $agendamento->save();
-
-    return redirect()->route('dashboard.cliente.agendamentos')->with('success', 'Agendamento criado com sucesso');
-}
-
 }
