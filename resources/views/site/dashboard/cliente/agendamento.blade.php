@@ -380,13 +380,152 @@
                     margin: 5px;
                 }
             }
+
+            /* Modal */
+            /* Estilização do Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.8);
+                padding-top: 60px;
+            }
+
+            .modal-content {
+                background-color: #fff;
+                margin: 5% auto;
+                padding: 0;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 800px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .close {
+                color: #aaa;
+                font-size: 28px;
+                font-weight: bold;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+                cursor: pointer;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+            }
+
+            .modal-body {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0
+            }
+
+            .modal-text {
+                flex: 1;
+                padding: 20px;
+                text-align: left;
+                box-sizing: border-box;
+            }
+
+            .modal-text h2 {
+                color: #59848e;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                text-align: center
+            }
+
+            .modal-text p {
+                color: #333;
+                font-family: 'Roboto', sans-serif;
+                margin: 10px 0;
+            }
+
+            .agendar-btn {
+                background: linear-gradient(to right, #59848e, #59848e);
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                border: none;
+                transition: background-color 0.3s, transform 0.2s;
+                display: inline-block;
+                font-family: 'Roboto', sans-serif;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .agendar-btn:hover {
+                background: linear-gradient(to right, #59848e, #59848e);
+                transform: translateY(-2px);
+            }
+
+            .modal-image {
+                flex: 1;
+                text-align: center;
+                max-height: 100%;
+                overflow: hidden;
+            }
+
+            .modal-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            /* Responsividade */
+            @media (max-width: 768px) {
+                .modal-body {
+                    flex-direction: column-reverse;
+                }
+
+                .modal-image {
+                    max-height: 300px;
+                }
+
+                .modal-image img {
+                    border-radius: 10px 10px 0 0;
+                }
+
+                .modal-text {
+                    text-align: justify;
+                    padding: 10px;
+                }
+
+                .modal-text h2 {
+                    margin-top: 10px;
+                }
+
+                .agendar-btn {
+                    width: 80%;
+                    margin: 20px auto;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
         </style>
     </head>
 
     <body>
         <div class="container">
             <h1>Agendamento</h1>
-            <form action="{{ route('agendar') }}" method="POST">
+            <form id="agendamentoForm" action="{{ route('agendar') }}" method="POST">
                 @csrf
                 <label for="especialidade">Categoria Serviço</label>
                 <select name="especialidade" id="especialidade" required>
@@ -411,7 +550,27 @@
                     <!-- Horários disponíveis serão inseridos aqui -->
                 </div>
 
-                <button class="agendar-btn" type="submit">Agendar</button>
+                <div id="agendarModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="modal-body">
+                            <div class="modal-text">
+                                <h2>Confirmar Agendamento?</h2>
+                                <p>Serviço: <span id="modal-servico"></span></p>
+                                <p>Data: <span id="modal-data"></span></p>
+                                <p>Horário: <span id="modal-horario"></span></p>
+                                <p>Funcionário: <span id="modal-funcionario"></span></p>
+                                <button id="confirmarAgendar" class="agendar-btn">Confirmar</button>
+                            </div>
+                            <div class="modal-image">
+                                <img src="{{ asset('assets/img-gaby/confirmar.jpeg') }}" alt="Cliente feliz no salão">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="abrirModalAgendar" class="agendar-btn" type="button">Agendar</button>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -429,6 +588,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+        <script src="{{ asset('js/modalagendar.js') }}"></script> {{-- JS do modal de confirmação --}}
         <script>
             $(document).ready(function() {
                 $('#especialidade').change(function() {
@@ -526,7 +686,7 @@
                                         '<div class="horarios" style="display: none;"></div>');
                                     funcionario.horarios.forEach(function(horario, index) {
                                         var horarioFormatted = horario.substring(0,
-                                        5); // Certifique-se de que está no formato H:i
+                                            5); // Certifique-se de que está no formato H:i
                                         var horarioItem = $(
                                             '<div class="horario"><input type="radio" id="horario-' +
                                             id + '-' + index +
