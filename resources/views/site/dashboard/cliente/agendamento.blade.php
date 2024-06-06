@@ -90,13 +90,27 @@
                 transition: box-shadow 0.3s;
                 background-color: #ffffff;
                 padding: 10px;
+                letter-spacing: 1px;
+            }
+            .data-tipo-servico{
+                font-size: 60px;
             }
 
             .acordeao .acordeao-item-header {
                 cursor: pointer;
                 padding: 10px;
                 font-weight: bold;
-                color: #324b5c;
+                color: #59848e;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .acordeao .acordeao-item-header:hover {
+                cursor: pointer;
+                padding: 10px;
+                font-weight: bold;
+                color: #fff;
             }
 
             .acordeao .acordeao-item-body {
@@ -213,11 +227,26 @@
                 position: relative;
                 flex-direction: column;
                 align-items: center;
-                width: 45%;
+                width: 30%;
+            }
+
+            .foto-funcionario {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 10px;
             }
 
             .funcionario:hover {
                 background-color: #f0f0f0;
+            }
+
+            .nome {
+                color: #59848e;
+                font-weight: bold;
+                font-size: 20px;
+                letter-spacing: 2px;
             }
 
             .cartao {
@@ -321,7 +350,7 @@
 
                 .horario {
                     margin: 5px;
-                    width: 45%;
+                    width: 44%;
                 }
             }
 
@@ -352,9 +381,14 @@
                 }
 
                 .horario {
-                    width: 45% !important;
+                    width: 40% !important;
                     margin: 5px;
                 }
+            }
+
+            .foto-funcionario {
+                width: 150px;
+                height: 150px;
             }
 
             @media (max-width: 600px) {
@@ -382,30 +416,29 @@
             }
 
             /* Modal */
-            /* Estilização do Modal */
             .modal {
                 display: none;
-                position: fixed;
+                /* Altere esta linha */
+                position: absolute;
                 z-index: 1;
-                left: 0;
                 top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.8);
-                padding-top: 60px;
+                background-color: rgb(89 132 142 / 61%);
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
             }
 
             .modal-content {
                 background-color: #fff;
-                margin: 5% auto;
                 padding: 0;
                 border: 1px solid #888;
                 width: 80%;
                 max-width: 800px;
                 border-radius: 10px;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-                position: relative;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
@@ -432,7 +465,7 @@
                 flex-direction: row;
                 justify-content: space-between;
                 width: 100%;
-                padding: 0
+                padding: 0;
             }
 
             .modal-text {
@@ -446,7 +479,7 @@
                 color: #59848e;
                 font-family: 'Roboto', sans-serif;
                 font-weight: bold;
-                text-align: center
+                text-align: center;
             }
 
             .modal-text p {
@@ -519,6 +552,23 @@
                     justify-content: center;
                 }
             }
+
+            /* ANIMAÇÃO MODAL CONFIRMAR */
+            @keyframes modalFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-50px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .modal.fade-in {
+                animation: modalFadeIn 0.5s ease-out;
+            }
         </style>
     </head>
 
@@ -550,6 +600,9 @@
                     <!-- Horários disponíveis serão inseridos aqui -->
                 </div>
 
+
+                <button id="abrirModalAgendar" class="agendar-btn" type="button">Agendar</button>
+
                 <div id="agendarModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
@@ -564,13 +617,10 @@
                             </div>
                             <div class="modal-image">
                                 <img src="{{ asset('assets/img-gaby/confirmar.jpeg') }}" alt="Cliente feliz no salão">
-
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <button id="abrirModalAgendar" class="agendar-btn" type="button">Agendar</button>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -591,176 +641,166 @@
         <script src="{{ asset('js/modalagendar.js') }}"></script> {{-- JS do modal de confirmação --}}
         <script>
             $(document).ready(function() {
-                $('#especialidade').change(function() {
-                    var especialidadeSelecionada = $(this).val();
-                    if (especialidadeSelecionada) {
-                        $.ajax({
-                            url: "{{ route('listarServicos') }}",
-                            method: 'GET',
-                            data: {
-                                especialidade: especialidadeSelecionada
-                            },
-                            success: function(data) {
-                                $('#servicosAcordeao').empty();
-                                $.each(data, function(index, servico) {
-                                    var acordeaoItem = $(
-                                        '<div class="acordeao-item"></div>');
-                                    var header = $(
-                                        '<div class="acordeao-item-header" data-tipo-servico="' +
-                                        servico.idServico + '">' + servico.nomeServico +
-                                        '</div>');
-                                    var body = $(
-                                        '<div class="acordeao-item-body" style="display: none;">Duração: ' +
-                                        servico.duracaoServico +
-                                        ' minutos<br>Preço: R$' + servico.valorServico +
-                                        '</div>');
-                                    acordeaoItem.append(header, body);
-                                    $('#servicosAcordeao').append(acordeaoItem);
+    // Função para formatar a duração
+    function formatarDuracao(duracao) {
+        const partes = duracao.split(':');
+        const horas = parseInt(partes[0], 10);
+        const minutos = parseInt(partes[1], 10);
 
-                                    header.click(function() {
-                                        var itemBody = $(this).next(
-                                            '.acordeao-item-body');
-                                        if (itemBody.is(':visible')) {
-                                            itemBody.slideUp();
-                                        } else {
-                                            $('#servicosAcordeao .acordeao-item-body')
-                                                .slideUp();
-                                            itemBody.slideDown();
-                                        }
-                                        $('#servicosAcordeao .acordeao-item')
-                                            .removeClass('selected');
-                                        acordeaoItem.addClass('selected');
+        let duracaoFormatada = '';
+        if (horas > 0) {
+            duracaoFormatada += `${horas * 60 + minutos} minutos`;
+        } else {
+            duracaoFormatada += `${minutos} minutos`;
+        }
+        return duracaoFormatada;
+    }
 
-                                        $('#idServico').val($(this).data(
-                                            'tipo-servico'));
+    $('#especialidade').change(function() {
+        var especialidadeSelecionada = $(this).val();
+        if (especialidadeSelecionada) {
+            $.ajax({
+                url: "{{ route('listarServicos') }}",
+                method: 'GET',
+                data: {
+                    especialidade: especialidadeSelecionada
+                },
+                success: function(data) {
+                    $('#servicosAcordeao').empty();
+                    $.each(data, function(index, servico) {
+                        var duracaoFormatada = formatarDuracao(servico.duracaoServico);
+                        var acordeaoItem = $('<div class="acordeao-item"></div>');
+                        var header = $('<div class="acordeao-item-header" data-tipo-servico="' + servico.idServico + '">' +
+                                        '<span style="float: left; letter-spacing: 1px;">' + servico.nomeServico + '</span>' +
+                                        '<span style="float: right; color: #e4b48d; letter-spacing: 1px; ">R$' + servico.valorServico + '</span>' +
+                                       '</div>');
+                        var body = $('<div class="acordeao-item-body" style="display: none;">Duração: ' + duracaoFormatada + '</div>');
+                        acordeaoItem.append(header, body);
+                        $('#servicosAcordeao').append(acordeaoItem);
 
-                                        var tipoServicoSelecionado = $(this).data(
-                                            'tipo-servico');
-                                        var dataSelecionada = $('#data').val();
-                                        carregarHorariosDisponiveis(
-                                            especialidadeSelecionada,
-                                            tipoServicoSelecionado,
-                                            dataSelecionada);
-                                    });
-                                });
-                            },
-                            error: function() {
-                                console.error("Erro ao carregar os serviços");
+                        header.click(function() {
+                            var itemBody = $(this).next('.acordeao-item-body');
+                            if (itemBody.is(':visible')) {
+                                itemBody.slideUp();
+                            } else {
+                                $('#servicosAcordeao .acordeao-item-body').slideUp();
+                                itemBody.slideDown();
                             }
+                            $('#servicosAcordeao .acordeao-item').removeClass('selected');
+                            acordeaoItem.addClass('selected');
+
+                            $('#idServico').val($(this).data('tipo-servico'));
+
+                            var tipoServicoSelecionado = $(this).data('tipo-servico');
+                            var dataSelecionada = $('#data').val();
+                            carregarHorariosDisponiveis(especialidadeSelecionada, tipoServicoSelecionado, dataSelecionada);
                         });
-                    }
-                });
-
-                function carregarHorariosDisponiveis(especialidade, tipoServico, data) {
-                    if (especialidade && tipoServico && data) {
-                        $.ajax({
-                            url: "{{ route('listarHorarios') }}",
-                            method: 'GET',
-                            data: {
-                                especialidade: especialidade,
-                                tipoServico: tipoServico,
-                                data: data
-                            },
-                            success: function(data) {
-                                $('#horariosContainer').empty();
-                                var funcionarios = {};
-
-                                data.forEach(function(horario) {
-                                    if (!funcionarios[horario.idFuncionario]) {
-                                        funcionarios[horario.idFuncionario] = {
-                                            nome: horario.nomeFuncionario,
-                                            cargo: horario.cargoFuncionario,
-                                            horarios: []
-                                        };
-                                    }
-                                    funcionarios[horario.idFuncionario].horarios.push(horario
-                                        .horario);
-                                });
-
-                                $.each(funcionarios, function(id, funcionario) {
-                                    var card = $('<div class="funcionario"></div>');
-                                    var info = $('<div class="cartao"><div class="nome">' +
-                                        funcionario.nome + '</div><div class="funcao">' +
-                                        funcionario.cargo + '</div></div>');
-                                    var horariosDiv = $(
-                                        '<div class="horarios" style="display: none;"></div>');
-                                    funcionario.horarios.forEach(function(horario, index) {
-                                        var horarioFormatted = horario.substring(0,
-                                            5); // Certifique-se de que está no formato H:i
-                                        var horarioItem = $(
-                                            '<div class="horario"><input type="radio" id="horario-' +
-                                            id + '-' + index +
-                                            '" name="horario" value="' +
-                                            horarioFormatted +
-                                            '" data-id-funcionario="' + id +
-                                            '"><label for="horario-' + id + '-' +
-                                            index + '">' + horarioFormatted +
-                                            '</label></div>');
-                                        horariosDiv.append(horarioItem);
-                                    });
-                                    card.append(info).append(horariosDiv);
-                                    $('#horariosContainer').append(card);
-
-                                    card.click(function() {
-                                        if (horariosDiv.is(':visible')) {
-                                            horariosDiv.slideUp();
-                                        } else {
-                                            $('#horariosContainer .horarios').slideUp();
-                                            horariosDiv.slideDown();
-                                        }
-                                    });
-                                });
-
-                                $('input[name="horario"]').change(function() {
-                                    var idFuncionario = $(this).data('id-funcionario');
-                                    $('#idFuncionario').val(idFuncionario);
-                                });
-                            },
-                            error: function() {
-                                console.error("Erro ao carregar os horários");
-                            }
-                        });
-                    }
+                    });
+                },
+                error: function() {
+                    console.error("Erro ao carregar os serviços");
                 }
-
-                function getMaxDate() {
-                    var today = new Date();
-                    var maxDate = new Date();
-                    maxDate.setMonth(today.getMonth() + 3);
-                    return maxDate;
-                }
-
-                flatpickr("#data", {
-                    locale: "pt",
-                    enableTime: false,
-                    dateFormat: "Y-m-d",
-                    altInput: true,
-                    altFormat: "d F, Y",
-                    minDate: "today",
-                    maxDate: getMaxDate(),
-                    disable: [function(date) {
-                        return (date.getDay() === 0);
-                    }],
-                    onDayCreate: function(dObj, dStr, fp, dayElem) {
-                        if (dayElem.dateObj.getDay() === 0) {
-                            dayElem.classList.add('disabled');
-                        }
-                        const today = new Date();
-                        const maxDate = new Date();
-                        maxDate.setMonth(today.getMonth() + 3);
-                        if (dayElem.dateObj < today || dayElem.dateObj > maxDate) {
-                            dayElem.classList.add('disabled', 'out-of-range');
-                        }
-                    },
-                    onChange: function(selectedDates, dateStr, instance) {
-                        var especialidadeSelecionada = $('#especialidade').val();
-                        var tipoServicoSelecionado = $('.acordeao-item.selected .acordeao-item-header')
-                            .data('tipo-servico');
-                        carregarHorariosDisponiveis(especialidadeSelecionada, tipoServicoSelecionado,
-                            dateStr);
-                    }
-                });
             });
+        }
+    });
+
+    function carregarHorariosDisponiveis(especialidade, tipoServico, data) {
+        if (especialidade && tipoServico && data) {
+            $.ajax({
+                url: "{{ route('listarHorarios') }}",
+                method: 'GET',
+                data: {
+                    especialidade: especialidade,
+                    tipoServico: tipoServico,
+                    data: data
+                },
+                success: function(data) {
+                    $('#horariosContainer').empty();
+                    var funcionarios = {};
+
+                    data.forEach(function(horario) {
+                        if (!funcionarios[horario.idFuncionario]) {
+                            funcionarios[horario.idFuncionario] = {
+                                nome: horario.nomeFuncionario,
+                                cargo: horario.cargoFuncionario,
+                                foto: horario.fotoFuncionario,
+                                horarios: []
+                            };
+                        }
+                        funcionarios[horario.idFuncionario].horarios.push(horario.horario);
+                    });
+
+                    $.each(funcionarios, function(id, funcionario) {
+                        var card = $('<div class="funcionario"></div>');
+                        var info = $('<div class="cartao"><img src="{{ asset('assets/img-user') }}/' + funcionario.foto + '" alt="' + funcionario.nome + '" class="foto-funcionario"><div class="nome">' + funcionario.nome + '</div><div class="funcao">' + funcionario.cargo + '</div></div>');
+                        var horariosDiv = $('<div class="horarios" style="display: none;"></div>');
+                        funcionario.horarios.forEach(function(horario, index) {
+                            var horarioFormatted = horario.substring(0, 5); // Certifique-se de que está no formato H:i
+                            var horarioItem = $('<div class="horario"><input type="radio" id="horario-' + id + '-' + index + '" name="horario" value="' + horarioFormatted + '" data-id-funcionario="' + id + '"><label for="horario-' + id + '-' + index + '">' + horarioFormatted + '</label></div>');
+                            horariosDiv.append(horarioItem);
+                        });
+                        card.append(info).append(horariosDiv);
+                        $('#horariosContainer').append(card);
+
+                        card.click(function() {
+                            if (horariosDiv.is(':visible')) {
+                                horariosDiv.slideUp();
+                            } else {
+                                $('#horariosContainer .horarios').slideUp();
+                                horariosDiv.slideDown();
+                            }
+                        });
+                    });
+
+                    $('input[name="horario"]').change(function() {
+                        var idFuncionario = $(this).data('id-funcionario');
+                        $('#idFuncionario').val(idFuncionario);
+                    });
+                },
+                error: function() {
+                    console.error("Erro ao carregar os horários");
+                }
+            });
+        }
+    }
+
+    function getMaxDate() {
+        var today = new Date();
+        var maxDate = new Date();
+        maxDate.setMonth(today.getMonth() + 3);
+        return maxDate;
+    }
+
+    flatpickr("#data", {
+        locale: "pt",
+        enableTime: false,
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "d F, Y",
+        minDate: "today",
+        maxDate: getMaxDate(),
+        disable: [function(date) {
+            return (date.getDay() === 0);
+        }],
+        onDayCreate: function(dObj, dStr, fp, dayElem) {
+            if (dayElem.dateObj.getDay() === 0) {
+                dayElem.classList.add('disabled');
+            }
+            const today = new Date();
+            const maxDate = new Date();
+            maxDate.setMonth(today.getMonth() + 3);
+            if (dayElem.dateObj < today || dayElem.dateObj > maxDate) {
+                dayElem.classList.add('disabled', 'out-of-range');
+            }
+        },
+        onChange: function(selectedDates, dateStr, instance) {
+            var especialidadeSelecionada = $('#especialidade').val();
+            var tipoServicoSelecionado = $('.acordeao-item.selected .acordeao-item-header').data('tipo-servico');
+            carregarHorariosDisponiveis(especialidadeSelecionada, tipoServicoSelecionado, dateStr);
+        }
+    });
+});
+
         </script>
     </body>
 @endsection

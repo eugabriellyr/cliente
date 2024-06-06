@@ -41,49 +41,49 @@ class AgendamentoController extends Controller
     }
 
     public function listarHorarios(Request $request)
-    {
-        $especialidade = $request->input('especialidade');
-        $tipoServico = $request->input('tipoServico');
-        $data = $request->input('data');
+{
+    $especialidade = $request->input('especialidade');
+    $tipoServico = $request->input('tipoServico');
+    $data = $request->input('data');
 
-        $sql = "SELECT
-                f.idFuncionario,
-                f.nomeFuncionario,
-                f.cargoFuncionario,
-                h.horario,
-                s.duracaoServico
-            FROM
-                tblfuncionarios f
-            CROSS JOIN
-                tblhorarios h
-            LEFT JOIN
-                tblservicos s ON s.idServico = :tipoServico
-            LEFT JOIN
-                tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
-                AND h.horario >= hd.data_hora_inicial
-            LEFT JOIN
-                tblagendamentos a ON f.idFuncionario = a.idFuncionario
-                AND DATE(a.dataAgendamento) = :data
-                AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND DATE_ADD(a.data_hora_final, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND)
-            JOIN
-                tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
-            WHERE
-                hd.idFuncionario IS NOT NULL
-                AND a.idAgendamento IS NULL
-                AND e.especialidade = :especialidade
-            ORDER BY
-                f.nomeFuncionario,
-                h.horario";
+    $sql = "SELECT
+            f.idFuncionario,
+            f.nomeFuncionario,
+            f.cargoFuncionario,
+            h.horario,
+            s.duracaoServico,
+            f.fotoFuncionario
+        FROM
+            tblfuncionarios f
+        CROSS JOIN
+            tblhorarios h
+        LEFT JOIN
+            tblservicos s ON s.idServico = :tipoServico
+        LEFT JOIN
+            tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
+            AND h.horario >= hd.data_hora_inicial
+        LEFT JOIN
+            tblagendamentos a ON f.idFuncionario = a.idFuncionario
+            AND DATE(a.dataAgendamento) = :data
+            AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND DATE_ADD(a.data_hora_final, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND)
+        JOIN
+            tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
+        WHERE
+            hd.idFuncionario IS NOT NULL
+            AND a.idAgendamento IS NULL
+            AND e.especialidade = :especialidade
+        ORDER BY
+            f.nomeFuncionario,
+            h.horario";
 
-        $horarios = DB::select(DB::raw($sql), [
-            'tipoServico' => $tipoServico,
-            'data' => $data,
-            'especialidade' => $especialidade
-        ]);
+    $horarios = DB::select(DB::raw($sql), [
+        'tipoServico' => $tipoServico,
+        'data' => $data,
+        'especialidade' => $especialidade
+    ]);
 
-        // Verifique a estrutura dos dados antes de retornar
-        return response()->json($horarios);
-    }
+    return response()->json($horarios);
+}
 
     public function agendar(Request $request)
     {
