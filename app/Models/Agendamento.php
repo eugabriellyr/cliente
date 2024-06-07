@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Agendamento extends Model
 {
     use HasFactory;
+
     protected $table = 'tblagendamentos';
 
     protected $primaryKey = 'idAgendamento';
 
-    public $timestamps = false;
-    
     protected $fillable = [
         'dataAgendamento',
         'categoriaAgendamento',
@@ -22,6 +21,23 @@ class Agendamento extends Model
         'statusAgendamento',
         'idCliente',
         'idFuncionario',
-        'idServico ',
+        'idServico'
     ];
+
+    public $timestamps = false;
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'idCliente');
+    }
+
+    public function servico()
+    {
+        return $this->belongsTo(ServicosModel::class, 'idServico');
+    }
+
+    public function funcionario()
+    {
+        return $this->belongsTo(Funcionario::class, 'idFuncionario');
+    }
 }

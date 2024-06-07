@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var modalData = document.getElementById("modal-data");
     var modalHorario = document.getElementById("modal-horario");
     var modalFuncionario = document.getElementById("modal-funcionario");
+    var modalPreco = document.getElementById("modal-preco");
 
     // Quando o usuário clicar no botão, abrir o modal
     btn.onclick = function (event) {
@@ -33,7 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
             year: "numeric",
         });
 
-        modalServico.textContent = servicoField.textContent;
+        var servicoText = servicoField.textContent;
+        var nomeServico = servicoField.querySelector('.nomeServico').textContent;
+        var precoServico = servicoField.querySelector('span[style*="float: right"]').textContent;
+
+        modalServico.textContent = nomeServico;
+        modalPreco.textContent = precoServico;
         modalData.textContent = formattedDate;
         modalHorario.textContent = horarioField ? horarioField.nextElementSibling.textContent : "";
         modalFuncionario.textContent = horarioField ? horarioField.closest(".funcionario").querySelector(".nome").textContent : "";

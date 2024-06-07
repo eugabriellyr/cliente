@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AgendamentoEmail;
 use App\Models\Cliente;
+use App\Models\Funcionario;
 use App\Models\Especialidade;
 use App\Models\ServicosModel;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use \DateTime;
 use \DateInterval;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class AgendamentoController extends Controller
 {
@@ -34,19 +37,22 @@ class AgendamentoController extends Controller
     {
         $especialidadeSelecionada = $request->input('especialidade');
         // Consulta os serviços correspondentes à especialidade selecionada
-        $servicos = ServicosModel::where('tipoServico', $especialidadeSelecionada)->get();
+        $servicos = ServicosModel::where('tipoServico', $especialidadeSelecionada)
+            ->select('idServico', 'nomeServico', 'valorServico', 'duracaoServico', 'descricaoServico')
+            ->get();
 
         // Retorna os serviços
         return $servicos;
     }
 
-    public function listarHorarios(Request $request)
-{
-    $especialidade = $request->input('especialidade');
-    $tipoServico = $request->input('tipoServico');
-    $data = $request->input('data');
 
-    $sql = "SELECT
+    public function listarHorarios(Request $request)
+    {
+        $especialidade = $request->input('especialidade');
+        $tipoServico = $request->input('tipoServico');
+        $data = $request->input('data');
+
+        $sql = "SELECT
             f.idFuncionario,
             f.nomeFuncionario,
             f.cargoFuncionario,
@@ -76,41 +82,46 @@ class AgendamentoController extends Controller
             f.nomeFuncionario,
             h.horario";
 
-    $horarios = DB::select(DB::raw($sql), [
-        'tipoServico' => $tipoServico,
-        'data' => $data,
-        'especialidade' => $especialidade
-    ]);
+        $horarios = DB::select(DB::raw($sql), [
+            'tipoServico' => $tipoServico,
+            'data' => $data,
+            'especialidade' => $especialidade
+        ]);
 
-    return response()->json($horarios);
-}
+        return response()->json($horarios);
+    }
 
     public function agendar(Request $request)
     {
         // Validação dos campos
         $request->validate([
-            'data' => 'required|date',
+            'data'          => 'required|date',
             'especialidade' => 'required|string|max:100',
-            'horario' => 'required|date_format:H:i',
-            'idCliente' => 'required|integer',
+            'horario'       => 'required|date_format:H:i',
+            'idCliente'     => 'required|integer',
             'idFuncionario' => 'required|integer',
-            'idServico' => 'required|integer'
+            'idServico'     => 'required|integer'
         ]);
 
-        // Buscando a duração do serviço selecionado
+        // Buscar a duração do serviço selecionado
         $servico = ServicosModel::find($request->input('idServico'));
         if (!$servico) {
             return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
         }
 
-
-        // Buscar a duração do serviço
-        $servico = ServicosModel::find($request->input('idServico'));
-        if (!$servico) {
-            return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
+        // Buscar o cliente
+        $cliente = Cliente::find($request->input('idCliente'));
+        if (!$cliente) {
+            return back()->withErrors(['idCliente' => 'Cliente não encontrado.']);
         }
 
-        // Pegando paramentros
+        // Buscar o funcionário
+        $funcionario = Funcionario::find($request->input('idFuncionario'));
+        if (!$funcionario) {
+            return back()->withErrors(['idFuncionario' => 'Funcionário não encontrado.']);
+        }
+
+        // Pegando parâmetros
         $duracaoServico = $servico->duracaoServico;
         $data = $request->input('data');
         $horario = $request->input('horario');
@@ -128,8 +139,6 @@ class AgendamentoController extends Controller
         // Formatar a hora final
         $dataHoraFinal = $horaInicial->format('H:i');
 
-        // dd($dataHoraFinal);
-
         // Criando novo agendamento
         $agendamento = new Agendamento();
         $agendamento->dataAgendamento = $data;
@@ -141,10 +150,19 @@ class AgendamentoController extends Controller
         $agendamento->idFuncionario = $request->input('idFuncionario');
         $agendamento->idServico = $request->input('idServico');
 
-        // dd($agendamento);
-
         $agendamento->save();
 
-        return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso');
+        // Log para verificar o email do cliente
+        Log::info('Email do cliente: ' . $cliente->emailCliente);
+
+        // Enviar email de confirmação
+        try {
+            Mail::to($cliente->emailCliente)->send(new AgendamentoEmail($agendamento));
+            Log::info('Email enviado para: ' . $cliente->emailCliente);
+        } catch (\Exception $e) {
+            Log::error('Erro ao enviar email: ' . $e->getMessage());
+        }
+
+        return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso e email enviado.');
     }
 }
