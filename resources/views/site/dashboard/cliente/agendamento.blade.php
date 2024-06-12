@@ -741,7 +741,6 @@
                     }
                 });
 
-
                 function carregarHorariosDisponiveis(especialidade, tipoServico, data) {
                     if (especialidade && tipoServico && data) {
                         $.ajax({
@@ -818,6 +817,8 @@
                         });
                     }
                 }
+
+
 
                 function getMaxDate() {
                     var today = new Date();

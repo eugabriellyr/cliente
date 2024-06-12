@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             Log::info('Executando tarefa de envio de notificações.');
             $agendamentos = Agendamento::where('dataAgendamento', Carbon::now()->addDay()->toDateString())
-                                        ->where('statusAgendamento', 'pendente,')
+                                        ->where('statusAgendamento', 'pendente')
                                         ->get();
 
             if ($agendamentos->isEmpty()) {
