@@ -12,7 +12,6 @@ use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\SobreController;
 use App\Models\ServicosModel;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +36,6 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
 route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
-
 
 // AGENDAMENTO
 route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
@@ -107,10 +105,6 @@ Route::middleware(['autenticacao:Esteticista'])->group(function () {
     Route::get('/esteticista', [EsteticaController::class, 'index'])->name('dashboard.funcionarios.estetica');
 });
 
-
-
-
-
 // Rota de login de usuario
 Route::post('/login', [LoginController::class, 'autenticar'])->name('login.autenticar');
 
@@ -122,3 +116,8 @@ route::get('/sair', function () {
     return redirect('/');
 })->name('sair');
 // rota para limpar a e voltar para a página home
+
+
+// FUNÇÃO DE CONFIRMAR AGENDAMENTO
+Route::get('/confirmar_agendamento/{id}', [AgendamentoController::class, 'confirmar'])->name('confirmar.agendamento');
+

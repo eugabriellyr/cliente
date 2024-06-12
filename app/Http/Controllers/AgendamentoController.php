@@ -165,4 +165,18 @@ class AgendamentoController extends Controller
 
         return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso e email enviado.');
     }
+
+    public function confirmar($id)
+{
+    $agendamento = Agendamento::find($id);
+
+    if ($agendamento) {
+        $agendamento->statusAgendamento = 'confirmado';
+        $agendamento->save();
+
+        return "Agendamento confirmado com sucesso.";
+    } else {
+        return "Agendamento não encontrado.";
+    }
+}
 }
