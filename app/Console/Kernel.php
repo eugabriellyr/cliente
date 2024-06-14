@@ -9,53 +9,69 @@ use App\Jobs\EnviarNotificacaoAgendamento;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
+// Coordena a execução automática de várias tarefas, incluindo o comando de envio de notificaçõe
+
 class Kernel extends ConsoleKernel
 {
     /**
-     * Define the application's command schedule.
+     * Define a programação de comandos da aplicação.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-        // Agendar envio de notificações para agendamentos pendentes
+        // Agendando o envio de notificações para agendamentos pendentes
         $schedule->call(function () {
+            // Log para indicar que a tarefa de envio de notificações está sendo executada
             Log::info('Executando tarefa de envio de notificações.');
+
+            // Buscar agendamentos que estão a 24 horas de distância e que ainda estão pendentes
             $agendamentos = Agendamento::where('dataAgendamento', Carbon::now()->addDay()->toDateString())
                                         ->where('statusAgendamento', 'pendente')
                                         ->get();
 
+            // Verifica se há agendamentos pendentes
             if ($agendamentos->isEmpty()) {
+                // Log para indicar que nenhum agendamento pendente foi encontrado
                 Log::info('Nenhum agendamento pendente encontrado.');
             } else {
+                // Log para indicar quantos agendamentos pendentes foram encontrados
                 Log::info('Agendamentos pendentes encontrados: ' . $agendamentos->count());
+
+                // Para cada agendamento encontrado, despacha um job para enviar a notificação
                 foreach ($agendamentos as $agendamento) {
                     EnviarNotificacaoAgendamento::dispatch($agendamento);
                 }
             }
-        })->everyMinute();
+        })->everyMinute(); // A tarefa será executada a cada minuto
 
         // Agendar cancelamento de agendamentos não confirmados
         $schedule->call(function () {
+            // Log para indicar que a tarefa de cancelamento de agendamentos está sendo executada
             Log::info('Executando tarefa de cancelamento de agendamentos.');
-            $cancelados = Agendamento::where('dataAgendamento', '<', Carbon::now()->toDateString())
-                       ->where('statusAgendamento', 'pendente')
-                       ->update(['statusAgendamento' => 'cancelado']);
 
+            // Buscando e cancelando agendamentos que estão no passado e que ainda estão pendentes
+            $cancelados = Agendamento::where('dataAgendamento', '<', Carbon::now()->toDateString())
+                                     ->where('statusAgendamento', 'pendente')
+                                     ->update(['statusAgendamento' => 'cancelado']);
+
+            // Log para indicar quantos agendamentos foram cancelados
             Log::info('Agendamentos cancelados: ' . $cancelados);
-        })->everyMinute();
+        })->everyMinute(); // Define que essa tarefa será executada a cada minuto
     }
 
     /**
-     * Register the commands for the application.
+     * Registrar os comandos da aplicação.
      *
      * @return void
      */
     protected function commands()
     {
+        // Faz carrega os comandos personalizados da aplicação
         $this->load(__DIR__.'/Commands');
 
+        // Requer o arquivo de rotas para comandos no console
         require base_path('routes/console.php');
     }
 }

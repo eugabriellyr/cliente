@@ -178,5 +178,5 @@ class AgendamentoController extends Controller
     } else {
         return "Agendamento não encontrado.";
     }
-}
+} //Mudanças no status do agendamento por meio do id passado
 }
