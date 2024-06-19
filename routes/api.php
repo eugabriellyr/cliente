@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Rota de login para API
+Route::post('/login', [ClienteController::class, 'login'])->name('login');
+
+// Rotas para ClienteController com middleware de autenticação e autorização
+Route::middleware(['auth:sanctum', 'cliente'])->group(function () {
+    // Rotas protegidas
+    Route::apiResource('cliente', ClienteController::class);
+});
+

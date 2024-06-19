@@ -34,7 +34,6 @@ class EnviarNotificacoesAgendamentos extends Command
             EnviarNotificacaoAgendamento::dispatch($agendamento);
         }
 
-
         $this->info('Notificações enviadas com sucesso.');
     }
 
