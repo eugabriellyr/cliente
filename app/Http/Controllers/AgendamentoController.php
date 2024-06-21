@@ -11,40 +11,37 @@ use App\Models\ServicosModel;
 use App\Models\Agendamento;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use \DateTime;
-use \DateInterval;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
 class AgendamentoController extends Controller
 {
-
-    public function index()
+    public function index(Request $request)
     {
         $idCliente = session('id');
         $cliente = Cliente::find($idCliente);
-
-        // $idFuncionario = session('id');
-        // $func = Funcionario::find($idFuncionario);
-
         $especialidades = Especialidade::select('especialidade')->distinct()->get();
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'cliente' => $cliente,
+                'especialidades' => $especialidades
+            ]);
+        }
 
         return view('site.dashboard.cliente.agendamento', compact('cliente', 'especialidades'));
     }
 
     public function listarServicos(Request $request)
     {
-        $especialidadeSelecionada = $request->input('especialidade');
-        // Consulta os serviços correspondentes à especialidade selecionada
-        $servicos = ServicosModel::where('tipoServico', $especialidadeSelecionada)
+        $especialidade = $request->input('especialidade');
+        $servicos = ServicosModel::where('tipoServico', $especialidade)
             ->select('idServico', 'nomeServico', 'valorServico', 'duracaoServico', 'descricaoServico')
             ->get();
 
-        // Retorna os serviços
-        return $servicos;
+        return response()->json($servicos);
     }
-
 
     public function listarHorarios(Request $request)
     {
@@ -93,7 +90,6 @@ class AgendamentoController extends Controller
 
     public function agendar(Request $request)
     {
-        // Validação dos campos
         $request->validate([
             'data'          => 'required|date',
             'especialidade' => 'required|string|max:100',
@@ -103,59 +99,48 @@ class AgendamentoController extends Controller
             'idServico'     => 'required|integer'
         ]);
 
-        // Buscar a duração do serviço selecionado
         $servico = ServicosModel::find($request->input('idServico'));
         if (!$servico) {
+            if ($request->wantsJson()) {
+                return response()->json(['error' => 'Serviço não encontrado.'], 404);
+            }
             return back()->withErrors(['idServico' => 'Serviço não encontrado.']);
         }
 
-        // Buscar o cliente
         $cliente = Cliente::find($request->input('idCliente'));
         if (!$cliente) {
+            if ($request->wantsJson()) {
+                return response()->json(['error' => 'Cliente não encontrado.'], 404);
+            }
             return back()->withErrors(['idCliente' => 'Cliente não encontrado.']);
         }
 
-        // Buscar o funcionário
         $funcionario = Funcionario::find($request->input('idFuncionario'));
         if (!$funcionario) {
+            if ($request->wantsJson()) {
+                return response()->json(['error' => 'Funcionário não encontrado.'], 404);
+            }
             return back()->withErrors(['idFuncionario' => 'Funcionário não encontrado.']);
         }
 
-        // Pegando parâmetros
-        $duracaoServico = $servico->duracaoServico;
-        $data = $request->input('data');
-        $horario = $request->input('horario');
-
-        // USANDO CARBON:
-        // Convertendo a duração do serviço para minutos (para facilitar a soma)
-        list($horas, $minutos) = explode(':', $duracaoServico);
-
-        // Combinar só a hora inicial com Carbon
-        $horaInicial = Carbon::createFromFormat('H:i', $horario);
-
-        // Adicionar a duração do serviço ao horário inicial
+        list($horas, $minutos) = explode(':', $servico->duracaoServico);
+        $horaInicial = Carbon::createFromFormat('H:i', $request->input('horario'));
         $horaInicial->addHours($horas)->addMinutes($minutos);
-
-        // Formatar a hora final
         $dataHoraFinal = $horaInicial->format('H:i');
 
-        // Criando novo agendamento
         $agendamento = new Agendamento();
-        $agendamento->dataAgendamento = $data;
+        $agendamento->dataAgendamento = $request->input('data');
         $agendamento->categoriaAgendamento = $request->input('especialidade');
-        $agendamento->data_hora_inicial = $horario;
+        $agendamento->data_hora_inicial = $request->input('horario');
         $agendamento->data_hora_final = $dataHoraFinal;
         $agendamento->statusAgendamento = 'pendente';
         $agendamento->idCliente = $request->input('idCliente');
         $agendamento->idFuncionario = $request->input('idFuncionario');
         $agendamento->idServico = $request->input('idServico');
-
         $agendamento->save();
 
-        // Log para verificar o email do cliente
         Log::info('Email do cliente: ' . $cliente->emailCliente);
 
-        // Enviar email de confirmação
         try {
             Mail::to($cliente->emailCliente)->send(new AgendamentoEmail($agendamento));
             Log::info('Email enviado para: ' . $cliente->emailCliente);
@@ -163,20 +148,32 @@ class AgendamentoController extends Controller
             Log::error('Erro ao enviar email: ' . $e->getMessage());
         }
 
+        if ($request->wantsJson()) {
+            return response()->json($agendamento, 201);
+        }
+
         return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso e email enviado.');
     }
 
     public function confirmar($id)
-{
-    $agendamento = Agendamento::find($id);
+    {
+        $agendamento = Agendamento::find($id);
 
-    if ($agendamento) {
-        $agendamento->statusAgendamento = 'confirmado';
-        $agendamento->save();
+        if ($agendamento) {
+            $agendamento->statusAgendamento = 'confirmado';
+            $agendamento->save();
 
-        return "Agendamento confirmado com sucesso.";
-    } else {
-        return "Agendamento não encontrado.";
+            if (request()->wantsJson()) {
+                return response()->json(['message' => 'Agendamento confirmado com sucesso.']);
+            }
+
+            return "Agendamento confirmado com sucesso.";
+        } else {
+            if (request()->wantsJson()) {
+                return response()->json(['error' => 'Agendamento não encontrado.'], 404);
+            }
+
+            return "Agendamento não encontrado.";
+        }
     }
-} //Mudanças no status do agendamento por meio do id passado
 }

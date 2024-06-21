@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendamentoController;
 use App\Http\Controllers\ClienteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,5 +27,10 @@ Route::post('/login', [ClienteController::class, 'login'])->name('login');
 Route::middleware(['auth:sanctum', 'cliente'])->group(function () {
     // Rotas protegidas
     Route::apiResource('cliente', ClienteController::class);
+    Route::get('/agendamento', [AgendamentoController::class, 'index']);
+    Route::post('/agendamento', [AgendamentoController::class, 'agendar']);
+    Route::get('/agendamento/servicos', [AgendamentoController::class, 'listarServicos']);
+    Route::get('/agendamento/horarios', [AgendamentoController::class, 'listarHorarios']);
+    Route::put('/agendamento/{id}', [AgendamentoController::class, 'confirmar']);
 });
 
