@@ -40,7 +40,7 @@ class ContatoController extends Controller
             $contato = Contato::create($validarDados->validated());
 
             //Por email
-            Mail::to('ascensaodev@smpsistema.com.br')->send(new ContatoEmail($contato));
+            Mail::to('leflowersalao@gmail.com')->send(new ContatoEmail($contato));
 
             return response()->json(['success' => 'Email registrado com sucesso']);
         }

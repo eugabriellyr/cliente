@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum', 'cliente'])->group(function () {
     // Rotas protegidas
     Route::apiResource('cliente', ClienteController::class);
     Route::get('/agendamento', [AgendamentoController::class, 'index']);
-    Route::post('/agendamento', [AgendamentoController::class, 'agendar']);
+    Route::post('/agendar', [AgendamentoController::class, 'agendar']);
     Route::get('/agendamento/servicos', [AgendamentoController::class, 'listarServicos']);
     Route::get('/agendamento/horarios', [AgendamentoController::class, 'listarHorarios']);
     Route::put('/agendamento/{id}', [AgendamentoController::class, 'confirmar']);

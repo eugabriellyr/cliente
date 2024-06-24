@@ -30,7 +30,7 @@ class AgendamentoEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('cloudwise@smpsistema.com.br', 'Le Flower - Salão')
+        return $this->from('leflowersalao@gmail.com', 'Le Flower - Salão')
                     ->subject('Agendamento detalhes')
                     ->view('site.email.agendamento')
                     ->with([

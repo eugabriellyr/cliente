@@ -44,10 +44,6 @@ route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agend
 Route::get('/listar-servicos', [AgendamentoController::class, 'listarServicos'])->name('listarServicos');
 Route::get('/agendamento/listarHorarios', [AgendamentoController::class, 'ListarHorarios'])->name('listarHorarios');
 // Route::post('/agendar', [AgendamentoController::class, 'agendar'])->name('agendar');
-
-
-
-
 Route::post('/agendar', [AgendamentoController::class, 'agendar'])->name('agendar');
 
 

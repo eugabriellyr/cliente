@@ -27,7 +27,7 @@ class ContatoEmail extends Mailable
     }
 
     public function build(){
-        return $this->from('ascensaodev@smpsistema.com.br')
+        return $this->from('leflowersalao@gmail.com')
         ->view('site.email.email');
     }
 

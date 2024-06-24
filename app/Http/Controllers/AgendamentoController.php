@@ -50,34 +50,36 @@ class AgendamentoController extends Controller
         $data = $request->input('data');
 
         $sql = "SELECT
-            f.idFuncionario,
-            f.nomeFuncionario,
-            f.cargoFuncionario,
-            h.horario,
-            s.duracaoServico,
-            f.fotoFuncionario
-        FROM
-            tblfuncionarios f
-        CROSS JOIN
-            tblhorarios h
-        LEFT JOIN
-            tblservicos s ON s.idServico = :tipoServico
-        LEFT JOIN
-            tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
-            AND h.horario >= hd.data_hora_inicial
-        LEFT JOIN
-            tblagendamentos a ON f.idFuncionario = a.idFuncionario
-            AND DATE(a.dataAgendamento) = :data
-            AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND DATE_ADD(a.data_hora_final, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND)
-        JOIN
-            tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
-        WHERE
-            hd.idFuncionario IS NOT NULL
-            AND a.idAgendamento IS NULL
-            AND e.especialidade = :especialidade
-        ORDER BY
-            f.nomeFuncionario,
-            h.horario";
+                f.idFuncionario,
+                f.nomeFuncionario,
+                f.cargoFuncionario,
+                h.horario,
+                s.duracaoServico,
+                f.fotoFuncionario
+            FROM
+                tblfuncionarios f
+            CROSS JOIN
+                tblhorarios h
+            LEFT JOIN
+                tblservicos s ON s.idServico = :tipoServico
+            LEFT JOIN
+                tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
+                AND h.horario >= hd.data_hora_inicial
+                AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) <= hd.data_hora_final
+            LEFT JOIN
+                tblagendamentos a ON f.idFuncionario = a.idFuncionario
+                AND DATE(a.dataAgendamento) = :data
+                AND (h.horario BETWEEN a.data_hora_inicial AND a.data_hora_final
+                     OR DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND a.data_hora_final)
+            JOIN
+                tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
+            WHERE
+                hd.idFuncionario IS NOT NULL
+                AND a.idAgendamento IS NULL
+                AND e.especialidade = :especialidade
+            ORDER BY
+                f.nomeFuncionario,
+                h.horario";
 
         $horarios = DB::select(DB::raw($sql), [
             'tipoServico' => $tipoServico,
@@ -87,6 +89,7 @@ class AgendamentoController extends Controller
 
         return response()->json($horarios);
     }
+
 
     public function agendar(Request $request)
     {
