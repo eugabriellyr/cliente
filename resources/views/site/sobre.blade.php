@@ -4,6 +4,11 @@
 
 @section('conteudo')
 
+
+
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
     {{-- TESTE PARA OS ICONES --}}
     <!-- For favicon png -->
     <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/logo/favicon.png') }}">
@@ -39,6 +44,15 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
 
+
+
+     <!-- CSS da Lupa -->
+     {{-- <link rel="stylesheet" href="{{ asset('css/loupe.css') }}"> --}}
+
+
+
+
+
     <style>
         .h3-gaby {
             /* font-family: var(--minha-font2); */
@@ -52,14 +66,12 @@
             font-family: var(--minha-font2) !important;
             text-align: center !important;
         }
-    </style>
 
-    <style>
         /* FLOR PULSAR */
         .pulse {
             margin: 10px;
             width: 60px;
-            height: 22px !important;
+            height: 30px !important;
             border-radius: 50%;
             box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
             animation: pulse 2s infinite;
@@ -130,15 +142,18 @@
         }
 
         .texto {
-            font-size: 15px !important;
-            text-align: center !important;
-            width: 50%;
+            font-size: 20px !important;
+            text-align: justify !important;
+            width: 60%;
+            line-height: 1.6;
 
         }
 
         .titlee {
             margin-bottom: 10px;
             color: #e4b48d;
+            font-size: 30px !important;
+            font-weight: bold;
         }
 
         .parallax {
@@ -155,7 +170,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 600px;
+            min-height: 700px;
         }
 
         .parallax-image2 {
@@ -165,7 +180,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 600px;
+            min-height: 700px;
         }
 
 
@@ -176,7 +191,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 600px;
+            min-height: 700px;
         }
 
         .parallax-image4 {
@@ -186,8 +201,18 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            min-height: 600px;
+            min-height: 700px;
         }
+        .parallax-image5 {
+
+            color: #ffffff;
+            background: url(assets/florAleatoria.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 700px;
+        }
+
 
 
 
@@ -238,6 +263,17 @@
             background-color: rgba(0, 0, 0, 0.5);
             /* Cor preta com 50% de opacidade */
         }
+        .parallax-image5::after {
+            content: "";
+            /* Criar um pseudo-elemento para a sobreposição */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Cor preta com 50% de opacidade */
+        }
+
 
         .content {
             /* Estilos para o conteúdo abaixo da imagem */
@@ -265,12 +301,32 @@
             .banner {
                 /* Insira aqui o link da nova imagem */
                 content: url('../assets/logo-sobre.png');
-                width: 70%!important
+                width: 70% !important
             }
 
 
         }
+
+        @media screen and (max-width: 600px) {
+            .texto {
+                text-align: center !important;
+                width: 100%;
+            }
+        }
+
+
+        .parallax1 {
+            height: 50px;
+            /* Altura da área de visualização */
+            overflow: hidden;
+            position: relative;
+        }
     </style>
+
+
+
+
+
 
     {{-- Back --}}
 @section('logo')
@@ -303,33 +359,37 @@
     </div>
 </div>
 
-<div class="fundo">
-    <h4 class="titlee">
-        Primeira unidade
-    </h4>
+<div>
+    <div class="fundo">
+        <h4 class="titlee">
+            O Início
+        </h4>
 
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
-    <br>
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
+        <p class="texto" class="zoom-effect">
+            o início da jornada não foi isento de desafios e dificuldades. Helena Flores, a
+            fundadora do salão, enfrentou uma série de obstáculos ao transformar seu modesto espaço em um refúgio de
+            beleza.
+            Investir todas as suas economias representou um grande risco financeiro, especialmente em um mercado
+            competitivo
+            como o da indústria da beleza. Além disso, as incertezas e inseguranças inerentes ao lançamento de um novo
+            empreendimento também pesaram sobre ela.
 
-    <div>
-        <img class="pulse" src="{{ asset('assets/img-gaby/flor3.svg') }}" alt="">
-    </div>
-</div><!--/.timeline-content-->
+            Inicialmente, Helena Flores teve que lidar com a falta de recursos e infraestrutura limitada. O modesto
+            espaço
+            que ela
+            transformou em seu salão pode ter apresentado desafios em termos de tamanho, localização ou condições
+            físicas.
+            Ela pode ter enfrentado dificuldades para adquirir equipamentos e suprimentos necessários para oferecer
+            serviços
+            de alta qualidade aos seus clientes.
+        </p>
+
+
+
+        <div>
+            <img class="pulse" src="{{ asset('assets/img-gaby/flor3.svg') }}" alt="">
+        </div>
+    </div><!--/.timeline-content-->
 </div><!--/.timeline-->
 
 <div class="parallax">
@@ -339,25 +399,15 @@
 
 <div class="fundo">
     <h4 class="titlee">
-        Primeira unidade
+        Atendimento Personalizado
     </h4>
 
     <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
-    <br>
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
+        No Le Flower, cada cliente era tratado com cuidado e atenção individualizada. A equipe estava comprometida não
+        apenas em cumprir, mas em superar as expectativas, buscando entender profundamente os desejos e necessidades de
+        cada pessoa que cruzava suas portas. Eles compreendiam que a verdadeira beleza reside na singularidade de cada
+        indivíduo e, portanto, buscavam criar looks personalizados que não apenas seguissem as tendências da moda, mas
+        também realçassem a beleza natural de cada cliente.
     </p>
 
     <div>
@@ -367,6 +417,7 @@
 </div><!--/.timeline-->
 
 
+
 <div class="parallax">
     <div class="parallax-image2"></div>
 </div>
@@ -374,25 +425,21 @@
 
 <div class="fundo">
     <h4 class="titlee">
-        Primeira unidade
+        Inovação e Tendências
     </h4>
 
     <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
-    <br>
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
+        O Le Flower abraçou as últimas tendências e inovações do mundo da beleza, tornando-se conhecido por seus
+        serviços
+        de alta qualidade e técnicas inovadoras. Investiram em treinamento contínuo para a equipe, garantindo que
+        estivessem sempre atualizados com as últimas novidades do setor e oferecendo aos clientes experiências de beleza
+        de ponta. Essa dedicação ao aprimoramento profissional não apenas permitia que o Le Flower se destacasse no
+        mercado, mas também garantia que seus clientes recebessem os melhores cuidados possíveis. Desde as últimas
+        técnicas de corte e coloração até os tratamentos de pele mais avançados, o Le Flower estava sempre à frente,
+        oferecendo o que havia de melhor no mundo da beleza. Essa abordagem voltada para a inovação e o aperfeiçoamento
+        constante solidificou a reputação do Le Flower como um líder no setor, conquistando a confiança e a fidelidade
+        de
+        uma clientela diversificada e exigente.
     </p>
 
     <div>
@@ -410,28 +457,19 @@
 
 
 
-
 <div class="fundo">
     <h4 class="titlee">
-        Primeira unidade
+        Comunidade e Reconhecimento
     </h4>
 
     <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
-    <br>
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
+        Além de seu compromisso com a excelência na beleza, o Le Flower também se envolveu ativamente com a comunidade
+        local. Eles organizaram desfiles de moda, workshops de maquiagem e eventos de caridade, demonstrando seu apoio e
+        compromisso com as causas locais.
+        O salão também destacou artistas locais, exibindo suas obras nas paredes do salão. Essa conexão com a comunidade
+        não passou despercebida pela indústria da beleza, e o Le Flower foi reconhecido com vários prêmios,
+        solidificando
+        seu lugar como um ícone na cena da beleza.
     </p>
 
     <div>
@@ -449,25 +487,20 @@
 
 <div class="fundo">
     <h4 class="titlee">
-        Primeira unidade
+        O Legado Continua
     </h4>
 
     <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
-    </p>
-    <br>
-    <p class="texto">
-        Há alguns anos atrás, em um pequeno espaço impregnado de sonhos e fragrâncias de
-        flores, Helena Flores plantou a semente de uma ideia. Com o apoio de uma equipe
-        dedicada, o Leflower começou a enraizar suas primeiras raízes na comunidade. A visão
-        de Helena atraiu clientes em busca de algo mais do que um corte de cabelo ou uma
-        manicure; eles buscavam uma experiência onde pudessem se sentir especiais e celebrar
-        sua própria singularidade.
+        Ao longo dos anos, o Le Fleur se estabeleceu como um destino de beleza icônico. Continuaram a inovar e inspirar,
+        oferecendo a seus clientes experiências excepcionais e fortalecendo a autoconfiança por meio do poder da beleza.
+        O legado do Le Fleur continua a prosperar, deixando uma marca indelével na indústria da beleza e na comunidade
+        que eles tão amorosamente servem. Com cada cliente que sai por suas portas sentindo-se rejuvenescido e mais
+        confiante, o Le Fleur reafirma seu compromisso não apenas com a estética, mas também com o bem-estar emocional
+        de seus clientes. Seja através de um novo corte de cabelo, uma maquiagem impecável ou um tratamento de spa
+        relaxante, o Le Fleur não apenas transforma a aparência física, mas também eleva o espírito de quem os visita. É
+        essa dedicação incansável à excelência e ao serviço ao cliente que mantém o Le Fleur na vanguarda da indústria
+        da beleza, continuando a ser um farol de inspiração e beleza para todos aqueles que têm o privilégio de cruzar
+        seu caminho.
     </p>
 
     <div>
@@ -477,7 +510,22 @@
 </div><!--/.timeline-->
 
 
+{{-- <div class="parallax1">
+    <div class="parallax-image5"></div>
+</div> --}}
+
+<div class="parallax">
+    <div class="parallax-image5"></div>
+</div>
+
 </section>
+
+
+
+
+
+
+
 
 {{-- Teste fonts --}}
 <!--modernizr.min.js-->
@@ -506,4 +554,15 @@
 <!-- DEPENDENCIA jQuery 3.6.0 COontador JORNADA -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
+{{-- acs --}}
+{{-- @component('components.loupe') @endcomponent --}}
+
+
+     <!-- JS da Lupa -->
+     {{-- <script src="{{ asset('js/loupe.js') }}"></script> --}}
+    </div>
+
+
 @endsection
+

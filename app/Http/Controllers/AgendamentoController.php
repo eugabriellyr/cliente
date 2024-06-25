@@ -49,46 +49,61 @@ class AgendamentoController extends Controller
         $tipoServico = $request->input('tipoServico');
         $data = $request->input('data');
 
+        // Obtendo a data e hora atual com o fuso horário correto
+        $dataAtual = Carbon::now('America/Sao_Paulo')->format('Y-m-d');
+        $horaAtual = Carbon::now('America/Sao_Paulo')->format('H:i:s');
+
         $sql = "SELECT
-                f.idFuncionario,
-                f.nomeFuncionario,
-                f.cargoFuncionario,
-                h.horario,
-                s.duracaoServico,
-                f.fotoFuncionario
-            FROM
-                tblfuncionarios f
-            CROSS JOIN
-                tblhorarios h
-            LEFT JOIN
-                tblservicos s ON s.idServico = :tipoServico
-            LEFT JOIN
-                tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
-                AND h.horario >= hd.data_hora_inicial
-                AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) <= hd.data_hora_final
-            LEFT JOIN
-                tblagendamentos a ON f.idFuncionario = a.idFuncionario
-                AND DATE(a.dataAgendamento) = :data
-                AND (h.horario BETWEEN a.data_hora_inicial AND a.data_hora_final
-                     OR DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND a.data_hora_final)
-            JOIN
-                tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
-            WHERE
-                hd.idFuncionario IS NOT NULL
-                AND a.idAgendamento IS NULL
-                AND e.especialidade = :especialidade
-            ORDER BY
-                f.nomeFuncionario,
-                h.horario";
+                    f.idFuncionario,
+                    f.nomeFuncionario,
+                    f.cargoFuncionario,
+                    h.horario,
+                    s.duracaoServico,
+                    f.fotoFuncionario
+                FROM
+                    tblfuncionarios f
+                CROSS JOIN
+                    tblhorarios h
+                LEFT JOIN
+                    tblservicos s ON s.idServico = ?
+                LEFT JOIN
+                    tblhorarios_disponiveis hd ON f.idFuncionario = hd.idFuncionario
+                    AND h.horario >= hd.data_hora_inicial
+                    AND DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) <= hd.data_hora_final
+                LEFT JOIN
+                    tblagendamentos a ON f.idFuncionario = a.idFuncionario
+                    AND DATE(a.dataAgendamento) = ?
+                    AND (h.horario BETWEEN a.data_hora_inicial AND a.data_hora_final
+                         OR DATE_ADD(h.horario, INTERVAL TIME_TO_SEC(s.duracaoServico) SECOND) BETWEEN a.data_hora_inicial AND a.data_hora_final)
+                JOIN
+                    tblespecialidade e ON f.idEspecialidade = e.idEspecialidade
+                WHERE
+                    hd.idFuncionario IS NOT NULL
+                    AND a.idAgendamento IS NULL
+                    AND e.especialidade = ?
+                    AND (? > ? OR (? = ? AND h.horario > ?))
+                ORDER BY
+                    f.nomeFuncionario,
+                    h.horario";
 
-        $horarios = DB::select(DB::raw($sql), [
-            'tipoServico' => $tipoServico,
-            'data' => $data,
-            'especialidade' => $especialidade
-        ]);
+        try {
+            $horarios = DB::select(DB::raw($sql), [
+                $tipoServico,
+                $data,
+                $especialidade,
+                $data,
+                $dataAtual,
+                $data,
+                $dataAtual,
+                $horaAtual
+            ]);
 
-        return response()->json($horarios);
+            return response()->json($horarios);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Erro ao listar horários'], 500);
+        }
     }
+
 
 
     public function agendar(Request $request)
