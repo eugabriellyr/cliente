@@ -10,7 +10,6 @@ class Agendamento extends Model
     use HasFactory;
 
     protected $table = 'tblagendamentos';
-
     protected $primaryKey = 'idAgendamento';
 
     protected $fillable = [
@@ -28,7 +27,7 @@ class Agendamento extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'idCliente');
+        return $this->belongsTo(Cliente::class, 'idCliente', 'idCliente');
     }
 
     public function servico()

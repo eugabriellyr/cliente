@@ -29,8 +29,24 @@ class Funcionario extends Model
     ];
 
 
-    public function usuario(){
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+    public function usuario()
+    {
         return $this->morphOne(Usuario::class, 'tipo_usuario');
     }
-}
 
+    public function servicos()
+    {
+        return $this->hasMany(ServicosModel::class, 'idFuncionario', 'idFuncionario');
+    }
+
+
+      // Defina a relação com agendamentos
+      public function agendamentos()
+      {
+          return $this->hasMany(Agendamento::class, 'idFuncionario'); // Usando a coluna correta do banco de dados
+      }
+
+}

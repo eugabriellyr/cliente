@@ -1,4 +1,3 @@
-
 @extends('layout.layout')
 
 @section('title', 'Serviço - Le Flower')
@@ -93,7 +92,7 @@
                     {{-- <img style="width:70%;" class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo"> --}}
                     <div>
                         <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s"
-                            style="font-size: 120px;">Massagem</h1>
+                            style="font-size: 120px;">Depilação</h1>
                     </div>
 
                 </div>
@@ -108,9 +107,9 @@
         <div class="linha justify-content-center mb-5 pb-3">
             <div class="otaria heading-section ftco-animate text-center">
                 <h3 class="subheading">Serviços</h3>
-                <h2 class="mb-1">Sombrancelha</h2>
+                <h2 class="mb-1">Para Depilação</h2>
             </div>
-        </div>z
+        </div>
         <div class="linha align-items-center">
             <div class="col-lg-4">
                 <div class="linha no-gutters">
@@ -125,12 +124,8 @@
 
                                 {{-- primeiro card --}}
 
-                                <h3>Depilação: Escolha o Método Ideal</h3>
-                                <p>Descubra os diferentes métodos de depilação disponíveis e encontre o mais adequado
-                                    para você. Desde a depilação com cera até a depilação a laser, explore as opções e
-                                    saiba como obter resultados duradouros e suaves.</p>
-
-
+                                <h3>Técnicas de Depilação</h3>
+                                <p>Conheça as diferentes técnicas de depilação disponíveis, desde a depilação com cera até a depilação a laser. Descubra qual método é o mais adequado para você e seus objetivos de cuidado com a pele.</p>
                             </div>
                         </div>
                     </div>
@@ -144,12 +139,8 @@
                                 {{-- segundo card --}}
 
 
-                                <h3>Depilação a Cera: Prós e Contras</h3>
-                                <p>Explore os prós e contras da depilação a cera, desde a durabilidade dos resultados
-                                    até a possível dor durante o processo. Saiba como se preparar adequadamente e
-                                    maximizar os benefícios desse método de depilação.</p>
-
-
+                                <h3>Cuidados Pré-Depilação</h3>
+                                <p>Aprenda a preparar a pele para a depilação de forma eficaz. Descubra os cuidados necessários antes do procedimento para garantir resultados melhores e minimizar o desconforto.</p>
                             </div>
                         </div>
                     </div>
@@ -163,12 +154,8 @@
 
                                 {{-- terceiro card --}}
 
-                                <h3>Depilação a Laser: Tudo o que Você Precisa Saber</h3>
-                                <p>Aprenda sobre a depilação a laser, incluindo como funciona, quem é um bom candidato e
-                                    o que esperar durante o procedimento. Descubra os benefícios da depilação a laser
-                                    para obter uma pele suave e livre de pelos por mais tempo.</p>
-
-
+                                <h3>Depilação a Laser</h3>
+                                <p>Saiba mais sobre a depilação a laser, uma técnica duradoura para remoção de pelos. Entenda o processo, os benefícios e os cuidados necessários para manter a pele saudável após o tratamento.</p>
                             </div>
                         </div>
                     </div>
@@ -183,25 +170,18 @@
                                 {{-- quarto card --}}
 
 
-                                <h3>Depilação com Lâmina: Mitos e Verdades</h3>
-                                <p>Desminta os mitos sobre a depilação com lâmina e descubra a verdade sobre esse método
-                                    popular. Aprenda técnicas de segurança e cuidado para obter resultados suaves e
-                                    livres de irritação ao usar lâmina para depilação.</p>
-
-
+                                <h3>Depilação com Cera</h3>
+                                <p>Descubra os benefícios da depilação com cera, uma técnica tradicional e eficaz. Aprenda sobre os diferentes tipos de cera e como escolher o melhor para sua pele.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 d-flex align-items-stretch" style="  flex-direction: column;">
                 <div id="accordion" class="myaccordion w-100 text-center py-5 px-1 px-md-4">
                     <div>
                         <h3 class="preco">Preços</h3>
-                        <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;   text-align: center; ">Faça
-                            suas unhas com
-                            nossas especialistas</p>
+                        <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;   text-align: center; ">Serviços de Depilação com nossas especialistas</p>
                     </div>
                     <div class="carde">
                         <div class="carde-header" id="headingOne">
@@ -209,7 +189,7 @@
                                 <button class="d-flex align-items-center justify-content-between botao botao-link"
                                     data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                                     aria-controls="collapseOne">
-                                    Serviços Faciais
+                                    Serviços de Depilação
                                     <i class="fa" aria-hidden="true"></i>
                                 </button>
                             </h2>
@@ -219,101 +199,54 @@
                             <div class="carde-body text-left">
                                 <ul>
                                     <li class="d-flex">
-                                        <span>Limpeza Facial Profunda</span>
-                                        <span>30 min.</span>
-                                        <span>$60,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Tratamento de Hidratação Intensa</span>
-                                        <span>35 min.</span>
-                                        <span>$60,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Pacote Facial Completo</span>
+                                        <span>Depilação de Pernas Inteiras</span>
                                         <span>60 min.</span>
-                                        <span>$110,00</span>
+                                        <span>$90,00</span>
                                     </li>
 
                                     <li class="d-flex">
-                                        <span>Máscaras Faciais de Gel</span>
-                                        <span>1 hora</span>
-                                        <span>$125,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Peeling Facial Renovador</span>
-                                        <span>40 min</span>
-                                        <span>$65,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Tratamento Facial Anti-Idade</span>
-                                        <span>1 e 30 min</span>
-                                        <span>$150,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Design de Sobrancelhas e Cílios</span>
-                                        <span>35 min</span>
+                                        <span>Depilação de Meia Perna</span>
+                                        <span>30 min.</span>
                                         <span>$50,00</span>
                                     </li>
 
                                     <li class="d-flex">
-                                        <span> Esmaltação em Gel</span>
-                                        <span>50 min</span>
-                                        <span>$80,00</span>
+                                        <span>Depilação de Axilas</span>
+                                        <span>20 min.</span>
+                                        <span>$30,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Depilação de Buço</span>
+                                        <span>10 min.</span>
+                                        <span>$20,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Depilação de Sobrancelhas</span>
+                                        <span>15 min.</span>
+                                        <span>$25,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Depilação de Corpo Inteiro</span>
+                                        <span>90 min.</span>
+                                        <span>$200,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Depilação de Virilha Completa</span>
+                                        <span>30 min.</span>
+                                        <span>$40,00</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    {{--
-                    <div class="carde">
-                        <div class="carde-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button
-                                    class="d-flex align-items-center justify-content-between botao botao-link collapsed"
-                                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                    aria-controls="collapseTwo">
-                                    Terapias de Massagem
-                                    <i class="fa" aria-hidden="true"></i>
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordion">
-                            <div class="carde-body text-left">
-                                <ul>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Faciais</span>
-                                        <span>40 min.</span>
-                                        <span>$10</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos de Faciais</span>
-                                        <span>30 min.</span>
-                                        <span>$20</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Médicos</span>
-                                        <span>60 min.</span>
-                                        <span>$10</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Capilares</span>
-                                        <span>30 min.</span>
-                                        <span>$30</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
 
-          <div class="col-lg-4">
+            <div class="col-lg-4">
                 <div class="linha no-gutters">
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div
@@ -325,12 +258,8 @@
 
                                 {{-- quinto card --}}
 
-                                <h3>Depilação Definitiva: O Que Você Precisa Saber</h3>
-                                <p>Descubra sobre a depilação definitiva, incluindo os diferentes tipos de tratamentos
-                                    disponíveis e sua eficácia a longo prazo. Aprenda sobre os custos, os cuidados
-                                    pós-tratamento e as expectativas realistas para resultados duradouros.</p>
-
-
+                                <h3>Depilação para Diferentes Tipos de Pele</h3>
+                                <p>Saiba como adaptar a depilação para diferentes tipos de pele. Descubra técnicas e cuidados específicos para garantir uma depilação eficaz e confortável.</p>
                             </div>
                         </div>
                     </div>
@@ -345,12 +274,8 @@
 
 
 
-                                <h3>Depilação Íntima: Dicas e Cuidados</h3>
-                                <p>Aprenda dicas e cuidados específicos para a depilação íntima. Descubra como preparar
-                                    a pele, evitar irritações e manter a área genital suave e livre de pelos com
-                                    segurança e conforto.</p>
-
-
+                                <h3>Cuidados Pós-Depilação</h3>
+                                <p>Descubra os cuidados essenciais para manter a pele saudável após a depilação. Aprenda sobre hidratação, prevenção de irritações e dicas para prolongar os resultados.</p>
                             </div>
                         </div>
                     </div>
@@ -363,12 +288,8 @@
 
                                 {{-- setimo card --}}
 
-                                <h3>Depilação Masculina: Guia Completo</h3>
-                                <p>Descubra o guia completo para a depilação masculina, incluindo os melhores métodos e
-                                    técnicas para obter resultados suaves e sem pelos. Aprenda sobre os cuidados pré e
-                                    pós-depilação para manter a pele masculina saudável e livre de irritações.</p>
-
-
+                                <h3>Depilação de Áreas Sensíveis</h3>
+                                <p>Aprenda técnicas e cuidados para depilar áreas sensíveis do corpo. Descubra como evitar desconforto e obter os melhores resultados.</p>
                             </div>
                         </div>
                     </div>
@@ -381,16 +302,8 @@
 
                                 {{-- oitavo card --}}
 
-                                <h3>Depilação Natural: Alternativas Sustentáveis</h3>
-                                <p>Explore alternativas naturais para a depilação, incluindo métodos como a depilação
-                                    com açúcar, a depilação com mel e a depilação com ingredientes naturais. Descubra
-                                    como esses métodos podem ser eficazes, suaves para a pele e amigáveis ao meio
-                                    ambiente.</p>
-
-
-
-
-
+                                <h3>Depilação Masculina</h3>
+                                <p>Saiba mais sobre os serviços de depilação masculina. Descubra técnicas específicas para homens e cuidados essenciais para a pele masculina.</p>
                             </div>
                         </div>
                     </div>
@@ -406,7 +319,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">

@@ -186,6 +186,9 @@
                 </div>
             </div>
 
+
+
+
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
@@ -378,9 +381,176 @@
                 </div>
             </div>
 
+
+
             {{-- SCRIPT  ACORDION --}}
 
     </section>
+
+    <style>
+        .carousel-item{
+            padding: 2%
+
+        }
+        .my-depoimento-container {
+            max-width: 800px;
+            /* Ajuste a largura máxima conforme necessário */
+            margin: 20px auto;
+        }
+
+        .my-depoimento {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            /* Alterado para column para empilhar elementos */
+            align-items: flex-start;
+            /* Alinhamento à esquerda */
+            padding: 20px;
+            background-color: #ffedde;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: visible;
+            width: 84%;
+            /* Define a largura para 100% */
+            height: 260px;
+            box-shadow: 21px 17px 8px #59848e;
+        }
+
+        .my-depoimento img {
+            position: absolute;
+            width: 25%;
+            height: 58%;
+            border-radius: 11%;
+            margin-right: 20px;
+            left: -105px;
+            top: 42px;
+            box-shadow: 12px 11px 8px #59848e;
+        }
+
+        .my-depoimento .conteudo {
+            flex: 1;
+            width: 84%;
+            /* Define a largura para 100% */
+            margin-left: 12%;
+            margin-top: 5%;
+        }
+
+        .my-depoimento .data {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .my-depoimento .texto {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .my-depoimento .autor {
+            font-size: 14px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Adicione regras de estilo CSS para tornar os depoimentos responsivos */
+        @media only screen and (max-width: 768px) {
+            .my-depoimento-container {
+                max-width: 100%;
+                margin: 20px auto;
+                padding: 0 15px;
+                /* Adicione um pouco de padding para melhorar a visualização */
+            }
+
+            .my-depoimento {
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+                /* Remova a sombra para dispositivos móveis */
+                padding: 20px 0;
+                /* Adicione espaço entre os depoimentos */
+            }
+
+            .my-depoimento img {
+                position: static;
+                /* Remova a posição absoluta da imagem */
+                width: 100%;
+                height: auto;
+                margin: 0 auto 20px;
+                /* Centralize a imagem e adicione espaço na parte inferior */
+                box-shadow: none;
+                /* Remova a sombra para dispositivos móveis */
+            }
+
+            .my-depoimento .conteudo {
+                width: 86%;
+                margin: 20;
+                /* Remova as margens para ocupar toda a largura disponível */
+            }
+        }
+    </style>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="my-depoimento-container">
+                    <div class="my-depoimento">
+                        <img src="{{ asset('assets/depo6.png') }}" alt="Imagem do Autor">
+                        <div class="conteudo">
+                            <p class="data">18 de março de 2024</p>
+                            <p class="texto">Estou muito feliz com o serviço deste salão. Profissionalismo desde a
+                                primeira visita, meu corte e coloração superaram minhas expectativas. O ambiente é
+                                relaxante, tornando cada visita uma experiência positiva. Recomendo para quem busca
+                                qualidade e excelência."</p>
+                            <p class="autor">- Rebeca dos Santos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="my-depoimento-container">
+                    <div class="my-depoimento">
+                        <img src="{{ asset('assets/depo7.png') }}" alt="Imagem do Autor">
+                        <div class="conteudo">
+                            <p class="data">22 de fevereiro de 2024</p>
+                            <p class="texto">Este salão é incrível! Descobri através de uma amiga e estou encantada.
+                                Cada
+                                visita é cuidadosa e personalizada. Meu corte e tratamento facial recentes foram
+                                excelentes,
+                                me deixando renovada e confiante. A equipe é amigável e profissional, criando um
+                                ambiente
+                                acolhedor e relaxante. Definitivamente meu novo favorito</p>
+                            <p class="autor">- Nome do Autor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="my-depoimento-container">
+                    <div class="my-depoimento">
+                        <img src="{{ asset('assets/depo8.png') }}" alt="Imagem do Autor">
+                        <div class="conteudo">
+                            <p class="data">22 de dezembro de 2023</p>
+                            <p class="texto">Serviço de alta qualidade! O estilista captou perfeitamente o que eu
+                                queria,
+                                resultando em uma transformação incrível. Experimentei uma nova cor e amei o resultado.
+                                O
+                                ambiente é luxuoso e relaxante. Recomendo para uma experiência de beleza excepcional.
+                            </p>
+                            <p class="autor">- Nome do Autor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     {{-- Galeria --}}
     <style>

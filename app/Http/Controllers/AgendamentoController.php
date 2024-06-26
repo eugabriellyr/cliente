@@ -141,6 +141,17 @@ class AgendamentoController extends Controller
             return back()->withErrors(['idFuncionario' => 'Funcionário não encontrado.']);
         }
 
+        // Verificando se o cliente já tem um agendamento para o mesmo horário
+        $existentes = Agendamento::where('idCliente', $request->input('idCliente'))
+            ->where('dataAgendamento', $request->input('data'))
+            ->where('data_hora_inicial', $request->input('horario'))
+            ->first();
+
+            if ($existentes) {
+                return back()->with('error', 'O cliente já possui um agendamento para esse horário.');
+            }
+
+
         list($horas, $minutos) = explode(':', $servico->duracaoServico);
         $horaInicial = Carbon::createFromFormat('H:i', $request->input('horario'));
         $horaInicial->addHours($horas)->addMinutes($minutos);
@@ -172,6 +183,7 @@ class AgendamentoController extends Controller
 
         return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso e email enviado.');
     }
+
 
     public function confirmar($id)
     {

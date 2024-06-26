@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" style="border: none">
 
 <head>
     <meta charset="utf-8">
@@ -799,6 +799,10 @@
                                 src="https://img.icons8.com/ios/50/000000/contact-card.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">Contato</a>
                     </li>
+                    <li><a href="/login" style="border-bottom: 1px solid #fdedf1;"><img
+                                src="https://img.icons8.com/ios/50/000000/contact-card.png"
+                                style="height: 20px;width: 20px;/*  */margin-right: 5px;">Login</a>
+                    </li>
 
                 </ul>
             </div>
@@ -845,7 +849,7 @@
                         <div class="col-auto m-lg-auto">
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
-                                    <li class="">
+                                    <li>
                                         <a href="/">Home</a>
                                     </li>
                                     <li>
@@ -858,6 +862,8 @@
                                     <li>
                                         <a href="/contato">Contato</a>
                                     </li>
+
+
                                 </ul>
                             </nav>
                             <div class="navbar-right d-inline-flex d-lg-none">

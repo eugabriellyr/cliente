@@ -73,15 +73,19 @@ route::post('/contatos/newsLetter', [ContatoController::class, 'salvarNoemail'])
 // Dashboard cliente
 Route::middleware(['autenticacao:cliente'])->group(function () {
 
+    // dash cris
+    // perfil pessoal
+    Route::get('/cliente/perfil', [ClienteController::class, 'perfilCliente'])->name('dashboard.clientes');
+    Route::post('/cliente/atualizar', [ClienteController::class, 'updateCliente'])->name('cliente.update');
+
+    //  Meus agendamentos
+    Route::get('/cliente/meusagendamentos', [ClienteController::class, 'meusAgenda'])->name('dashboard.meusagenda');
+
 
     Route::get('/cliente', [ClienteController::class, 'index'])->name('dashboard.cliente');
-
-
     Route::get('/agendar', [ClienteController::class, 'agendar'])->name('dashboard.agendar');
-
     // Rota AJAX
     Route::get('/agendar-cabelo', [ServicoController::class, 'AjaxCabelo'])->name('ajax.cabelo');
-
 
     Route::get('/servicos', function () {
         $servicos = ServicosModel::all();
@@ -92,8 +96,36 @@ Route::middleware(['autenticacao:cliente'])->group(function () {
 });
 
 
+// dash da cris
 Route::middleware(['autenticacao:Administrador'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.funcionarios.admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin.func.admin');
+
+    Route::get('dash/admin/func', [AdminController::class, 'indexFunc'])->name('dashboard.admin.func.index');
+
+    Route::get('dash/admin/servico', [AdminController::class, 'indexFuncServico'])->name('dashboard.admin.func.servico');
+
+    // cadastrar funcionario
+    Route::get('dash/admin/func/criar', [AdminController::class, 'createFunc'])->name('dashboard.admin.func.create');
+    Route::post('dash/admin/func/cadastrar', [AdminController::class, 'cadFunc'])->name('dashboard.admin.func.cad');
+
+    // cadastrar serviço
+    Route::get('dash/admin/func/adicionar', [AdminController::class, 'createServico'])->name('dashboard.admin.func.criar');
+    Route::post('dash/admin/func/cadastrarservico', [AdminController::class, 'cadServico'])->name('dashboard.admin.func.cadservico');
+
+    // editar/atualizar o perfil pessoal
+    Route::get('dash/admin/perfil', [AdminController::class, 'perfilFunc'])->name('dashboard.admin.func.perfil');
+    Route::post('dash/admin/update', [AdminController::class, 'updateFunc'])->name('dashboard.admin.func.update');
+
+    // editar ou desativar os funcionarios
+    Route::get('dash/admin/funcionarios/{id}/edit', [AdminController::class, 'editFuncionario'])->name('dashboard.admin.func.editar');
+    Route::put('dash/admin/funcionarios/{id}/desativar', [AdminController::class, 'desativarFuncionario'])->name('dashboard.admin.func.desativar');
+    Route::put('dash/admin/funcionarios/{id}/atualizar', [AdminController::class, 'updateFuncionario'])->name('dashboard.admin.func.updateFuncionario');
+
+    // editar ou desativar os servicos
+    Route::get('dash/admin/funcionarios/{id}/atualizar', [AdminController::class, 'atualizarServico'])->name('dashboard.admin.func.atualizar');
+    Route::put('dash/admin/funcionarios/{id}/inativo', [AdminController::class, 'desativarServico'])->name('dashboard.admin.func.inativo');
+    Route::put('dash/admin/funcionarios/{id}/alterar', [AdminController::class, 'updateServico'])->name('dashboard.admin.func.updateServico');
+
 });
 
 
@@ -116,4 +148,3 @@ route::get('/sair', function () {
 
 // FUNÇÃO DE CONFIRMAR AGENDAMENTO
 Route::get('/confirmar_agendamento/{id}', [AgendamentoController::class, 'confirmar'])->name('confirmar.agendamento');
-

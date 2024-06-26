@@ -92,7 +92,7 @@
                     {{-- <img style="width:70%;" class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo"> --}}
                     <div>
                         <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s"
-                            style="font-size: 120px;">Massagem</h1>
+                            style="font-size: 120px;">Maquiagem</h1>
                     </div>
 
                 </div>
@@ -107,9 +107,9 @@
         <div class="linha justify-content-center mb-5 pb-3">
             <div class="otaria heading-section ftco-animate text-center">
                 <h3 class="subheading">Serviços</h3>
-                <h2 class="mb-1">Massagem</h2>
+                <h2 class="mb-1">Para Maquiagem</h2>
             </div>
-        </div>z
+        </div>
         <div class="linha align-items-center">
             <div class="col-lg-4">
                 <div class="linha no-gutters">
@@ -124,10 +124,8 @@
 
                                 {{-- primeiro card --}}
 
-                                <h3>Maquiagem Natural: Tutorial Passo a Passo</h3>
-                                <p>Aprenda a criar uma maquiagem natural e leve para o dia a dia. Descubra dicas de
-                                    produtos e técnicas para realçar sua beleza de forma sutil e elegante.</p>
-
+                                <h3>Tendências em Maquiagem</h3>
+                                <p>Explore as últimas tendências em maquiagem para diversas ocasiões. Descubra looks que estão em alta neste ano, desde maquiagens naturais até looks glamourosos para festas.</p>
                             </div>
                         </div>
                     </div>
@@ -141,12 +139,8 @@
                                 {{-- segundo card --}}
 
 
-                                <h3>Maquiagem de Festa: Dicas para Arrasar</h3>
-                                <p>Descubra como criar uma maquiagem deslumbrante para festas e ocasiões especiais.
-                                    Aprenda técnicas de contorno, iluminação e aplicação de sombras para um visual
-                                    impactante.</p>
-
-
+                                <h3>Cuidados com a Pele para Maquiagem</h3>
+                                <p>Aprenda dicas e truques para preparar a pele antes da maquiagem. Desde a limpeza adequada até a hidratação, descubra como garantir que sua maquiagem dure mais e tenha um acabamento impecável.</p>
                             </div>
                         </div>
                     </div>
@@ -160,12 +154,8 @@
 
                                 {{-- terceiro card --}}
 
-                                <h3>Maquiagem Artística: Inspiração e Criatividade</h3>
-                                <p>Explore o mundo da maquiagem artística e descubra formas de expressar sua
-                                    criatividade através da maquiagem. Desde looks extravagantes até maquiagem temática,
-                                    inspire-se e experimente novas possibilidades.</p>
-
-
+                                <h3>Maquiagem para Eventos Especiais</h3>
+                                <p>Descubra técnicas de maquiagem para eventos especiais como casamentos, formaturas e festas. Aprenda a criar looks que se destacam e duram a noite toda.</p>
                             </div>
                         </div>
                     </div>
@@ -180,13 +170,8 @@
                                 {{-- quarto card --}}
 
 
-                                <h3>Maquiagem para Pele Madura: Dicas e Truques</h3>
-                                <p>Aprenda dicas e truques de maquiagem para pele madura. Descubra produtos e técnicas
-                                    que realçam a beleza natural da pele enquanto minimizam os sinais de envelhecimento.
-                                </p>
-
-
-
+                                <h3>Maquiagem para o Dia a Dia</h3>
+                                <p>Aprenda como fazer uma maquiagem rápida e prática para o dia a dia. Descubra produtos essenciais e técnicas para um look natural e duradouro.</p>
                             </div>
                         </div>
                     </div>
@@ -196,8 +181,7 @@
                 <div id="accordion" class="myaccordion w-100 text-center py-5 px-1 px-md-4">
                     <div>
                         <h3 class="preco">Preços</h3>
-      <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;    text-align: center;   ">Faça suas unhas com
-                            nossas especialistas</p>
+                        <p style="color: #59848e; font-weight: bold; letter-spacing: 1px;   text-align: center; ">Serviços de Maquiagem com nossas especialistas</p>
                     </div>
                     <div class="carde">
                         <div class="carde-header" id="headingOne">
@@ -205,7 +189,7 @@
                                 <button class="d-flex align-items-center justify-content-between botao botao-link"
                                     data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                                     aria-controls="collapseOne">
-                                    Sessões de Massagem
+                                    Serviços de Maquiagem
                                     <i class="fa" aria-hidden="true"></i>
                                 </button>
                             </h2>
@@ -215,99 +199,51 @@
                             <div class="carde-body text-left">
                                 <ul>
                                     <li class="d-flex">
-                                        <span>Reflexologia</span>
-                                        <span>45 min</span>
-                                        <span>$100,00</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Massagem Craniossacral</span>
-                                        <span>45 min</span>
-                                        <span>$110,00</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Massagem Tui Na</span>
-                                        <span>60 min</span>
-                                        <span>$110,00</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Massagem Relaxante</span>
-                                        <span>60 min</span>
+                                        <span>Maquiagem Completa</span>
+                                        <span>60 min.</span>
                                         <span>$120,00</span>
                                     </li>
+
                                     <li class="d-flex">
-                                        <span>Massagem Ayurvédica</span>
-                                        <span>60 min</span>
-                                        <span>$145,00</span>
+                                        <span>Maquiagem para Festas</span>
+                                        <span>45 min.</span>
+                                        <span>$100,00</span>
                                     </li>
+
                                     <li class="d-flex">
-                                        <span>Massagem com Pedras Quentes</span>
-                                        <span>60 min</span>
+                                        <span>Maquiagem para Noivas</span>
+                                        <span>90 min.</span>
+                                        <span>$200,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Maquiagem para o Dia a Dia</span>
+                                        <span>30 min.</span>
+                                        <span>$70,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Consultoria de Maquiagem</span>
+                                        <span>60 min.</span>
+                                        <span>$80,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Aplicação de Cílios Postiços</span>
+                                        <span>15 min.</span>
+                                        <span>$30,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Maquiagem Artística</span>
+                                        <span>60 min.</span>
                                         <span>$150,00</span>
                                     </li>
-                                    <li class="d-flex">
-                                        <span>Massagem Shiatsu</span>
-                                        <span>60 min</span>
-                                        <span>$160,00</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Massagem Terapêutica</span>
-                                        <span>60 min</span>
-                                        <span>$180,00</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Drenagem Linfática</span>
-                                        <span>60 min</span>
-                                        <span>$190,00</span>
-                                    </li>
                                 </ul>
-
                             </div>
                         </div>
                     </div>
-                    {{--
-                    <div class="carde">
-                        <div class="carde-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button
-                                    class="d-flex align-items-center justify-content-between botao botao-link collapsed"
-                                    data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                    aria-controls="collapseTwo">
-                                    Terapias de Massagem
-                                    <i class="fa" aria-hidden="true"></i>
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                            data-parent="#accordion">
-                            <div class="carde-body text-left">
-                                <ul>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Faciais</span>
-                                        <span>40 min.</span>
-                                        <span>$10</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos de Unhas</span>
-                                        <span>30 min.</span>
-                                        <span>$20</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Médicos</span>
-                                        <span>60 min.</span>
-                                        <span>$10</span>
-                                    </li>
-                                    <li class="d-flex">
-                                        <span>Tratamentos Capilares</span>
-                                        <span>30 min.</span>
-                                        <span>$30</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
-
-
             </div>
 
             <div class="col-lg-4">
@@ -322,10 +258,8 @@
 
                                 {{-- quinto card --}}
 
-                                <h3>Maquiagem para Iniciantes: Guia Básico</h3>
-                                <p>Descubra o guia básico de maquiagem para iniciantes. Aprenda sobre os produtos
-                                    essenciais, técnicas de aplicação e dicas para criar um visual simples e bonito.</p>
-
+                                <h3>Maquiagem para Diferentes Formatos de Rosto</h3>
+                                <p>Saiba como adaptar sua maquiagem para diferentes formatos de rosto. Descubra técnicas que realçam suas características únicas e destacam sua beleza natural.</p>
                             </div>
                         </div>
                     </div>
@@ -340,11 +274,8 @@
 
 
 
-                                <h3>Maquiagem para Noivas: Tutorial Completo</h3>
-                                <p>Descubra como criar uma maquiagem deslumbrante para o seu dia especial. Aprenda
-                                    técnicas de maquiagem para noivas que garantem um visual impecável e duradouro
-                                    durante todo o casamento.</p>
-
+                                <h3>Maquiagem para Pele Oleosa</h3>
+                                <p>Descubra produtos e técnicas ideais para maquiar peles oleosas. Aprenda a controlar o brilho e garantir que sua maquiagem dure o dia todo.</p>
                             </div>
                         </div>
                     </div>
@@ -357,12 +288,8 @@
 
                                 {{-- setimo card --}}
 
-                                <h3>Maquiagem Masculina: Dicas Essenciais</h3>
-                                <p>Aprenda sobre maquiagem masculina e descubra como realçar sua aparência natural com
-                                    produtos discretos e técnicas sutis. Descubra dicas de correção de imperfeições,
-                                    cuidados com a pele e aplicação de produtos para um visual elegante e confiante.</p>
-
-
+                                <h3>Maquiagem para Olhos: Dicas e Truques</h3>
+                                <p>Aprenda técnicas para destacar seus olhos com a maquiagem certa. Desde sombras esfumadas até delineados precisos, descubra como realçar a beleza dos seus olhos.</p>
                             </div>
                         </div>
                     </div>
@@ -374,14 +301,9 @@
                             <div class="text mt-2">
 
                                 {{-- oitavo card --}}
-                                <h3>Maquiagem Sustentável: Alternativas Amigáveis ao Meio Ambiente</h3>
-                                <p>Explore opções de maquiagem sustentável e descubra marcas e produtos que priorizam
-                                    ingredientes naturais e embalagens eco-friendly. Descubra como fazer escolhas
-                                    conscientes para uma rotina de beleza mais sustentável.</p>
 
-
-
-
+                                <h3>Maquiagem para Lábios: Cuidados e Estilo</h3>
+                                <p>Descubra como cuidar dos seus lábios e escolher os melhores produtos para destacá-los. Desde batons matte até glosses brilhantes, encontre o estilo perfeito para você.</p>
                             </div>
                         </div>
                     </div>

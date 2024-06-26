@@ -1756,7 +1756,7 @@ PopUp
 
 .btn {
   padding: 10px 20px;
-  background: #59848e;
+  /* background: #59848e; */
   color: #fff;
   transition: all .3s;
 }
@@ -1767,7 +1767,7 @@ PopUp
 }
 
 .btn:hover {
-  background: #E4E4E2;
+  /* background: #E4E4E2; */
 }
 
 .btn_red:hover {

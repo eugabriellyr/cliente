@@ -1787,8 +1787,8 @@ textarea.is-invalid {
   visibility: hidden;
 }
 .mobile-menu-wrapper .mobile-logo {
-  padding-bottom: 30px;
-  padding-top: 40px;
+  /* padding-bottom: 30px;
+  padding-top: 40px; */
   display: block;
   text-align: center;
   background-color: var(--smoke-color2);
@@ -1821,7 +1821,7 @@ textarea.is-invalid {
   width: 100%;
   max-width: 310px;
   background-color: #fff;
-  border-right: 3px solid #fec195;
+  border-right: 3px solid #59848e;
   height: 100%;
   position: relative;
   left: -110%;
@@ -1861,15 +1861,17 @@ textarea.is-invalid {
 .mobile-menu ul li a {
   display: block;
   position: relative;
-  padding: 12px 0;
+  padding: 20px 0 0;
   line-height: 1.4;
   font-size: 16px;
   text-transform: capitalize;
-  color: var(--title-color);
-  padding-left: 18px;
+  color: #000;
+}
+.fa-saida:before {
+    content: "\f08b"; /* Código unicode para o ícone de saída */
 }
 .mobile-menu ul li a:before {
-  content: "\f105";
+    color: #fec195;
   font-family: var(--icon-font);
   position: absolute;
   left: 0;
@@ -2039,7 +2041,7 @@ textarea.is-invalid {
   top: 0;
   width: 97%;
   height: 100%;
-  background: #fec195;
+  background: #fec195 !important;
   border: none;
   z-index: -1;
   transition: 0.4s;
@@ -2151,8 +2153,10 @@ textarea.is-invalid {
   padding: 19.5px 21px 19.5px 25px;
 }
 .btn.btn-border3:before {
-  background: transparent;
-  border: 1px solid var(--white-color);
+    background-image: url('assets/casa.png') !important;
+    background-size: contain !important; /* para ajustar o tamanho do ícone dentro do elemento */
+    background-repeat: no-repeat !important; /* para garantir que o ícone não seja repetido */
+    background-position: center !important; /* para centralizar o ícone no elemento */
 }
 .btn.btn-border3:active, .btn.btn-border3:focus, .btn.btn-border3:hover {
   color: #fec195;
@@ -2174,7 +2178,8 @@ textarea.is-invalid {
   background: var(--title-color);
 }
 .btn.style-r0:before {
-  border-radius: 0;
+  border-radius: 16px;
+  background-image: url('assets/casa.png');
 }
 .btn.btn-fw {
   width: 100%;
@@ -5107,7 +5112,7 @@ ul.wp-block-latest-posts li:last-child {
 .header-layout2 .sticky-wrapper.sticky {
   top: -50px;
   position: fixed;
-  background: rgba(28, 28, 28, 0.9);
+  background: #59848e1c;
   backdrop-filter: blur(10px);
 }
 .header-layout2 .sticky-wrapper.sticky .header-button,

@@ -13,11 +13,18 @@ class Cliente extends Model
     protected $primaryKey = 'idCliente';
 
     protected $fillable = [
-        'nomeCliente', 'emailCliente',
+        'nomeCliente', 'emailCliente', 'senhaCliente'
     ];
 
-    public function usuario(){
+    public function usuario()
+    {
         return $this->morphOne(Usuario::class, 'tipo_usuario');
     }
 
+    public function agendamentos()
+    {
+        return $this->hasMany(Agendamento::class, 'idCliente', 'idCliente');
+    }
+
 }
+
