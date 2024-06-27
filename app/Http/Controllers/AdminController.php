@@ -192,123 +192,117 @@ class AdminController extends Controller
 
 
     // criar funcionario
-  // criar funcionario
-public function createFunc()
-{
-    // Verifica se o usuário está autenticado
-    $idFuncionario = session('id');
+    public function createFunc()
+    {
+        // Verifica se o usuário está autenticado
+        $idFuncionario = session('id');
 
-    // Busca o funcionário no banco de dados
-    $func = Funcionario::find($idFuncionario);
+        // Busca o funcionário no banco de dados
+        $func = Funcionario::find($idFuncionario);
 
-    // Se o funcionário não for encontrado, retorna erro 404
-    if (!$func) {
-        abort(404, 'Funcionario nao encontrado');
+        // Se o funcionário não for encontrado, retorna erro 404
+        if (!$func) {
+            abort(404, 'Funcionario nao encontrado');
+        }
+
+        // Retorna a view com os dados do funcionário
+        return view('site.dashboard.admin.func.create', compact('func'));
     }
 
-    // Retorna a view com os dados do funcionário
-    return view('site.dashboard.admin.func.create', compact('func'));
-}
+    // CADASTRAR FUNCIONARIO NOVO
+    public function cadFunc(Request $request)
+    {
+        $request->validate([
+            'nomeFuncionario' => 'required|string|max:100',
+            'emailFuncionario' => 'required|string|max:100',
+            'senhaFuncionario' => 'required|string|max:20',
+            'telefoneFuncionario' => 'required|string|max:20',
+            'salarioFuncionario' => 'required|numeric',
+            'enderecoFuncionario' => 'required|string|max:100',
+            'nivelFuncionario' => 'required|string|max:100',
+            'cargoFuncionario' => 'required|string|max:30',
+            'statusFuncionario' => 'required|string|max:20',
+            'dataNascFuncionario' => 'required|date',
+            'idEspecialidade' => 'required|integer',
+            'fotoFuncionario' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Novo campo para foto
+        ]);
 
-// CADASTRAR FUNCIONARIO NOVO// CADASTRAR FUNCIONARIO NOVO
-public function cadFunc(Request $request)
-{
-    $request->validate([
-        'nomeFuncionario' => 'required|string|max:100',
-        'emailFuncionario' => 'required|string|max:100|unique:tblusuarios,emailUsuario', // Garantir que o email seja único
-        'senhaFuncionario' => 'required|string|max:20',
-        'telefoneFuncionario' => 'required|string|max:20',
-        'salarioFuncionario' => 'required|numeric',
-        'enderecoFuncionario' => 'required|string|max:100',
-        'nivelFuncionario' => 'required|string|max:100',
-        'cargoFuncionario' => 'required|string|max:30',
-        'statusFuncionario' => 'required|string|max:20',
-        'dataNascFuncionario' => 'required|date',
-        'idEspecialidade' => 'required|integer',
-        'fotoFuncionario' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Novo campo para foto
-    ]);
+        // Criação do funcionário
+        $func = new Funcionario();
+        $func->nomeFuncionario = $request->input('nomeFuncionario');
+        $func->emailFuncionario = $request->input('emailFuncionario');
+        $func->senhaFuncionario = $request->input('senhaFuncionario');
+        $func->telefoneFuncionario = $request->input('telefoneFuncionario');
+        $func->salarioFuncionario = $request->input('salarioFuncionario');
+        $func->enderecoFuncionario = $request->input('enderecoFuncionario');
+        $func->nivelFuncionario = $request->input('nivelFuncionario');
+        $func->cargoFuncionario = $request->input('cargoFuncionario');
+        $func->statusFuncionario = $request->input('statusFuncionario');
+        $func->dataNascFuncionario = $request->input('dataNascFuncionario');
+        $func->idEspecialidade = $request->input('idEspecialidade');
 
-    // Criação do funcionário
-    $func = new Funcionario();
-    $func->nomeFuncionario = $request->input('nomeFuncionario');
-    $func->emailFuncionario = $request->input('emailFuncionario');
-    $func->senhaFuncionario = $request->input('senhaFuncionario');
-    $func->telefoneFuncionario = $request->input('telefoneFuncionario');
-    $func->salarioFuncionario = $request->input('salarioFuncionario');
-    $func->enderecoFuncionario = $request->input('enderecoFuncionario');
-    $func->nivelFuncionario = $request->input('nivelFuncionario');
-    $func->cargoFuncionario = $request->input('cargoFuncionario');
-    $func->statusFuncionario = $request->input('statusFuncionario');
-    $func->dataNascFuncionario = $request->input('dataNascFuncionario');
-    $func->idEspecialidade = $request->input('idEspecialidade');
+        // Se uma foto for enviada, salva-a
+        if ($request->hasFile('fotoFuncionario')) {
+            $image = $request->file('fotoFuncionario');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/assets/img-user');
+            $image->move($destinationPath, $name);
+            $func->fotoFuncionario = $name;
+        }
 
-    // Se uma foto for enviada, salva-a
-    if ($request->hasFile('fotoFuncionario')) {
-        $image = $request->file('fotoFuncionario');
-        $name = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/assets/img-user');
-        $image->move($destinationPath, $name);
-        $func->fotoFuncionario = $name;
-    } else {
-        $func->fotoFuncionario = null;
-    }
+        $func->save();
 
-    $func->save();
+        // Criação do usuário
+        $usuario = new Usuario();
+        $usuario->nomeUsuario = $request->input('nomeFuncionario'); // Ajuste de 'name' para 'nomeUsuario'
+        $usuario->emailUsuario = $request->input('emailFuncionario'); // Ajuste de 'email' para 'emailUsuario'
+        $usuario->senhaUsuario = $request->input('senhaFuncionario'); // Ajuste de 'password' para 'senhaUsuario' sem criptografia
+        $usuario->tipoUsuario_id = 1; // Definindo um valor padrão para o tipo de usuário
+        $usuario->tipoUsuario_type = 'funcionario'; // Define o tipo de usuário como 'funcionario'
+        $usuario->statusUsuario = 'pendente'; // Define o status do usuário como 'pendente'
 
-    // Criação do usuário correspondente
-    $usuario = new Usuario();
-    $usuario->nomeUsuario = $request->input('nomeFuncionario');
-    $usuario->senhaUsuario = $request->input('senhaFuncionario');
-    $usuario->emailUsuario = $request->input('emailFuncionario');
-    $usuario->tipoUsuario_id = $func->idFuncionario;
-    $usuario->tipoUsuario_type = 'funcionario'; // Atribuindo o tipoUsuario corretamente
-    $usuario->save();
-
-    return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário cadastrado com sucesso!');
-}
-
-// atualizar e desativar funcionario
-public function editFuncionario($id)
-{
-    $func = Funcionario::findOrFail($id);
-    return view('site.dashboard.admin.func.editar', compact('func'));
-}
-
-public function updateFuncionario(Request $request, $id)
-{
-    $request->validate([
-        'nomeFuncionario' => 'required|string|max:255',
-        'dataNascFuncionario' => 'required|date',
-        'emailFuncionario' => 'required|string|email|max:255|unique:tblusuarios,emailUsuario,' . $id . ',idFuncionario', // Garantir que o email seja único, exceto para o funcionário atual
-        'telefoneFuncionario' => 'required|string|max:15',
-        'enderecoFuncionario' => 'required|string|max:255',
-        'salarioFuncionario' => 'required|numeric',
-        'cargoFuncionario' => 'required|string|max:255',
-    ]);
-
-    $func = Funcionario::findOrFail($id);
-    $func->update($request->all());
-
-    // Atualizar o usuário correspondente
-    $usuario = Usuario::where('tipoUsuario_id', $func->idFuncionario)->where('tipoUsuario_type', 'funcionario')->first();
-    if ($usuario) {
-        $usuario->nomeUsuario = $request->input('nomeFuncionario');
-        $usuario->emailUsuario = $request->input('emailFuncionario');
-        $usuario->senhaUsuario = $request->input('senhaFuncionario'); // Atualizar a senha se necessário
         $usuario->save();
+
+        return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário e usuário cadastrados com sucesso!');
     }
 
-    return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário atualizado com sucesso!');
-}
 
-public function desativarFuncionario($id)
-{
-    $funcionario = Funcionario::findOrFail($id);
-    $funcionario->statusFuncionario = 'INATIVO';
-    $funcionario->save();
+    // atualizar e desativar funcionario
 
-    return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário desativado com sucesso!');
-}
+    public function editFuncionario($id)
+    {
+        $func = Funcionario::findOrFail($id);
+        return view('site.dashboard.admin.func.editar', compact('func'));
+    }
+
+
+    public function updateFuncionario(Request $request, $id)
+    {
+        $request->validate([
+            'nomeFuncionario' => 'required|string|max:255',
+            'dataNascFuncionario' => 'required|date',
+            'emailFuncionario' => 'required|string|email|max:255',
+            'telefoneFuncionario' => 'required|string|max:15',
+            'enderecoFuncionario' => 'required|string|max:255',
+            'salarioFuncionario' => 'required|numeric',
+            'cargoFuncionario' => 'required|string|max:255',
+        ]);
+
+        $func = Funcionario::findOrFail($id);
+        $func->update($request->all());
+
+        return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário atualizado com sucesso!');
+    }
+
+
+    public function desativarFuncionario($id)
+    {
+        $funcionario = Funcionario::findOrFail($id);
+        $funcionario->statusFuncionario = 'INATIVO';
+        $funcionario->save();
+
+        return redirect()->route('dashboard.admin.func.index')->with('success', 'Funcionário desativado com sucesso!');
+    }
 
 
 

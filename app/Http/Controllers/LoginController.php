@@ -114,4 +114,3 @@ class LoginController extends Controller
         return back()->withErrors(['emailUsuario' => 'Erro desconhecido de autenticação']);
     }
 }
- 

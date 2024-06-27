@@ -95,7 +95,15 @@
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
-                                <span href="{{ route('agendamento') }}" class="hide-menu">Agendamento</span>
+                                <span href="#" class="hide-menu">Home</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('agendamento') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Agendamentos</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -118,6 +126,7 @@
                                 <span class="hide-menu">Meus Agendamentos</span>
                             </a>
                         </li>
+
                         {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
                             <span>

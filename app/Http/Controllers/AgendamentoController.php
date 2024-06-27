@@ -146,11 +146,12 @@ class AgendamentoController extends Controller
             ->where('dataAgendamento', $request->input('data'))
             ->where('data_hora_inicial', $request->input('horario'))
             ->first();
-
             if ($existentes) {
+                if ($request->wantsJson()) {
+                    return response()->json(['error' => 'O cliente já possui um agendamento para esse horário.'], 409);
+                }
                 return back()->with('error', 'O cliente já possui um agendamento para esse horário.');
             }
-
 
         list($horas, $minutos) = explode(':', $servico->duracaoServico);
         $horaInicial = Carbon::createFromFormat('H:i', $request->input('horario'));

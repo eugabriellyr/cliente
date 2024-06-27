@@ -25,6 +25,7 @@ class ServicoController extends Controller
     public function servicoSobrancelha(){
         return view('site.servicos.sobrancelha');
     }
+
     public function servicoCilios(){
         return view('site.servicos.cilio');
     }

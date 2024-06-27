@@ -34,6 +34,7 @@ Route::get('/servico', [ServicoController::class, 'index'])->name('servico');
 Route::get('/cadastrar-se', [CadastroController::class, 'index'])->name('cadastroCliente');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/dashboard/admin', [AdminController::class, 'index'])->name('dashboard.admin');
+
 route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
@@ -63,6 +64,10 @@ Route::get('/servico/depilacao', [ServicoController::class, 'servicoDepilacao'])
 Route::get('/servico/sobrancelhas', [ServicoController::class, 'servicoSobrancelha'])->name('servicoSobrancelhas');
 
 
+
+
+
+
 // Rotas contato enviar/salvar
 route::post('/contato/enviar', [ContatoController::class, 'salvarNoBanco'])->name('contato.enviar');
 route::post('/contatos/newsLetter', [ContatoController::class, 'salvarNoemail'])->name('newsletter.salvar');
@@ -72,8 +77,6 @@ route::post('/contatos/newsLetter', [ContatoController::class, 'salvarNoemail'])
 // Rotas com middleware
 // Dashboard cliente
 Route::middleware(['autenticacao:cliente'])->group(function () {
-
-    // dash cris
     // perfil pessoal
     Route::get('/cliente/perfil', [ClienteController::class, 'perfilCliente'])->name('dashboard.clientes');
     Route::post('/cliente/atualizar', [ClienteController::class, 'updateCliente'])->name('cliente.update');
@@ -94,7 +97,6 @@ Route::middleware(['autenticacao:cliente'])->group(function () {
 
     Route::get('/servicos', [ServicoController::class, 'indexServico']);
 });
-
 
 // dash da cris
 Route::middleware(['autenticacao:Administrador'])->group(function () {
@@ -129,8 +131,26 @@ Route::middleware(['autenticacao:Administrador'])->group(function () {
 });
 
 
+
 Route::middleware(['autenticacao:Esteticista'])->group(function () {
     Route::get('/esteticista', [EsteticaController::class, 'index'])->name('dashboard.funcionarios.estetica');
+
+
+    // dash da cris
+     // editar/atualizar o perfil pessoal
+     Route::get('/esteticista/perfil', [EsteticaController::class, 'Fperfil'])->name('dashboard.funcionarios.fperfil');
+    Route::post('/esteticista/update', [EsteticaController::class, 'FuncionarioUpdate'])->name('dashboard.funcionarios.updateF');
+
+
+      // editar/atualizar o horario do serviço
+      Route::get('/esteticista/{id}/editarH', [EsteticaController::class, 'editarH'])->name('dashboard.funcionarios.heditar');
+      Route::post('/esteticista/{id}/updateH', [EsteticaController::class, 'updateH'])->name('dashboard.funcionarios.updateH');
+
+      // listar agendamentos
+      Route::get('/esteticista/agendamentos', [EsteticaController::class, 'meusAgendamentos'])->name('dashboard.funcionarios.funcagenda');
+
+
+
 });
 
 // Rota de login de usuario
