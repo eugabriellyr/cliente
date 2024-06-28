@@ -42,7 +42,7 @@
                             <th>Status</th>
                             <th>Nome do Cliente</th>
                             <th>Nome do Serviço</th>
-                            <th>Ações</th>
+                            {{-- <th>Ações</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -55,9 +55,9 @@
                             <td>{{ $agendamento->cliente->nomeCliente }}</td>
                             <td>{{ $agendamento->servico->nomeServico }}</td>
 
-                            <td>
+                            {{-- <td>
                                 <a href="{{ route('dashboard.funcionarios.heditar', $agendamento->idAgendamento) }}" class="btn btn-editar btn-sm">Editar</a>
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>

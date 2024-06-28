@@ -11,12 +11,18 @@ class HorariosDispo extends Model
 
     protected $table = 'tblhorarios_disponiveis';
 
-    protected $primaryKey = 'id ';
+    protected $primaryKey = 'id';
+
+    public $timestamps = false;  // Desativando timestamps automáticas
 
     protected $fillable = [
-        'idFuncionario ',
-        'data_hora_inicial ',
-        'data_hora_final ',
+        'idFuncionario',
+        'data_hora_inicial',
+        'data_hora_final',
     ];
 
+    public function funcionario()
+    {
+        return $this->belongsTo(Funcionario::class, 'idFuncionario');
+    }
 }

@@ -3,6 +3,8 @@
 @section('title', 'Serviço - Le Flower')
 
 @section('conteudo')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
     <title>Energen - Free Bootstrap 4 Template by Colorlib</title>
@@ -114,16 +116,12 @@
             <div class="col-lg-4">
                 <div class="linha no-gutters">
                     <div class="col-md-6 d-flex align-items-stretch">
-                        <div
-                            class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
+                        <div class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                {{-- <span class="flaticon-candle"></span> --}}
+                                <i class="fas fa-palette" style="font-size: 2rem;"></i> <!-- Ícone de tendências em maquiagem -->
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
-
-                                {{-- primeiro card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/make1.png" alt="">
                                 <h3>Tendências em Maquiagem</h3>
                                 <p>Explore as últimas tendências em maquiagem para diversas ocasiões. Descubra looks que estão em alta neste ano, desde maquiagens naturais até looks glamourosos para festas.</p>
                             </div>
@@ -132,13 +130,10 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                {{-- <span class="flaticon-spa-1"></span> --}}
+                                <i class="fas fa-spa" style="font-size: 2rem;"></i> <!-- Ícone de cuidados com a pele -->
                             </div>
                             <div class="text mt-2">
-
-                                {{-- segundo card --}}
-
-
+                                <img style="width: 29%" src="../assets/img-gaby/make2.png" alt="">
                                 <h3>Cuidados com a Pele para Maquiagem</h3>
                                 <p>Aprenda dicas e truques para preparar a pele antes da maquiagem. Desde a limpeza adequada até a hidratação, descubra como garantir que sua maquiagem dure mais e tenha um acabamento impecável.</p>
                             </div>
@@ -147,13 +142,10 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-right-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                {{-- <span class="flaticon-massage"></span> --}}
+                                <i class="fas fa-star" style="font-size: 2rem;"></i> <!-- Ícone de maquiagem para eventos -->
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
-
-                                {{-- terceiro card --}}
-
+                                <img style="width: 29%" src="../assets/img-gaby/make3.png" alt="">
                                 <h3>Maquiagem para Eventos Especiais</h3>
                                 <p>Descubra técnicas de maquiagem para eventos especiais como casamentos, formaturas e festas. Aprenda a criar looks que se destacam e duram a noite toda.</p>
                             </div>
@@ -162,14 +154,10 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                {{-- <span class="flaticon-lotus"></span> --}}
+                                <i class="fas fa-sun" style="font-size: 2rem;"></i> <!-- Ícone de maquiagem para o dia a dia -->
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
-
-                                {{-- quarto card --}}
-
-
+                                <img style="width: 25%" src="../assets/img-gaby/make4.png" alt="">
                                 <h3>Maquiagem para o Dia a Dia</h3>
                                 <p>Aprenda como fazer uma maquiagem rápida e prática para o dia a dia. Descubra produtos essenciais e técnicas para um look natural e duradouro.</p>
                             </div>
@@ -177,6 +165,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 d-flex align-items-stretch" style="  flex-direction: column;">
                 <div id="accordion" class="myaccordion w-100 text-center py-5 px-1 px-md-4">
                     <div>
@@ -252,12 +241,12 @@
                         <div
                             class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-beauty-treatment"></span>
+
                             </div>
                             <div class="text mt-2">
 
                                 {{-- quinto card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/make5.png" alt="">
                                 <h3>Maquiagem para Diferentes Formatos de Rosto</h3>
                                 <p>Saiba como adaptar sua maquiagem para diferentes formatos de rosto. Descubra técnicas que realçam suas características únicas e destacam sua beleza natural.</p>
                             </div>
@@ -266,14 +255,14 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-relax"></span>
+
                             </div>
                             <div class="text mt-2">
 
                                 {{-- sexto card --}}
 
 
-
+                                <img style="width: 25%" src="../assets/img-gaby/make6.png" alt="">
                                 <h3>Maquiagem para Pele Oleosa</h3>
                                 <p>Descubra produtos e técnicas ideais para maquiar peles oleosas. Aprenda a controlar o brilho e garantir que sua maquiagem dure o dia todo.</p>
                             </div>
@@ -282,12 +271,11 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-right-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-massage"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- setimo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/make7.png" alt="">
                                 <h3>Maquiagem para Olhos: Dicas e Truques</h3>
                                 <p>Aprenda técnicas para destacar seus olhos com a maquiagem certa. Desde sombras esfumadas até delineados precisos, descubra como realçar a beleza dos seus olhos.</p>
                             </div>
@@ -296,12 +284,11 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-rose"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- oitavo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/make8.png" alt="">
                                 <h3>Maquiagem para Lábios: Cuidados e Estilo</h3>
                                 <p>Descubra como cuidar dos seus lábios e escolher os melhores produtos para destacá-los. Desde batons matte até glosses brilhantes, encontre o estilo perfeito para você.</p>
                             </div>

@@ -69,6 +69,12 @@
 
             }
         }
+
+        @media (max-width: 1020px) {
+ .hero-title.text-white.slideinup.slider-animated{
+    margin-bottom: 190px
+ }
+}
     </style>
 
 
@@ -120,7 +126,7 @@
                                 {{-- <span class="flaticon-candle"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo1.png" alt="">
 
                                 {{-- primeiro card --}}
 
@@ -140,7 +146,7 @@
 
                                 {{-- segundo card --}}
 
-
+                                <img style="width: 29%" src="../assets/img-gaby/cabelo2.png" alt="">
                                 <h3>Cuidados Diários para um Cabelo Saudável</h3>
                                 <p>Aprenda dicas e truques para manter seu cabelo saudável e vibrante no dia a dia.
                                     Desde a escolha dos produtos certos até a técnica de lavagem adequada, descubra como
@@ -155,7 +161,7 @@
                                 {{-- <span class="flaticon-massage"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
+                                <img style="width: 29%" src="../assets/img-gaby/cabelo3.png" alt="">
 
                                 {{-- terceiro card --}}
 
@@ -173,7 +179,7 @@
                                 {{-- <span class="flaticon-lotus"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo4.png" alt="">
 
                                 {{-- quarto card --}}
 
@@ -211,53 +217,54 @@
                             <div class="carde-body text-left">
                                 <ul>
                                     <li class="d-flex">
-                                        <span>Limpeza Facial Profunda</span>
+                                        <span>Corte de Cabelo Feminino</span>
+                                        <span>45 min.</span>
+                                        <span>$70,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Tratamento de Hidratação Profunda</span>
                                         <span>30 min.</span>
-                                        <span>$60,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Tratamento de Hidratação Intensa</span>
-                                        <span>35 min.</span>
-                                        <span>$60,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Pacote Facial Completo</span>
-                                        <span>60 min.</span>
-                                        <span>$110,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Máscaras Faciais de Gel</span>
-                                        <span>1 hora</span>
-                                        <span>$125,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Peeling Facial Renovador</span>
-                                        <span>40 min</span>
-                                        <span>$65,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Tratamento Facial Anti-Idade</span>
-                                        <span>1 e 30 min</span>
-                                        <span>$150,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Design de Sobrancelhas e Cílios</span>
-                                        <span>35 min</span>
                                         <span>$50,00</span>
                                     </li>
 
                                     <li class="d-flex">
-                                        <span> Esmaltação em Gel</span>
-                                        <span>50 min</span>
-                                        <span>$80,00</span>
+                                        <span>Coloração Completa</span>
+                                        <span>90 min.</span>
+                                        <span>$120,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Mechas e Luzes</span>
+                                        <span>2 horas</span>
+                                        <span>$150,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Escova Progressiva</span>
+                                        <span>2 horas</span>
+                                        <span>$180,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Corte de Cabelo Masculino</span>
+                                        <span>30 min.</span>
+                                        <span>$40,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Tratamento de Reconstrução Capilar</span>
+                                        <span>60 min.</span>
+                                        <span>$90,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Penteado para Eventos</span>
+                                        <span>90 min.</span>
+                                        <span>$100,00</span>
                                     </li>
                                 </ul>
+
                             </div>
                         </div>
                     </div>
@@ -311,12 +318,12 @@
                         <div
                             class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-beauty-treatment"></span>
+                                >
                             </div>
                             <div class="text mt-2">
 
                                 {{-- quinto card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo5.png" alt="">
                                 <h3>Corte de Cabelo para Rostos Diferentes</h3>
                                 <p>Saiba como escolher o corte de cabelo perfeito para o formato do seu rosto. Descubra
                                     quais estilos complementam as características únicas do seu rosto e realçam sua
@@ -327,14 +334,14 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-relax"></span>
+
                             </div>
                             <div class="text mt-2">
 
                                 {{-- sexto card --}}
 
 
-
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo6.png" alt="">
                                 <h3>Cabelo Liso: Cuidados e Estilização</h3>
                                 <p>Se você tem cabelo liso, aprenda dicas e truques para mantê-lo com uma aparência
                                     saudável e cheia de vida. Descubra produtos e técnicas para adicionar volume, brilho
@@ -345,12 +352,12 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-right-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-massage"></span>
+
                             </div>
                             <div class="text mt-2">
 
                                 {{-- setimo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo7.png" alt="">
                                 <h3>Cabelo Curto: Versatilidade e Estilo</h3>
                                 <p>Descubra a versatilidade e o estilo dos cortes de cabelo curto. Desde pixies ousados
                                     até bobs elegantes, explore uma variedade de estilos que mostram que cabelo curto
@@ -362,12 +369,12 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-rose"></span>
+
                             </div>
                             <div class="text mt-2">
 
                                 {{-- oitavo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/cabelo8.png" alt="">
                                 <h3>Cabelo Longo: Cuidados e Inspirações</h3>
                                 <p>Se você tem cabelo longo, aprenda dicas e truques para manter suas madeixas saudáveis
                                     e bonitas. Descubra técnicas de cuidado, penteados elegantes e inspirações para

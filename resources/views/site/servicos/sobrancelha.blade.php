@@ -93,7 +93,7 @@
                     {{-- <img style="width:70%;" class="logoVideo" src="{{ asset('assets/logo4.png') }}" alt="Logo"> --}}
                     <div>
                         <h1 class="hero-title text-white" data-ani="slideinup" data-ani-delay="0.1s"
-                            style="font-size: 120px;">Massagem</h1>
+                            style="font-size: 120px;">Sobrancelha</h1>
                     </div>
 
                 </div>
@@ -108,7 +108,7 @@
         <div class="linha justify-content-center mb-5 pb-3">
             <div class="otaria heading-section ftco-animate text-center">
                 <h3 class="subheading">Serviços</h3>
-                <h2 class="mb-1">Sombrancelha</h2>
+                <h2 class="mb-1">Sobrancelha</h2>
             </div>
         </div>z
         <div class="linha align-items-center">
@@ -121,7 +121,7 @@
                                 {{-- <span class="flaticon-candle"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/so1.png" alt="">
 
                                 {{-- primeiro card --}}
                                 <h3>Sobrancelhas Perfeitas: Guia de Modelagem</h3>
@@ -141,7 +141,7 @@
 
                                 {{-- segundo card --}}
 
-
+                                <img style="width: 29%" src="../assets/img-gaby/so2.png" alt="">
                                 <h3>Preenchimento de Sobrancelhas: Dicas e Truques</h3>
                                 <p>Descubra como preencher suas sobrancelhas de forma natural e precisa. Aprenda
                                     técnicas de preenchimento com lápis, sombra e gel para obter sobrancelhas definidas
@@ -158,7 +158,7 @@
                                 {{-- <span class="flaticon-massage"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
+                                <img style="width: 29%" src="../assets/img-gaby/so3.png" alt="">
 
                                 {{-- terceiro card --}}
 
@@ -177,7 +177,7 @@
                                 {{-- <span class="flaticon-lotus"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/so4.png" alt="">
 
                                 {{-- quarto card --}}
 
@@ -218,53 +218,54 @@
                             <div class="carde-body text-left">
                                 <ul>
                                     <li class="d-flex">
-                                        <span>Limpeza Facial Profunda</span>
+                                        <span>Design de Sobrancelhas</span>
                                         <span>30 min.</span>
-                                        <span>$60,00</span>
+                                        <span>$40,00</span>
                                     </li>
 
                                     <li class="d-flex">
-                                        <span>Tratamento de Hidratação Intensa</span>
+                                        <span>Design de Sobrancelhas com Henna</span>
                                         <span>35 min.</span>
-                                        <span>$60,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Pacote Facial Completo</span>
-                                        <span>60 min.</span>
-                                        <span>$110,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Máscaras Faciais de Gel</span>
-                                        <span>1 hora</span>
-                                        <span>$125,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Peeling Facial Renovador</span>
-                                        <span>40 min</span>
-                                        <span>$65,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Tratamento Facial Anti-Idade</span>
-                                        <span>1 e 30 min</span>
-                                        <span>$150,00</span>
-                                    </li>
-
-                                    <li class="d-flex">
-                                        <span>Design de Sobrancelhas e Cílios</span>
-                                        <span>35 min</span>
                                         <span>$50,00</span>
                                     </li>
 
                                     <li class="d-flex">
-                                        <span> Esmaltação em Gel</span>
-                                        <span>50 min</span>
+                                        <span>Micropigmentação de Sobrancelhas</span>
+                                        <span>90 min.</span>
+                                        <span>$200,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Lifting de Sobrancelhas</span>
+                                        <span>1 hora</span>
                                         <span>$80,00</span>
                                     </li>
+
+                                    <li class="d-flex">
+                                        <span>Tratamento de Fortalecimento para Sobrancelhas</span>
+                                        <span>40 min</span>
+                                        <span>$60,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Depilação de Sobrancelhas com Linha</span>
+                                        <span>20 min.</span>
+                                        <span>$30,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Retoque de Micropigmentação</span>
+                                        <span>60 min.</span>
+                                        <span>$100,00</span>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        <span>Tintura de Sobrancelhas</span>
+                                        <span>30 min.</span>
+                                        <span>$40,00</span>
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
                     </div>
@@ -318,10 +319,9 @@
                         <div
                             class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-beauty-treatment"></span>
                             </div>
                             <div class="text mt-2">
-
+                                <img style="width: 25%" src="../assets/img-gaby/so5.png" alt="">
                                 {{-- quinto card --}}
 
                                 <h3>Sobrancelhas Arqueadas: Como Criar o Look</h3>
@@ -335,10 +335,9 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-relax"></span>
                             </div>
                             <div class="text mt-2">
-
+                                <img style="width: 25%" src="../assets/img-gaby/so6.png" alt="">
                                 {{-- sexto card --}}
 
 
@@ -354,10 +353,9 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-right-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-massage"></span>
                             </div>
                             <div class="text mt-2">
-
+                                <img style="width: 25%" src="../assets/img-gaby/so7.png" alt="">
                                 {{-- setimo card --}}
 
                                 <h3>Sobrancelhas Masculinas: Cuidados e Modelagem</h3>
@@ -373,10 +371,9 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-rose"></span>
                             </div>
                             <div class="text mt-2">
-
+                                <img style="width: 25%" src="../assets/img-gaby/so8.png" alt="">
                                 {{-- oitavo card --}}
 
                                 <h3>Manutenção de Sobrancelhas em Casa: Passo a Passo</h3>

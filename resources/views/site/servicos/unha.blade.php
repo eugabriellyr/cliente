@@ -133,6 +133,7 @@
                                 {{-- <span class="flaticon-spa-1"></span> --}}
                             </div>
                             <div class="text mt-2">
+                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
                                 <h3>Unhas de Gel</h3>
                                 <p>Unhas de gel são uma técnica duradoura que oferece um acabamento natural e
                                     resistente. Elas são aplicadas sobre as unhas naturais e </p>

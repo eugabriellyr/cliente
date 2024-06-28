@@ -1087,19 +1087,19 @@ Services Style
 }
 
 .seven-service .iconn {
-    background-image: url(../images/barba1.png);
+    background-image: url(../images/cilios.png);
   }
 
   .seven-service:hover .iconn {
-    background-image: url(../images/barba2.png);
+    background-image: url(../images/cilio2.png);
   }
 
   .eigth-service .iconn {
-    background-image: url(../images/sombran1.png);
+    background-image: url(../images/sombrancelha.png);
   }
 
   .eigth-service:hover .iconn {
-    background-image: url(../images/sombran2.png);
+    background-image: url(../images/sobrancelha2.png);
   }
 
 
@@ -1756,7 +1756,7 @@ PopUp
 
 .btn {
   padding: 10px 20px;
-  /* background: #59848e; */
+  background: #59848e;
   color: #fff;
   transition: all .3s;
 }
@@ -1767,7 +1767,7 @@ PopUp
 }
 
 .btn:hover {
-  /* background: #E4E4E2; */
+  background: #E4E4E2;
 }
 
 .btn_red:hover {

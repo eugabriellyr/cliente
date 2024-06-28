@@ -120,7 +120,7 @@
                                 {{-- <span class="flaticon-candle"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/dep1.png" alt="">
 
                                 {{-- primeiro card --}}
 
@@ -138,7 +138,7 @@
 
                                 {{-- segundo card --}}
 
-
+                                <img style="width: 29%" src="../assets/img-gaby/dep2.png" alt="">
                                 <h3>Cuidados Pré-Depilação</h3>
                                 <p>Aprenda a preparar a pele para a depilação de forma eficaz. Descubra os cuidados necessários antes do procedimento para garantir resultados melhores e minimizar o desconforto.</p>
                             </div>
@@ -150,7 +150,7 @@
                                 {{-- <span class="flaticon-massage"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
+                                <img style="width: 29%" src="../assets/img-gaby/dep3.png" alt="">
 
                                 {{-- terceiro card --}}
 
@@ -165,7 +165,7 @@
                                 {{-- <span class="flaticon-lotus"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/dep4.png" alt="">
 
                                 {{-- quarto card --}}
 
@@ -252,12 +252,11 @@
                         <div
                             class="treatment w-100 text-center ftco-animate border border-right-0 border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-beauty-treatment"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- quinto card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/dep5.png" alt="">
                                 <h3>Depilação para Diferentes Tipos de Pele</h3>
                                 <p>Saiba como adaptar a depilação para diferentes tipos de pele. Descubra técnicas e cuidados específicos para garantir uma depilação eficaz e confortável.</p>
                             </div>
@@ -266,14 +265,13 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-bottom-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-relax"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- sexto card --}}
 
 
-
+                                <img style="width: 25%" src="../assets/img-gaby/dep6.png" alt="">
                                 <h3>Cuidados Pós-Depilação</h3>
                                 <p>Descubra os cuidados essenciais para manter a pele saudável após a depilação. Aprenda sobre hidratação, prevenção de irritações e dicas para prolongar os resultados.</p>
                             </div>
@@ -282,12 +280,11 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border border-right-0 p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-massage"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- setimo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/dep7.png" alt="">
                                 <h3>Depilação de Áreas Sensíveis</h3>
                                 <p>Aprenda técnicas e cuidados para depilar áreas sensíveis do corpo. Descubra como evitar desconforto e obter os melhores resultados.</p>
                             </div>
@@ -296,12 +293,11 @@
                     <div class="col-md-6 d-flex align-items-stretch">
                         <div class="treatment w-100 text-center ftco-animate border p-3 py-4">
                             <div class="icone d-flex justify-content-center align-items-center">
-                                <span class="flaticon-rose"></span>
                             </div>
                             <div class="text mt-2">
 
                                 {{-- oitavo card --}}
-
+                                <img style="width: 25%" src="../assets/img-gaby/dep8.png" alt="">
                                 <h3>Depilação Masculina</h3>
                                 <p>Saiba mais sobre os serviços de depilação masculina. Descubra técnicas específicas para homens e cuidados essenciais para a pele masculina.</p>
                             </div>

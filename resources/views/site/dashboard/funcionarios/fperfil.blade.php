@@ -1,6 +1,3 @@
-
-
-
 @extends('site.dashboard.dashboardLayout.layout')
 
 @section('dashboard')

@@ -120,7 +120,7 @@
                                 {{-- <span class="flaticon-candle"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail1.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/rosto1.png" alt="">
                                 <h3>Limpeza Facial Profunda</h3>
                                 <p>Revitalize sua pele com nossa limpeza facial profunda. Remova impurezas, células
                                     mortas e excesso de oleosidade, deixando sua pele radiante e renovada.</p>
@@ -133,6 +133,7 @@
                                 {{-- <span class="flaticon-spa-1"></span> --}}
                             </div>
                             <div class="text mt-2">
+                                <img style="width: 29%" src="../assets/img-gaby/rosto2.png" alt="">
                                 <h3>Tratamento de Hidratação Intensa</h3>
                                 <p>Mime sua pele com nosso tratamento de hidratação intensa. Nutra profundamente e
                                     restaure o equilíbrio hídrico da sua pele, proporcionando uma aparência suave e
@@ -147,7 +148,7 @@
                                 {{-- <span class="flaticon-massage"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 29%" src="../assets/img-gaby/nail3.png" alt="">
+                                <img style="width: 29%" src="../assets/img-gaby/cabelo5.png" alt="">
                                 <h3>Massagem Facial Relaxante</h3>
                                 <p>Relaxe e rejuvenesça com nossa massagem facial. Libere a tensão muscular, estimule a
                                     circulação sanguínea e desfrute de uma sensação de bem-estar incomparável.
@@ -161,7 +162,7 @@
                                 {{-- <span class="flaticon-lotus"></span> --}}
                             </div>
                             <div class="text mt-2">
-                                <img style="width: 25%" src="../assets/img-gaby/nail2.png" alt="">
+                                <img style="width: 25%" src="../assets/img-gaby/rosto2.png" alt="">
                                 <h3>Peeling Químico Renovador</h3>
                                 <p>Renove sua pele com nosso peeling químico. Elimine manchas, rugas finas e
                                     imperfeições, revelando uma pele mais suave, uniforme e jovem.</p>
