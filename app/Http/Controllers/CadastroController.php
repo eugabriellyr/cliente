@@ -40,15 +40,29 @@ class CadastroController extends Controller
         $cliente->emailCliente = $request->input('emailUsuarioRegistro');
         $cliente->telefoneCliente = $request->input('telefoneUsuarioRegistro');
 
-        // dd($cliente);
+        // Processar o upload da imagem
+        if ($request->hasFile('fotoCliente')) {
+            $image = $request->file('fotoCliente');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/assets/img-client');
+            $image->move($destinationPath, $name);
+            $cliente->fotoCliente = $name;
+        } else {
+            $cliente->fotoCliente = null;
+        }
+
+        // Verificar se a senha não está nula
+        if (!empty($request->input('senhaUsuarioRegistro'))) {
+            $cliente->senhaCliente = $request->input('senhaUsuarioRegistro');
+        } else {
+            return redirect()->back()->withErrors(['senhaUsuarioRegistro' => 'A senha é obrigatória.']);
+        }
+
         $cliente->save();
 
-        $ultimoClienteId = $cliente->idCliente;
-
-        $usuario->tipoUsuario_id = $ultimoClienteId;
-        $usuario->tipoUsuario_type = 'cliente';
-
-        // dd($usuario);
+        // Atualizar o ID do cliente no usuário e salvar
+        $usuario->tipoUsuario_id = $cliente->idCliente;
+        $usuario->tipoUsuario_type = 'cliente'; // Adiciona o valor "cliente" ao campo tipoUsuario_type
         $usuario->save();
 
         Session::flash('message', 'Cadastro realizado com sucesso! Por favor, faça o login.');

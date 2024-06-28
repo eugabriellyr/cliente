@@ -241,7 +241,7 @@
         <img src="{{ asset('assets/Beauty salon-bro.svg') }}">
     </div>
     <div class="login-content">
-        <form action="{{ route('cadastro.store') }}" method="POST">
+        <form action="{{ route('cadastro.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <img style="width: 60%;height:60%;" src="{{ asset('assets/logo4.png') }}">
             <h2 class="title">Cadastrar-se</h2>
@@ -260,7 +260,7 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="div">
-                    <input type="password" name="senhaUsuarioRegistro" id="senhaUsuario" class="input" placeholder="Senha">
+                    <input type="password" name="senhaUsuarioRegistro" id="senhaUsuario" class="input" placeholder="Senha" required>
                 </div>
             </div>
             <div class="input-div one">
@@ -279,6 +279,14 @@
                     <input type="text" class="input" name="telefoneUsuarioRegistro" id="telefoneUsuario" placeholder="Telefone">
                 </div>
             </div>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-file"></i>
+                </div>
+                <div class="div">
+                    <input type="file" class="input" name="fotoCliente" id="fotoCliente" placeholder="Foto">
+                </div>
+            </div>
 
             <input style="margin-top: 7%;" type="submit" class="btn" value="Cadastrar">
             <div style="text-align:center;">
@@ -286,6 +294,8 @@
                 <p style="margin-top: 5%;">Deseja voltar ?<a style="text-align: center;" href="/">Sair</a></p>
             </div>
         </form>
+
+
     </div>
 </div>
 

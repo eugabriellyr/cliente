@@ -42,11 +42,10 @@ class Funcionario extends Model
         return $this->hasMany(ServicosModel::class, 'idFuncionario', 'idFuncionario');
     }
 
-
-      // Defina a relação com agendamentos
-      public function agendamentos()
-      {
-          return $this->hasMany(Agendamento::class, 'idFuncionario'); // Usando a coluna correta do banco de dados
-      }
+    public function agendamentos()
+    {
+        return $this->hasMany(Agendamento::class, 'idFuncionario'); // Usando a coluna correta do banco de dados
+    }
 
 }
+ 
