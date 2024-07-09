@@ -76,8 +76,11 @@ route::post('/contatos/newsLetter', [ContatoController::class, 'salvarNoemail'])
 
 
 // Rotas com middleware
+
 // Dashboard cliente
 Route::middleware(['autenticacao:cliente'])->group(function () {
+
+    // dash cris
     // perfil pessoal
     Route::get('/cliente/perfil', [ClienteController::class, 'perfilCliente'])->name('dashboard.clientes');
     Route::post('/cliente/atualizar', [ClienteController::class, 'updateCliente'])->name('cliente.update');
@@ -99,9 +102,11 @@ Route::middleware(['autenticacao:cliente'])->group(function () {
     Route::get('/servicos', [ServicoController::class, 'indexServico']);
 });
 
+
+
 // dash da cris
 Route::middleware(['autenticacao:Administrador'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin.func.admin');
+    // Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin.func.admin');
 
     Route::get('dash/admin/func', [AdminController::class, 'indexFunc'])->name('dashboard.admin.func.index');
 
@@ -131,23 +136,29 @@ Route::middleware(['autenticacao:Administrador'])->group(function () {
 });
 
 
-
 Route::middleware(['autenticacao:Esteticista'])->group(function () {
     Route::get('/esteticista', [EsteticaController::class, 'index'])->name('dashboard.funcionarios.estetica');
 
 
+    //horarios disponiveis
+    Route::get('/funcionario/meus-horarios', [EsteticaController::class, 'listarHorarios'])->name('dashboard.funcionarios.meushorarios');
+
+    Route::get('dashboard/funcionarios/horario/{id}/editar', [EsteticaController::class, 'editarHorario'])->name('dashboard.funcionarios.mheditar');
+    Route::post('dashboard/funcionarios/horario/{id}/atualizar', [EsteticaController::class, 'atualizarHorario'])->name('dashboard.funcionarios.atualizarHorario');
+
+
     // dash da cris
     // editar/atualizar o perfil pessoal
-    Route::get('/esteticista/perfil', [EsteticaController::class, 'Fperfil'])->name('dashboard.funcionarios.fperfil');
-    Route::post('/esteticista/update', [EsteticaController::class, 'FuncionarioUpdate'])->name('dashboard.funcionarios.updateF');
+    Route::get('/funcionario/perfil', [EsteticaController::class, 'Fperfil'])->name('dashboard.funcionarios.fperfil');
+    Route::post('/funcionario/update', [EsteticaController::class, 'FuncionarioUpdate'])->name('dashboard.funcionarios.updateF');
 
 
     // editar/atualizar o horario do serviço
-    Route::post('/esteticista/{id}/updateH', [EsteticaController::class, 'updateH'])->name('dashboard.funcionarios.updateH');
+    Route::get('/funcionario/{id}/editarH', [EsteticaController::class, 'editarH'])->name('dashboard.funcionarios.heditar');
+    Route::post('/funcionario/{id}/updateH', [EsteticaController::class, 'updateH'])->name('dashboard.funcionarios.updateH');
 
     // listar agendamentos
-    Route::get('/esteticista/agendamentos', [EsteticaController::class, 'meusAgendamentos'])->name('dashboard.funcionarios.funcagenda');
-
+    Route::get('/funcionario/agendamentos', [EsteticaController::class, 'meusAgendamentos'])->name('dashboard.funcionarios.funcagenda');
     //horarios disponiveis
     Route::get('/esteticista/meus-horarios', [EsteticaController::class, 'listarHorarios'])->name('dashboard.funcionarios.meushorarios');
 

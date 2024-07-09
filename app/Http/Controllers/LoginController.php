@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Log;
 // dash cris
 class LoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('site.login');
     }
 
-    public function autenticar(Request $request){
+    public function autenticar(Request $request)
+    {
 
         $regras = [
             'emailUsuario'   => 'required|email',
@@ -38,14 +40,14 @@ class LoginController extends Controller
         Log::info("Tentativa de login com email: $emailUsuario");
 
         $usuario = Usuario::where('emailUsuario', $emailUsuario)->first();
-        if(!$usuario){
+        if (!$usuario) {
             Log::error("Usuário não encontrado com o email: $emailUsuario");
             return back()->withErrors(['emailUsuario' => 'O email informado não existe']);
         }
 
         Log::info("Usuário encontrado: {$usuario->emailUsuario}");
 
-        if($usuario->senhaUsuario !== $senhaUsuario){
+        if ($usuario->senhaUsuario !== $senhaUsuario) {
             Log::error("Senha incorreta para o usuário com email: $emailUsuario");
             return back()->withErrors(['senhaUsuario' => 'Senha incorreta']);
         }
@@ -62,7 +64,7 @@ class LoginController extends Controller
             'tipo' => $usuario->tipoUsuario_type,
         ]);
 
-        if($tipoUsuario == 'cliente'){
+        if ($tipoUsuario == 'cliente') {
             Log::info("Tentativa de login como cliente");
             $cliente = Cliente::find($usuario->tipoUsuario_id);
             if ($cliente) {
@@ -73,13 +75,13 @@ class LoginController extends Controller
                     'tipoUsuario_type' => 'cliente',
                     'nivelFuncionario' => null,
                 ]);
-                return redirect()->route('dashboard.cliente');
+                return redirect()->route('dashboard.clientes');
             } else {
                 Log::error("Cliente não encontrado com idUsuario: {$usuario->idUsuario}");
                 return back()->withErrors(['emailUsuario' => 'Cliente não encontrado.']);
             }
         }
-        if($tipoUsuario == 'funcionario'){
+        if ($tipoUsuario == 'funcionario') {
             Log::info("Tentativa de login como funcionário");
             $funcionario = Funcionario::find($usuario->tipoUsuario_id);
             if ($funcionario) {
@@ -91,7 +93,7 @@ class LoginController extends Controller
                         'nivelFuncionario' =>  $funcionario->nivelFuncionario,
                         'tipoUsuario_type' => null,
                     ]);
-                    return redirect()->route('dashboard.admin.func.admin');
+                    return redirect()->route('dashboard.admin.func.perfil');
                 }
 
                 if ($funcionario->nivelFuncionario == 'Esteticista') {
@@ -102,7 +104,7 @@ class LoginController extends Controller
                         'nivelFuncionario' => $funcionario->nivelFuncionario,
                         'tipoUsuario_type' => null,
                     ]);
-                    return redirect()->route('dashboard.funcionarios.estetica');
+                    return redirect()->route('dashboard.funcionarios.fperfil');
                 }
             } else {
                 Log::error("Funcionário não encontrado com idUsuario: {$usuario->idUsuario}");
