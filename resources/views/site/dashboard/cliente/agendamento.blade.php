@@ -579,6 +579,43 @@
             .modal.fade-in {
                 animation: modalFadeIn 0.5s ease-out;
             }
+
+            /* Adicionar estilos para o modal de erro */
+        .error-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .error-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            width: 40%;
+            border-radius: 10px;
+            text-align: center
+        }
+
+        .close-error-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-error-modal:hover,
+        .close-error-modal:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
         </style>
     </head>
 
@@ -633,7 +670,6 @@
                     </div>
                 </div>
 
-
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -643,7 +679,15 @@
                         </ul>
                     </div>
                 @endif
-
+                @if (session('error'))
+                <div id="errorModal" class="error-modal">
+                    <div class="error-modal-content">
+                        <span class="close-error-modal">&times;</span>
+                        <h2 style="color: #59848e;">ATENÇÃO!</h2>
+                        <p>{{ session('error') }}</p>
+                    </div>
+                </div>
+            @endif
             </form>
         </div>
 
@@ -653,6 +697,22 @@
         <script src="{{ asset('js/modalagendar.js') }}"></script> {{-- JS do modal de confirmação --}}
         <script>
             $(document).ready(function() {
+                @if (session('error'))
+                var errorModal = document.getElementById("errorModal");
+                var span = document.getElementsByClassName("close-error-modal")[0];
+
+                errorModal.style.display = "block";
+
+                span.onclick = function() {
+                    errorModal.style.display = "none";
+                }
+
+                window.onclick = function(event) {
+                    if (event.target == errorModal) {
+                        errorModal.style.display = "none";
+                    }
+                }
+            @endif
                 // Função para formatar a duração
                 function formatarDuracao(duracao) {
                     const partes = duracao.split(':');
@@ -859,5 +919,7 @@
                 });
             });
         </script>
+
+
     </body>
 @endsection
