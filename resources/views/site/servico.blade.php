@@ -692,7 +692,7 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="assets/img/team-3.jpg" alt="Image">
+                        <img src="assets/img/team-3.jpeg" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -709,7 +709,7 @@
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="assets/img/team-4.png" alt="Image">
+                        <img src="assets/img/team-4.jpeg" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>

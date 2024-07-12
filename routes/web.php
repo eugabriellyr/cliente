@@ -39,7 +39,7 @@ route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
 
 // AGENDAMENTO
-route::get('/agendamento', [AgendamentoController::class, 'index'])->name('agendamento');
+route::get('/agendamento', [AgendamentoController::class, 'index'])->name('cliente.agendamento');
 // route::get('/agendamento',[AgendamentoController::class, 'ListarEspecialidade'])->name('agendamento');
 // route::get('/agendamento',[AgendamentoController::class, 'listarServicos'])->name('agendamento');
 Route::get('/listar-servicos', [AgendamentoController::class, 'listarServicos'])->name('listarServicos');

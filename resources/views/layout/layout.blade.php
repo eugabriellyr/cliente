@@ -596,7 +596,7 @@
         border-bottom: none;
         margin: -0.04em 0 50px 0;
         font-size: 22px;
-        font-weight: 500;
+        font-weight: 200;
         position: relative;
     }
 
@@ -722,54 +722,83 @@
     </div>
     <div class="sidemenu-wrapper">
         <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><img src="assets/fechar.png" alt=""><i
-                    class="far fa-times"></i></button>
+            <button class="closeButton sideMenuCls"><img src="assets/fechar.png" alt=""><i class="far fa-times"></i></button>
 
             <div class="widget footer-widget">
-
-
-
-
                 <div class="widget-about"
                     style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            ">
-
-
-
-                    <div class="footer-logo"style="
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
+                    align-items: center;
                 ">
+                    <div class="footer-logo" style="
+                        display: flex;
+                        justify-content: center;
+                    ">
                         <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="Viva Bem"></a>
                     </div>
                     <p class="about-text">Um centro de bem-estar, conhecido como ponto focal para o aprimoramento
                         físico e mental, é uma instituição dedicada ao cultivo holístico do corpo e da mente. Mais do
                         que uma academia de ginástica, é um refúgio para nutrir sua saúde e vitalidade. Em nossas
                         instalações, proporcionamos uma variedade de experiências que transcendem o tradicional.</p>
-                    <div style="display: none;" class="social-btn">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+
+                    <h3 class="widget_title" >Siga-nos nas Redes Sociais</h3>
+                    <div class="social-btn" style="display: flex; gap: 10px; justify-content: flex-start; ">
+                        <a id="fdp" href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a id="fdp" href="https://twitter.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a id="fdp" href="https://pinterest.com/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a id="fdp" href="https://instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="widget widget_nav_menu footer-widget">
-                <h3 class="widget_title">Link Rápidos</h3>
-                <ul class="menu">
-                    <li><a href="/sobre">Sobre nós</a></li>
-                    <li><a href="project-details.html">Nossa Missão</a></li>
-                    <li><a href="team.html">Conheça Nossa Equipe</a></li>
-                    <li><a href="project.html">Nossos Projetos</a></li>
-                    <li><a href="/contato">Contate-nos</a></li>
-                </ul>
-            </div>
+
+                    <!-- Removido Links Rápidos -->
+        <!-- <div class="widget widget_nav_menu footer-widget">
+            <h3 class="widget_title">Link Rápidos</h3>
+            <ul class="menu">
+                <li><a href="/sobre">Sobre nós</a></li>
+                <li><a href="project-details.html">Nossa Missão</a></li>
+                <li><a href="team.html">Conheça Nossa Equipe</a></li>
+                <li><a href="project.html">Nossos Projetos</a></li>
+                <li><a href="/contato">Contate-nos</a></li>
+            </ul>
+        </div> -->
         </div>
     </div>
+
+    <style>
+        .social-icon i {
+            color: white; /* Ícones brancos por padrão */
+            font-size: 24px; /* Tamanho dos ícones */
+            transition: color 0.3s ease;
+        }
+        .social-icon i:hover {
+            color: #59848e; /* Substitua pelo azul desejado */
+        }
+        #fdp{
+            background: #59848e;
+        }
+        #fdp:hover{
+            background: #fff;
+        }
+
+        .social-btn a{
+            background: #59848e
+        }
+        .social-btn a:hover{
+            background: #fff
+        }
+    </style>
+
+    <style>
+        .social-icon {
+            color: white; /* Ícones brancos por padrão */
+            transition: color 0.3s ease;
+        }
+    </style>
+
+
     <!--==============================
     Mobile Menu
     ============================== -->
