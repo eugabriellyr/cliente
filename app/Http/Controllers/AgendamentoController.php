@@ -207,4 +207,27 @@ class AgendamentoController extends Controller
             return "Agendamento não encontrado.";
         }
     }
+
+    public function confirmarAgendamento($id)
+    {
+        $agendamento = Agendamento::find($id);
+        if ($agendamento) {
+            $agendamento->statusAgendamento = 'confirmado';
+            $agendamento->save();
+            return redirect()->back()->with('success', 'Agendamento confirmado com sucesso');
+        }
+        return redirect()->back()->with('error', 'Agendamento não encontrado');
+    }
+    public function cancelarAgendamento($id)
+    {
+        $agendamento = Agendamento::find($id);
+        if ($agendamento) {
+            $agendamento->statusAgendamento = 'cancelado';
+            $agendamento->save();
+            return redirect()->back()->with('success', 'Agendamento cancelado com sucesso');
+        }
+        return redirect()->back()->with('error', 'Agendamento não encontrado');
+    }
 }
+
+

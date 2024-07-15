@@ -9,7 +9,7 @@ use App\Jobs\EnviarNotificacaoAgendamento;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
-// Coordena a execução automática de várias tarefas, incluindo o comando de envio de notificaçõe
+// Coordena a execução automática de várias tarefas, incluindo o comando de envio de notificações
 
 class Kernel extends ConsoleKernel
 {
@@ -59,6 +59,9 @@ class Kernel extends ConsoleKernel
             // Log para indicar quantos agendamentos foram cancelados
             Log::info('Agendamentos cancelados: ' . $cancelados);
         })->everyMinute(); // Define que essa tarefa será executada a cada minuto
+
+        // Agendar cancelamento de agendamentos pendentes no dia do agendamento
+        $schedule->command('agendamentos:cancelar-pendentes-diario')->daily();
     }
 
     /**

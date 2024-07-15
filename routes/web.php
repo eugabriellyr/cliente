@@ -48,11 +48,15 @@ Route::get('/agendamento/listarHorarios', [AgendamentoController::class, 'Listar
 Route::post('/agendar', [AgendamentoController::class, 'agendar'])->name('agendar');
 
 
+// FUNÇÃO DE CONFIRMAR AGENDAMENTO **TAREFA
+Route::get('/confirmar_agendamento/{id}', [AgendamentoController::class, 'confirmar'])->name('confirmar.agendamento');
+// CONFIRMAR AGENDAMENTO
+Route::put('/agendamentos/{id}/confirmarAgendamento', [AgendamentoController::class, 'confirmarAgendamento'])->name('agendamentos.confirmarAgendamento');
+//CANCELAR AGENDAMENTO
+Route::put('/agendamentos/{id}/cancelarAgendamento', [AgendamentoController::class, 'cancelarAgendamento'])->name('agendamentos.cancelarAgendamento');
 
 // teste do dashboard
 route::get('/dash/teste', [HomeController::class, 'dash'])->name('dash.teste');
-
-
 
 // Serviços
 Route::get('/servico/cabelo', [ServicoController::class, 'servicoCabelo'])->name('servicoCabelo');
@@ -179,5 +183,3 @@ route::get('/sair', function () {
 // rota para limpar a e voltar para a página home
 
 
-// FUNÇÃO DE CONFIRMAR AGENDAMENTO
-Route::get('/confirmar_agendamento/{id}', [AgendamentoController::class, 'confirmar'])->name('confirmar.agendamento');

@@ -34,3 +34,4 @@ Route::middleware(['auth:sanctum', 'cliente'])->group(function () {
     Route::put('/agendamento/{id}', [AgendamentoController::class, 'confirmar']);
 });
 
+
