@@ -20,11 +20,12 @@ class CadastroController extends Controller
 
     public function cadastroCliente(Request $request)
     {
+        // Validar todos os campos como obrigatórios
         $request->validate([
-            'nomeUsuarioRegistro'   => 'nullable|string|max:100',
-            'senhaUsuarioRegistro'  => 'nullable|string|max:255',
-            'emailUsuarioRegistro'  => 'nullable|email|max:200|unique:tblusuarios,emailUsuario',
-            'telefoneUsuarioRegistro' => 'nullable|string|max:16',
+            'nomeUsuarioRegistro'   => 'required|string|max:100',
+            'senhaUsuarioRegistro'  => 'required|string|max:255',
+            'emailUsuarioRegistro'  => 'required|email|max:200|unique:tblusuarios,emailUsuario',
+            'telefoneUsuarioRegistro' => 'required|string|max:16',
         ]);
 
         $usuario = new Usuario();
@@ -51,13 +52,6 @@ class CadastroController extends Controller
             $cliente->fotoCliente = null;
         }
 
-        // Verificar se a senha não está nula
-        if (!empty($request->input('senhaUsuarioRegistro'))) {
-            $cliente->senhaCliente = $request->input('senhaUsuarioRegistro');
-        } else {
-            return redirect()->back()->withErrors(['senhaUsuarioRegistro' => 'A senha é obrigatória.']);
-        }
-
         $cliente->save();
 
         // Atualizar o ID do cliente no usuário e salvar
@@ -69,4 +63,5 @@ class CadastroController extends Controller
 
         return redirect()->route('login');
     }
+
 }

@@ -40,7 +40,6 @@
 /* Estilo para o conteúdo pai */
 .content {
     position: relative;
-    margin: 20px;
 }
 
 /* Estilo para o conteúdo ampliado */
@@ -55,7 +54,7 @@
     max-width: 400px;
     max-height: 400px;
     word-wrap: break-word;
-    display: none;  
+    display: none;
     color: white;
     font-size: 18px;
 }

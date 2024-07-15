@@ -124,51 +124,51 @@ class ClienteController extends Controller
     // }
 
     public function update(Request $request, $id)
-{
-    Log::info('Atualização do cliente com ID: ' . $id);
-    Log::info('Dados recebidos:', $request->all());
+    {
+        Log::info('Atualização do cliente com ID: ' . $id);
+        Log::info('Dados recebidos:', $request->all());
 
-    $cliente = Cliente::find($id);
-    if ($cliente === null) {
-        Log::error('Cliente não encontrado com ID: ' . $id);
-        return response()->json(['erro' => 'Cliente não encontrado!'], 404);
-    }
-
-    // Obter as regras de validação e feedback do cliente
-    $rules = $cliente->rules();
-    $feedback = $cliente->feedback();
-
-    // Adicionar a regra de validação para a imagem apenas se o arquivo estiver presente
-    if ($request->hasFile('fotoCliente')) {
-        $rules['fotoCliente'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
-    } else {
-        // Remover a regra de validação para a imagem se não houver um arquivo presente
-        unset($rules['fotoCliente']);
-    }
-
-    $validator = Validator::make($request->all(), $rules, $feedback);
-
-    if ($validator->fails()) {
-        Log::error('Erros de validação para cliente ID ' . $id . ': ', $validator->errors()->toArray());
-        return response()->json($validator->errors(), 422);
-    }
-
-    // Processar o upload da nova imagem, se presente
-    if ($request->hasFile('fotoCliente')) {
-        if ($cliente->fotoCliente && Storage::disk('public')->exists('assets/img-client/' . $cliente->fotoCliente)) {
-            Storage::disk('public')->delete('assets/img-user/' . $cliente->fotoCliente);
+        $cliente = Cliente::find($id);
+        if ($cliente === null) {
+            Log::error('Cliente não encontrado com ID: ' . $id);
+            return response()->json(['erro' => 'Cliente não encontrado!'], 404);
         }
-        $imagem = $request->file('fotoCliente');
-        $urlImagem = $imagem->store('assets/img-client', 'public');
-        $cliente->fotoCliente = $urlImagem;
+
+        // Obter as regras de validação e feedback do cliente
+        $rules = $cliente->rules();
+        $feedback = $cliente->feedback();
+
+        // Adicionar a regra de validação para a imagem apenas se o arquivo estiver presente
+        if ($request->hasFile('fotoCliente')) {
+            $rules['fotoCliente'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+        } else {
+            // Remover a regra de validação para a imagem se não houver um arquivo presente
+            unset($rules['fotoCliente']);
+        }
+
+        $validator = Validator::make($request->all(), $rules, $feedback);
+
+        if ($validator->fails()) {
+            Log::error('Erros de validação para cliente ID ' . $id . ': ', $validator->errors()->toArray());
+            return response()->json($validator->errors(), 422);
+        }
+
+        // Processar o upload da nova imagem, se presente
+        if ($request->hasFile('fotoCliente')) {
+            if ($cliente->fotoCliente && Storage::disk('public')->exists('assets/img-client/' . $cliente->fotoCliente)) {
+                Storage::disk('public')->delete('assets/img-user/' . $cliente->fotoCliente);
+            }
+            $imagem = $request->file('fotoCliente');
+            $urlImagem = $imagem->store('assets/img-client', 'public');
+            $cliente->fotoCliente = $urlImagem;
+        }
+
+        // Atualizar os dados do cliente, exceto a imagem, mas incluindo a imagem atualizada se houver
+        $cliente->update($request->except(['fotoCliente']) + ['fotoCliente' => $cliente->fotoCliente]);
+
+        Log::info('Cliente atualizado com sucesso: ', [$cliente]);
+        return response()->json($cliente, 200);
     }
-
-    // Atualizar os dados do cliente, exceto a imagem, mas incluindo a imagem atualizada se houver
-    $cliente->update($request->except(['fotoCliente']) + ['fotoCliente' => $cliente->fotoCliente]);
-
-    Log::info('Cliente atualizado com sucesso: ', [$cliente]);
-    return response()->json($cliente, 200);
-}
 
     public function login(Request $request)
     {
@@ -276,6 +276,8 @@ class ClienteController extends Controller
             'fotoCliente' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' // Novo campo para foto
         ]);
 
+
+
         Log::info('Validation passed', ['validatedData' => $validatedData]);
 
         // Atualiza os dados na tabela clientes
@@ -317,6 +319,30 @@ class ClienteController extends Controller
         return redirect()->route('dashboard.clientes')->with('success', 'Perfil atualizado com sucesso!');
     }
 
+    public function getAgendamentos(Request $request, $id)
+    {
+        if (!$id) {
+            Log::error('ID do cliente não encontrado na requisição');
+            return response()->json([
+                'error' => 'ID do cliente não encontrado na requisição.'
+            ], 400);
+        }
+
+        $cliente = Cliente::find($id);
+        if (!$cliente) {
+            Log::error('Cliente não encontrado com ID: ' . $id);
+            return response()->json([
+                'error' => 'Cliente não encontrado.'
+            ], 404);
+        }
+
+        $agendamentos = $cliente->agendamentos()->with(['servico', 'funcionario'])->get();
+        Log::info('Cliente: ' . $cliente);
+        Log::info('Agendamentos: ' . $agendamentos);
+
+        return response()->json($agendamentos, 200);
+    }
+
     // Exibir agendamentos do cliente
     public function meusAgenda()
     {
@@ -327,6 +353,27 @@ class ClienteController extends Controller
         }
 
         // Buscar o cliente e seus agendamentos
+        $cliente = Cliente::find($idCliente);
+        if (!$cliente) {
+            Log::error('Cliente não encontrado com ID: ' . $idCliente);
+            return redirect()->back()->with('error', 'Cliente não encontrado.');
+        }
+
+        $agendamentos = $cliente->agendamentos;
+        Log::info('Cliente: ' . $cliente);
+        Log::info('Agendamentos: ' . $agendamentos);
+
+        return view('site.dashboard.cliente.meusagenda', compact('cliente', 'agendamentos'));
+    }
+
+    public function meusAgendamentosWeb(Request $request)
+    {
+        $idCliente = session('id');
+        if (!$idCliente) {
+            Log::error('ID do cliente não encontrado na sessão');
+            return redirect()->back()->with('error', 'ID do cliente não encontrado na sessão.');
+        }
+
         $cliente = Cliente::find($idCliente);
         if (!$cliente) {
             Log::error('Cliente não encontrado com ID: ' . $idCliente);

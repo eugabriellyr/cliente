@@ -155,7 +155,7 @@
                 border-radius: 25px;
                 outline: none;
                 border: none;
-                background-image: linear-gradient(to right, #329dbe, #398fb8, #37aeb3);
+                background-image: linear-gradient(to right, #59848e, #398fb8, #59848e);
                 background-size: 200%;
                 font-size: 1.2rem;
                 color: #fff;
@@ -212,7 +212,7 @@
             }
         </style>
 
-        <img class="wave" src="{{ asset('assets/wave (2).png') }}">
+        <img class="wave" src="{{ asset('assets/modificar.png') }}">
         <div class="container">
             <div class="img">
                 <img src="{{ asset('assets/Beauty salon-bro.svg') }}">
