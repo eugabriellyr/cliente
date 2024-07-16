@@ -66,6 +66,10 @@
 
 @section('dash-func')
 
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
+
 <style>
 .profile-container {
     background-color: #f8f9fa;
@@ -264,5 +268,10 @@ function previewImage(event) {
     reader.readAsDataURL(event.target.files[0]);
 }
 </script>
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
 
 @endsection

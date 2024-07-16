@@ -3,6 +3,11 @@
 @section('title', 'Serviço - Le Flower')
 
 @section('conteudo')
+
+
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
@@ -109,7 +114,7 @@
         <div class="linha justify-content-center mb-5 pb-3">
             <div class="otaria heading-section ftco-animate text-center">
                 <h3 class="subheading">Serviços</h3>
-                <h2 class="mb-1">Para Maquiagem</h2>
+                <h2 class="mb-1">Maquiagem</h2>
             </div>
         </div>
         <div class="linha align-items-center">
@@ -326,6 +331,11 @@
 <script src="{{ asset('teste/js/scrollax.min.js') }}"></script>
 <script src="{{ asset('teste/js/main.js') }}"></script>
 
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
 
 
 @endsection

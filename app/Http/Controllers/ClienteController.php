@@ -82,7 +82,7 @@ class ClienteController extends Controller
     //     if ($request->hasFile('fotoCliente')) {
     //         Log::info('Foto presente na requisição');
 
-    //         $destinationPath = public_path('/assets/img-client');
+    //         $destinationPath = public_path('/assets/img-user');
     //         if ($cliente->fotoCliente && file_exists($destinationPath . '/' . $cliente->fotoCliente)) {
     //             Log::info('Deletando foto antiga', ['foto' => $cliente->fotoCliente]);
     //             unlink($destinationPath . '/' . $cliente->fotoCliente);
@@ -155,11 +155,11 @@ class ClienteController extends Controller
 
         // Processar o upload da nova imagem, se presente
         if ($request->hasFile('fotoCliente')) {
-            if ($cliente->fotoCliente && Storage::disk('public')->exists('assets/img-client/' . $cliente->fotoCliente)) {
+            if ($cliente->fotoCliente && Storage::disk('public')->exists('assets/img-user/' . $cliente->fotoCliente)) {
                 Storage::disk('public')->delete('assets/img-user/' . $cliente->fotoCliente);
             }
             $imagem = $request->file('fotoCliente');
-            $urlImagem = $imagem->store('assets/img-client', 'public');
+            $urlImagem = $imagem->store('assets/img-user', 'public');
             $cliente->fotoCliente = $urlImagem;
         }
 
@@ -289,7 +289,7 @@ class ClienteController extends Controller
         if ($request->hasFile('fotoCliente')) {
             $image = $request->file('fotoCliente');
             $name = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/assets/img-client');
+            $destinationPath = public_path('/assets/img-user');
             $image->move($destinationPath, $name);
 
             // Deleta a foto antiga se existir

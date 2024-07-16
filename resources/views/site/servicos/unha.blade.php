@@ -5,6 +5,10 @@
 @section('conteudo')
 
 
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
+
     <title>Energen - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -368,6 +372,11 @@
 <script src="{{ asset('teste/js/scrollax.min.js') }}"></script>
 <script src="{{ asset('teste/js/main.js') }}"></script>
 
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
 
 
 @endsection

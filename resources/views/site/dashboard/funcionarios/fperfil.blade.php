@@ -5,6 +5,10 @@
 
 @section('dashboard')
 
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
+
 <style>
     .profile-container {
         background-color: #f8f9fa;
@@ -182,6 +186,12 @@
         </form>
     </div>
 
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
+
     <script>
     function previewImage(event) {
         const reader = new FileReader();
@@ -193,5 +203,7 @@
         reader.readAsDataURL(event.target.files[0]);
     }
     </script>
+
+
 
 @endsection

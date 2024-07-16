@@ -156,6 +156,9 @@
 
 @section('dash-func')
 
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
 <style>
 .profile-container {
     background-color: #f8f9fa;
@@ -391,6 +394,11 @@
 
 
 </div>
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
 @endsection
 
 

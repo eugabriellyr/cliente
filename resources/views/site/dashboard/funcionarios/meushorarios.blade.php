@@ -1,6 +1,10 @@
 @extends('site.dashboard.dashboardLayout.layout')
 
 @section('dashboard')
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
+
+
 <style>
     .btn-editar {
         background-color: #59848e; /* Azul */
@@ -56,4 +60,11 @@
         </div>
     </div>
 </div>
+
+
+{{-- acs --}}
+</div>
+
+@component('components.loupe') @endcomponent
+
 @endsection
