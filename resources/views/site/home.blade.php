@@ -918,62 +918,63 @@
 
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/nail.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/nail.png') }}"
                             alt="Close-up de mãos femininas com unhas pintadas em estilo ombré rosa e branco, segurando uma folha verde.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/men-corte.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/men-corte.png') }}"
                             alt="Um barbeiro com cabelo curto e barba aparada está cortando o cabelo de um cliente que está sentado em uma cadeira de barbeiro. Ambos estão em um ambiente de barbearia moderna.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/hair-clear.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/hair-clear.png') }}"
                             alt="Uma mulher com cabelo molhado está recebendo uma lavagem de cabelo em uma pia de salão. Ela está reclinada com os olhos fechados, e a água está correndo sobre seu cabelo.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/makeup.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/makeup.png') }}"
                             alt="Uma maquiadora está aplicando maquiagem nos olhos de uma mulher jovem que está de olhos fechados. Ambas estão em um ambiente bem iluminado, típico de um salão de beleza.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/skin-men.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/skin-men.png') }}"
                             alt="Um homem está recebendo um tratamento facial. Ele está deitado, com uma máscara facial cinza sendo aplicada em seu rosto por uma esteticista.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/men.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/men.png') }}"
                             alt="Um barbeiro está aparando o cabelo de um homem com barba cheia. O homem está sentado em uma cadeira de barbeiro, olhando para frente.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/hair-2.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/hair-2.png') }}"
                             alt="Close-up da parte de trás da cabeça de uma mulher com cabelo longo e ondulado, enquanto ela está tendo seu cabelo estilizado por um cabeleireiro.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/nail-make.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/nail-make.png') }}"
                             alt="Close-up de uma esteticista utilizando luvas roxas e um equipamento de manicure para tratar as unhas de um cliente.">
                     </div>
 
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/pintura-hair.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/pintura-hair.png') }}"
                             alt="Uma mulher com cabelo loiro está em um salão de beleza, com uma capa protetora, enquanto seu cabelo está sendo tingido.">
                     </div>
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/sombra.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/sombra.png') }}"
                             alt="Close-up do rosto de uma mulher enquanto ela está tendo suas sobrancelhas cuidadosamente depiladas com uma pinça por uma esteticista usando luvas brancas.">
                     </div>
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/hair2.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/hair2.png') }}"
                             alt="Um cabeleireiro está secando o cabelo de uma cliente com um secador de cabelo. A cliente está sentada e o cabeleireiro está focado no trabalho.">
                     </div>
                     <div class="gallery-item">
-                        <img class="gallery-image" src="../assets/img/depi.png"
+                        <img class="gallery-image" src="{{ asset('assets/img/depi.png') }}"
                             alt="Close-up de uma esteticista usando luvas pretas aplicando cera quente dourada em um cliente para depilação.">
                     </div>
                 </div>
+
             </div>
         </section>
 

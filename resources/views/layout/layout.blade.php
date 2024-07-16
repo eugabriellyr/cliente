@@ -723,52 +723,48 @@
     </div>
     <div class="sidemenu-wrapper">
         <div class="sidemenu-content">
-            <button class="closeButton sideMenuCls"><img src="assets/fechar.png" alt=""><i
-                    class="far fa-times"></i></button>
+            <button class="closeButton sideMenuCls"><img src="assets/fechar.png" alt=""><i class="far fa-times"></i></button>
 
             <div class="widget footer-widget">
-
-
-
-
                 <div class="widget-about"
                     style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            ">
-
-
-
-                    <div class="footer-logo"style="
                     display: flex;
+                    flex-direction: column;
                     justify-content: center;
+                    align-items: center;
                 ">
+                    <div class="footer-logo" style="
+                        display: flex;
+                        justify-content: center;
+                    ">
                         <a href="/"><img src="{{ asset('assets/logo.png') }}" alt="Viva Bem"></a>
                     </div>
                     <p class="about-text">Um centro de bem-estar, conhecido como ponto focal para o aprimoramento
                         físico e mental, é uma instituição dedicada ao cultivo holístico do corpo e da mente. Mais do
                         que uma academia de ginástica, é um refúgio para nutrir sua saúde e vitalidade. Em nossas
                         instalações, proporcionamos uma variedade de experiências que transcendem o tradicional.</p>
-                    <div style="display: none;" class="social-btn">
-                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                        <a href="https://pinterest.com/"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+
+                    <h3 class="widget_title" >Siga-nos nas Redes Sociais</h3>
+                    <div class="social-btn" style="display: flex; gap: 10px; justify-content: flex-start; ">
+                        <a id="fdp" href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a id="fdp" href="https://twitter.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a id="fdp" href="https://pinterest.com/" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a id="fdp" href="https://instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="widget widget_nav_menu footer-widget">
-                <h3 class="widget_title">Link Rápidos</h3>
-                <ul class="menu">
-                    <li><a href="/sobre">Sobre nós</a></li>
-                    <li><a href="project-details.html">Nossa Missão</a></li>
-                    <li><a href="team.html">Conheça Nossa Equipe</a></li>
-                    <li><a href="project.html">Nossos Projetos</a></li>
-                    <li><a href="/contato">Contate-nos</a></li>
-                </ul>
-            </div>
+
+                    <!-- Removido Links Rápidos -->
+        <!-- <div class="widget widget_nav_menu footer-widget">
+            <h3 class="widget_title">Link Rápidos</h3>
+            <ul class="menu">
+                <li><a href="/sobre">Sobre nós</a></li>
+                <li><a href="project-details.html">Nossa Missão</a></li>
+                <li><a href="team.html">Conheça Nossa Equipe</a></li>
+                <li><a href="project.html">Nossos Projetos</a></li>
+                <li><a href="/contato">Contate-nos</a></li>
+            </ul>
+        </div> -->
         </div>
     </div>
     <!--==============================
@@ -787,20 +783,20 @@
 
             <div class="mobile-menu">
                 <ul class="">
-                    <li><a href="/"><img src="https://img.icons8.com/ios/50/000000/home.png"
+                    <li><a href="{{ route('home') }}"><img src="https://img.icons8.com/ios/50/000000/home.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">Home</a>
                     </li>
-                    <li><a href="/sobre"><img src="https://img.icons8.com/ios/50/000000/about.png"
+                    <li><a href="{{ route('sobre') }}"><img src="https://img.icons8.com/ios/50/000000/about.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">Sobre</a>
                     </li>
-                    <li><a href="/servico/unhas"><img src="https://img.icons8.com/ios/50/000000/nail-polish.png"
+                    <li><a href="{{ route('servico') }}"><img src="https://img.icons8.com/ios/50/000000/nail-polish.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">
                             Serviço</a></li>
-                    <li><a href="/contato" style="border-bottom: 1px solid #fdedf1;"><img
+                    <li><a href="{{ route('contato') }}" style="border-bottom: 1px solid #fdedf1;"><img
                                 src="https://img.icons8.com/ios/50/000000/contact-card.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">Contato</a>
                     </li>
-                    <li><a href="/login" style="border-bottom: 1px solid #fdedf1;"><img
+                    <li><a href="{{ route('login') }}" style="border-bottom: 1px solid #fdedf1;"><img
                                 src="https://img.icons8.com/ios/50/000000/contact-card.png"
                                 style="height: 20px;width: 20px;/*  */margin-right: 5px;">Login</a>
                     </li>
@@ -851,17 +847,16 @@
                             <nav class="main-menu d-none d-lg-inline-block">
                                 <ul>
                                     <li>
-                                        <a href="/">Home</a>
+                                        <a href="{{ route('home') }}">Home</a>
                                     </li>
                                     <li>
-                                        <a href="/sobre">Sobre</a>
+                                        <a href="{{ route('sobre') }}">Sobre</a>
                                     </li>
                                     <li>
-
-                                        <a href="/servico">Serviço</a>
+                                        <a href="{{ route('servico') }}">Serviço</a>
                                     </li>
                                     <li>
-                                        <a href="/contato">Contato</a>
+                                        <a href="{{ route('contato') }}">Contato</a>
                                     </li>
 
 
@@ -880,7 +875,7 @@
                         <div class="col-auto d-none d-lg-block">
                             <div class="header-button">
                                 {{-- Botão de login --}}
-                                <a href="/login">
+                                <a href="{{ route('login') }}">
                                     <button style="font-weight: bold" class="button">
                                         Login
                                         <div class="icon-1">
@@ -928,11 +923,10 @@
                                     </button>
                                 </a>
 
-
                                 <button type="button" class="btn style-r0 btn-border3 sideMenuToggler"
                                     style="height: 60px;">
                                     {{-- <i style="color: transparent; background: transparent;" ></i> --}}
-                                    <img src="../assets/cardapio.png" alt=" " class="far fa-bars" />
+                                    <img src="{{ asset('/assets/cardapio.png') }}" alt=" " class="far fa-bars" />
                                 </button>
 
 
