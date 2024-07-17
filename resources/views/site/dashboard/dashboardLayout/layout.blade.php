@@ -5,12 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- <title>@yield('title', 'Título Padrão')</title> --}}
-    <link rel="shortcut icon" type="image/png" href="{{ asset('dash/images/logos/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/logo.png') }}" />
     <link rel="stylesheet" href="{{ asset('dash/css/styles.min.css') }}" />
+
+    {{-- Icone Lupa --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+     <!-- CSS da Lupa -->
+     <link rel="stylesheet" href="{{ asset('dash/css/loupe.css') }}">
 </head>
 
 {{-- <body> --}}
-{{-- PEQUENOS AJUSTES NO DASH --}}
 <style>
     .sidebar-nav ul .sidebar-item .sidebar-link,
     .nav-small-cap {
@@ -561,5 +566,9 @@
 <script src="{{ asset('dash/libs/simplebar/dist/simplebar.js') }}"></script>
 <script src="{{ asset('dash/js/dashboard.js') }}"></script>
 {{-- </body> --}}
+
+ <!-- JS da Lupa -->
+ <script src="{{ asset('dash/js/loupe.js') }}"></script>
+
 
 </html>

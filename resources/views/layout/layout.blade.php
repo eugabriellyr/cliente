@@ -991,11 +991,11 @@
                     </a></li>
             </ul>
             <ul class="menu">
-                <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Sobre</a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Serviços</a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Contato</a></li>
-                <li class="menu__item"><a class="menu__link" href="#">Login</a></li>
+                <li class="menu__item"><a class="menu__link" href="{{ route('home') }}">Home</a></li>
+                <li class="menu__item"><a class="menu__link" href="{{ route('sobre') }}">Sobre</a></li>
+                <li class="menu__item"><a class="menu__link" href="{{ route('servico') }}">Serviços</a></li>
+                <li class="menu__item"><a class="menu__link" href="{{ route('contato') }}">Contato</a></li>
+                <li class="menu__item"><a class="menu__link" href="{{ route('login') }}">Login</a></li>
 
             </ul>
             <p>&copy; 2024 Cloud Wise Dev | All Rights Reserved</p>

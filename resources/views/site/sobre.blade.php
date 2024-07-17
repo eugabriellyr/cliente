@@ -185,7 +185,7 @@
             }
             .parallax-image5 {
                 color: #ffffff;
-                background: url(assets/florAleatoria.jpeg);
+                background: url(assets/salao-atual.jpeg);
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;

@@ -68,24 +68,27 @@ class EsteticaController extends Controller
 
         $validatedData = $request->validate([
             'nomeFuncionario' => 'required|string|max:255',
-            'dataNascFuncionario' => 'required|date',
+            'dataNascFuncionario' => 'nullable|date',
             'emailFuncionario' => 'required|string|email|max:255',
             'telefoneFuncionario' => 'required|string|max:15',
             'enderecoFuncionario' => 'required|string|max:255',
-            'senhaFuncionario' => 'nullable|string|confirmed|min:2',
+            'senhaFuncionario' => 'nullable|string|min:2',
+            'confirmarSenha' => 'nullable|string|same:senhaFuncionario', // Novo campo para confirmar senha
             'salarioFuncionario' => 'required|numeric',
             'nivelFuncionario' => 'required|string|max:255',
             'statusFuncionario' => 'required|string|max:255',
             'cargoFuncionario' => 'required|string|max:255',
             'idEspecialidade' => 'required|integer',
-            'fotoFuncionario' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048' // Novo campo para foto
+            'fotoFuncionario' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ], [
+            'confirmarSenha.same' => 'A confirmação da senha não corresponde à senha.'
         ]);
 
         Log::info('Validation passed', ['validatedData' => $validatedData]);
 
         // Atualiza os dados na tabela tblfuncionarios
         $func->nomeFuncionario = $validatedData['nomeFuncionario'];
-        $func->dataNascFuncionario = $validatedData['dataNascFuncionario'];
+        $func->dataNascFuncionario = $validatedData['dataNascFuncionario'] ?? $func->getOriginal('dataNascFuncionario');
         $func->emailFuncionario = $validatedData['emailFuncionario'];
         $func->telefoneFuncionario = $validatedData['telefoneFuncionario'];
         $func->enderecoFuncionario = $validatedData['enderecoFuncionario'];
@@ -122,6 +125,7 @@ class EsteticaController extends Controller
 
         return redirect()->route('dashboard.funcionarios.fperfil')->with('success', 'Perfil atualizado com sucesso!');
     }
+
 
     // Exibir agendamentos do funcionário
     public function meusAgendamentos()

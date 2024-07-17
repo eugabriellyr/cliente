@@ -81,7 +81,7 @@ class AdminController extends Controller
 
         $validatedData = $request->validate([
             'nomeFuncionario' => 'required|string|max:255',
-            'dataNascFuncionario' => 'required|date',
+            'dataNascFuncionario' => 'nullable|date',
             'emailFuncionario' => 'required|string|email|max:255',
             'telefoneFuncionario' => 'required|string|max:15',
             'enderecoFuncionario' => 'required|string|max:255',
@@ -98,7 +98,7 @@ class AdminController extends Controller
 
         // Atualiza os dados na tabela tblfuncionarios
         $func->nomeFuncionario = $validatedData['nomeFuncionario'];
-        $func->dataNascFuncionario = $validatedData['dataNascFuncionario'];
+        $func->dataNascFuncionario = $validatedData['dataNascFuncionario'] ?? $func->getOriginal('dataNascFuncionario');
         $func->emailFuncionario = $validatedData['emailFuncionario'];
         $func->telefoneFuncionario = $validatedData['telefoneFuncionario'];
         $func->enderecoFuncionario = $validatedData['enderecoFuncionario'];

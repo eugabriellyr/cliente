@@ -182,7 +182,7 @@ class AgendamentoController extends Controller
             return response()->json($agendamento, 201);
         }
 
-        return redirect()->route('dashboard.cliente')->with('success', 'Agendamento criado com sucesso e email enviado.');
+        return redirect()->route('dashboard.meusagenda')->with('success', 'Agendamento criado com sucesso e email enviado.');
     }
 
 
