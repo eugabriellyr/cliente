@@ -11,8 +11,8 @@
     {{-- Icone Lupa --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-     <!-- CSS da Lupa -->
-     <link rel="stylesheet" href="{{ asset('dash/css/loupe.css') }}">
+    <!-- CSS da Lupa -->
+    <link rel="stylesheet" href="{{ asset('dash/css/lupa.css') }}">
 </head>
 
 {{-- <body> --}}
@@ -214,8 +214,8 @@
     <!--  Body ADMINISTRADOR -->
 @elseif(session('nivelFuncionario') == 'Administrador')
     <title>Administrador - Le Flower</title>
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+        data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
         <aside class="left-sidebar" style="background-color: #59848e">
             <!-- Sidebar scroll-->
@@ -461,15 +461,6 @@
                                 </a>
                             </li>
 
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="{{ route('dashboard.funcionarios.meushorarios') }}">
-                                    <span>
-                                        <i class="ti ti-layout-dashboard"></i>
-                                    </span>
-                                    <span class="hide-menu">Meus Horários</span>
-                                </a>
-                            </li>
-
                             <li class="nav-small-cap">
                                 <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                                 <span class="hide-menu">EXTRA</span>
@@ -567,8 +558,8 @@
 <script src="{{ asset('dash/js/dashboard.js') }}"></script>
 {{-- </body> --}}
 
- <!-- JS da Lupa -->
- <script src="{{ asset('dash/js/loupe.js') }}"></script>
+<!-- JS da Lupa -->
+<script src="{{ asset('dash/js/lupa.js') }}"></script>
 
 
 </html>

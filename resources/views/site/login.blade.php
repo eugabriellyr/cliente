@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login - Le Flower</title>
+    {{-- <link rel="stylesheet" type="text/css" href="estilo.css"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/estilo.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <!-- CSS da Lupa -->
     <link rel="stylesheet" href="{{ asset('css/loupe.css') }}">
 </head>
-<body style="overflow-y: auto; overflow-x: hidden;"> <!-- Permitir rolagem vertical e esconder rolagem horizontal -->
+
+<body>
     <div class="content">
+        {{-- DIV PARA A ACESSIBILIDADE --}}
         <style>
             * {
                 padding: 0;
                 margin: 0;
                 box-sizing: border-box;
             }
+
             body {
                 font-family: 'Poppins', sans-serif;
+                overflow: hidden;
             }
+
             .wave {
                 position: fixed;
                 bottom: 0;
@@ -29,41 +35,47 @@
                 height: 100%;
                 z-index: -1;
             }
+
             .container {
                 width: 100vw;
-                min-height: 100vh; /* Garantir que a altura mínima seja 100vh */
+                height: 100vh;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 7rem;
                 padding: 0 2rem;
-                align-items: center; /* Centralizar verticalmente */
             }
+
             .img {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
             }
+
             .login-content {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
                 text-align: center;
             }
+
             .img img {
-                max-width: 100%; /* Garantir que a imagem não ultrapasse o contêiner */
-                height: auto;
+                width: 500px;
             }
+
             form {
                 width: 360px;
             }
+
             .login-content img {
                 height: 100px;
             }
+
             .login-content h2 {
                 margin: 15px 0;
                 color: #333;
                 font-size: 2.9rem;
             }
+
             .login-content .input-div {
                 position: relative;
                 display: grid;
@@ -72,23 +84,28 @@
                 padding: 5px 0;
                 border-bottom: 2px solid #d9d9d9;
             }
+
             .login-content .input-div.one {
                 margin-top: 0;
             }
+
             .i {
                 color: #d9d9d9;
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
+
             .i i {
                 transition: .3s;
             }
-            .input-div > div {
+
+            .input-div>div {
                 position: relative;
                 height: 45px;
             }
-            .input-div > div > h5 {
+
+            .input-div>div>h5 {
                 position: absolute;
                 left: 10px;
                 top: 50%;
@@ -97,7 +114,9 @@
                 font-size: 18px;
                 transition: .3s;
             }
-            .input-div:before, .input-div:after {
+
+            .input-div:before,
+            .input-div:after {
                 content: '';
                 position: absolute;
                 bottom: -2px;
@@ -106,23 +125,30 @@
                 background-color: #36a3be;
                 transition: .4s;
             }
+
             .input-div:before {
                 right: 50%;
             }
+
             .input-div:after {
                 left: 50%;
             }
-            .input-div.focus:before, .input-div.focus:after {
+
+            .input-div.focus:before,
+            .input-div.focus:after {
                 width: 50%;
             }
-            .input-div.focus > div > h5 {
+
+            .input-div.focus>div>h5 {
                 top: -5px;
                 font-size: 15px;
             }
-            .input-div.focus > .i > i {
+
+            .input-div.focus>.i>i {
                 color: #38d39f;
             }
-            .input-div > div > input {
+
+            .input-div>div>input {
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -136,9 +162,11 @@
                 color: #555;
                 font-family: 'poppins', sans-serif;
             }
+
             .input-div.pass {
                 margin-bottom: 4px;
             }
+
             a {
                 display: block;
                 text-align: right;
@@ -147,9 +175,11 @@
                 font-size: 0.9rem;
                 transition: .3s;
             }
+
             a:hover {
                 color: #38d39f;
             }
+
             .btn {
                 display: block;
                 width: 100%;
@@ -167,51 +197,52 @@
                 cursor: pointer;
                 transition: .5s;
             }
+
             .btn:hover {
                 background-position: right;
             }
 
-            /* Estilização da barra de rolagem */
-            ::-webkit-scrollbar {
-                width: 10px;
-                background-color: #f1f1f1; /* Cor de fundo da barra de rolagem */
-            }
-            ::-webkit-scrollbar-thumb {
-                background-color: #e4b48d; /* Cor do polegar da barra de rolagem */
-                /* border-radius: 10px; */
-            }
-                      @media screen and (max-width: 1050px) {
+
+            @media screen and (max-width: 1050px) {
                 .container {
                     grid-gap: 5rem;
                 }
             }
+
             @media screen and (max-width: 1000px) {
                 form {
                     width: 290px;
                 }
+
                 .login-content h2 {
                     font-size: 2.4rem;
                     margin: 8px 0;
                 }
+
                 .img img {
                     width: 400px;
                 }
             }
+
             @media screen and (max-width: 900px) {
                 .container {
                     grid-template-columns: 1fr;
                 }
+
                 .img {
                     display: none;
                 }
+
                 .wave {
                     display: none;
                 }
+
                 .login-content {
                     justify-content: center;
                 }
             }
         </style>
+
         <img class="wave" src="{{ asset('assets/modificar.png') }}">
         <div class="container">
             <div class="img">
@@ -222,12 +253,27 @@
                     @csrf
                     <img style="width: 60%;height:60%;" src="{{ asset('assets/logo4.png') }}">
                     <h2 class="title">Entrar</h2>
+                    @if (Session::has('message'))
+                        <div class="alert alert-success">
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="input-div one">
                         <div class="i">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="div">
-                            <input type="text" name="emailUsuario" id="emailUsuario" class="input" placeholder="Email">
+                            <input type="text" name="emailUsuario" id="emailUsuario" class="input"
+                                placeholder="Email" value="{{ old('emailUsuario') }}">
                         </div>
                     </div>
                     <div class="input-div pass">
@@ -235,20 +281,30 @@
                             <i class="fas fa-lock"></i>
                         </div>
                         <div class="div">
-                            <input type="password" name="senhaUsuario" id="senhaUsuario" class="input" placeholder="Senha">
+                            <input type="password" name="senhaUsuario" id="senhaUsuario" class="input"
+                                placeholder="Senha">
                         </div>
                     </div>
                     <input style="margin-top: 7%;" type="submit" class="btn" value="Login">
                     <div style="text-align:center;">
-                        <p>Ainda não tem conta? <a style="text-align: center;" href="/cadastrar-se">Cadastrar-se</a></p>
-                        <p style="margin-top: 5%;">Deseja voltar? <a style="text-align: center;" href="/">Sair</a></p>
+                        <p>Ainda não tem conta ?<a style="text-align: center;" href="/cadastrar-se">Cadastrar-se</a></p>
+                        <p style="margin-top: 5%;">Deseja voltar ?<a style="text-align: center;" href="/">Sair</a>
+                        </p>
                     </div>
                 </form>
             </div>
         </div>
         <script type="text/javascript" src="{{ asset('js/mainlogin.js') }}"></script>
-        @component('components.loupe') @endcomponent
+
+        {{-- acs --}}
     </div>
-    <script src="{{ asset('js/loupe.js') }}"></script>
+
+    @component('components.loupe')
+    @endcomponent
+
 </body>
+
+<!-- JS da Lupa -->
+<script src="{{ asset('js/loupe.js') }}"></script>
+
 </html>

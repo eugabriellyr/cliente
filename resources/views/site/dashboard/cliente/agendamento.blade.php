@@ -620,6 +620,8 @@
     </head>
 
     <body>
+        <div class="content">
+            {{-- DIV PARA A ACESSIBILIDADE --}}
         <div class="container">
             <h1>Agendamento</h1>
             <form id="agendamentoForm" action="{{ route('agendar') }}" method="POST">
@@ -919,7 +921,8 @@
                 });
             });
         </script>
+ <div>
 
-
+ </div>
     </body>
 @endsection
