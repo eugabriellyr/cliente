@@ -925,4 +925,7 @@
 
  </div>
     </body>
+
+    @component('components.loupe')
+    @endcomponent
 @endsection
