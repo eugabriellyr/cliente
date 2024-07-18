@@ -330,6 +330,9 @@
         }
     }
 </style>
+
+<div class="content">
+    {{-- DIV PARA A ACESSIBILIDADE --}}
 @section('logo')
 <a href="/"><img style="width:50%;" class="banner" src="{{ asset('assets/logo4.png') }}" alt="logo"></a>
 @endsection
@@ -442,4 +445,9 @@
         });
     });
 </script>
+
+</div>
+
+@component('components.loupe')
+@endcomponent
 @endsection

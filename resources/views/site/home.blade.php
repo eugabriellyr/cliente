@@ -40,7 +40,7 @@
 
                         <div style="justify-content: center; align-items: center; align-content: center; margin-left:4.5%;"
                             class="btn-group" data-ani="slideinup" data-ani-delay="0.3s">
-                            <a href="/cadastrar-se">
+                            <a href="{{ route('cadastroCliente') }}">
                                 <button class="btn-flower">
                                     <div class="wrapper">
 
@@ -96,13 +96,12 @@
         </div>
 
         {{-- ESTILIZAÇÃO MOBILE BANNER HOME --}}
-        <Style>
+        <style>
             @media (max-width: 700px) {
                 .hero-slider {
                     height: 550px;
-                    background: url('assets/banner/bannerRespons.jpeg');
+                    background: url('{{ asset('assets/banner/bannerRespons.jpeg') }}');
                     background-size: cover;
-
                 }
 
                 .banner {
@@ -114,9 +113,8 @@
                     justify-content: end;
                     display: flex;
                 }
-
             }
-        </Style>
+        </style>
         {{-- ABOUT GABY --}}
         <div class="responsive-container-block bigContainer" data-aos="fade-down" style="background: #59848e ">
             <div class="responsive-container-block Container bottomContainer">
@@ -147,20 +145,18 @@
                         Leflower como mais do que um salão de beleza comum, mas como um espaço que abraça a singularidade de
                         cada indivíduo.
                     </p>
-                    <a href="/sobre">
+                    <a href="{{ route('sobre') }}">
                         <button class="cta">
                             <svg width="15px" height="10px" viewBox="0 0 13 10">
                                 <path d="M1,5 L11,5"></path>
                                 <polyline points="8 1 12 5 8 9"></polyline>
                             </svg>
                             <span>Leia mais</span>
-
                         </button>
                     </a>
                 </div>
             </div>
         </div>
-
 
         {{-- Perguntas frequentes --}}
         {{-- <section class="margin" data-aos="fade-up">  Com animação (Quebra) --}}
@@ -187,9 +183,6 @@
                     </div>
                 </div>
 
-
-
-
                 <style>
                     @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
@@ -208,8 +201,6 @@
                         padding: 0 0 50px 10px
                     }
 
-
-
                     .containerr h1 {
                         font-size: 25px;
                         color: var(--salmao-salao);
@@ -219,7 +210,6 @@
                     }
 
                     /* Estilos para dispositivos não responsivos */
-
 
                     .accordion {
                         width: 100%;
@@ -232,7 +222,6 @@
                         align-items: center;
                         padding: 10px;
                         border-radius: 30px;
-
                     }
 
                     .accordion i {
@@ -386,10 +375,7 @@
                     </div>
                 </div>
 
-
-
                 {{-- SCRIPT  ACORDION --}}
-
         </section>
 
         <style>
@@ -515,7 +501,7 @@
                 <div class="carousel-item active">
                     <div class="my-depoimento-container">
                         <div class="my-depoimento">
-                            <img src="{{ asset('assets/depo6.png') }}" alt="Imagem do Autor">
+                            <img src="{{ asset('assets/img/depo6.jpeg') }}" alt="Imagem do Autor">
                             <div class="conteudo">
                                 <p class="data">18 de maio de 2024</p>
                                 <p class="texto">Estou muito feliz com o serviço deste salão. Profissionalismo desde a
@@ -530,7 +516,7 @@
                 <div class="carousel-item">
                     <div class="my-depoimento-container">
                         <div class="my-depoimento">
-                            <img src="{{ asset('assets/depo7.png') }}" alt="Imagem do Autor">
+                            <img src="{{ asset('assets/img/depo7.jpeg') }}" alt="Imagem do Autor">
                             <div class="conteudo">
                                 <p class="data">22 de abril de 2024</p>
                                 <p class="texto">Este salão é incrível! Descobri através de uma amiga e estou encantada.
@@ -545,7 +531,7 @@
                 <div class="carousel-item">
                     <div class="my-depoimento-container">
                         <div class="my-depoimento">
-                            <img src="{{ asset('assets/depo8.png') }}" alt="Imagem do Autor">
+                            <img src="{{ asset('assets/img/depo8.jpeg') }}" alt="Imagem do Autor">
                             <div class="conteudo">
                                 <p class="data">22 de janeiro de 2024</p>
                                 <p class="texto">Serviço de alta qualidade! O estilista captou perfeitamente o que eu
@@ -657,7 +643,6 @@
                 text-align: center;
             }
 
-
             .service img {
                 width: 100%;
                 height: auto;
@@ -688,11 +673,9 @@
 
             .service h4 {
                 color: #202020;
-
-
             }
 
-            . .service-description {
+            .service-description {
                 color: gainsboro;
                 text-align: start;
             }
@@ -700,7 +683,6 @@
             .test-bg {
                 background-position: center;
                 background: linear-gradient(180deg, rgba(89, 132, 142, 0.23), rgba(89, 132, 142, 0.23)), url({{ asset('assets/AdobeStock_587067399.jpeg') }});
-
             }
 
             .servico {
@@ -738,10 +720,6 @@
             .buttonAgendar3 {
                 margin-right: 70%;
             }
-
-
-
-
 
             @media (max-width: 700px) {
                 .about-thumb-2 img {
@@ -790,11 +768,9 @@
                     display: block;
                     margin-bottom: 250px;
                 }
-
             }
 
             @media (min-width: 701px) and (max-width:1354px) {
-
                 .about-thumb-2 img {
                     display: none;
                 }
@@ -827,13 +803,11 @@
                 .buttonAgendar2 {
                     margin-left: 0%;
                     margin-left: 3%;
-
                 }
 
                 .buttonAgendar3 {
                     margin-right: 0%;
                     margin-left: 3.5%;
-
                 }
 
                 .container1 {
@@ -866,10 +840,6 @@
                     flex: 0 0 50%;
                     max-width: 100%;
                 }
-
-
-
-
             }
 
             .about-thumb-num {
@@ -978,8 +948,6 @@
             </div>
         </section>
 
-
-
         {{-- SCRIPT PARA A ANIMAÇÃO DO FAC SAIR QUANDO A TELA FOR MENOR QUE 700PX, REMOVENDO O ATRIBUTO data-aos DAS SEÇÃO/DIV, ASSIM EVITA QUEBRAR NO MOBILE --}}
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {
@@ -999,7 +967,7 @@
                 if (screenWidth < maxWidth) {
                     // Remove o atributo data-aos de todas as divs com a classe accordion
                     var accordions = document.querySelectorAll('.accordion');
-                    accordions.forEach(function(accordion) {
+                    accordions.forEach(function (accordion) {
                         accordion.removeAttribute('data-aos');
                     });
 
@@ -1019,7 +987,7 @@
             var i;
             var len = acordion.length;
             for (i = 0; i < len; i++) {
-                acordion[i].addEventListener('click', function() {
+                acordion[i].addEventListener('click', function () {
                     this.classList.toggle('active');
                     var panal = this.nextElementSibling;
                     if (panal.style.maxHeight) {
@@ -1030,9 +998,6 @@
                 })
             }
         </script>
-
-
-        {{-- acs --}}
     </div>
 
     @component('components.loupe')

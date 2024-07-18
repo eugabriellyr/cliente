@@ -143,6 +143,7 @@
                 color: #e4b48d;
                 font-size: 30px !important;
                 font-weight: bold;
+                text-align: center
             }
             .parallax {
                 height: 400px;
@@ -273,7 +274,7 @@
             }
             @media screen and (max-width: 600px) {
                 .texto {
-                    text-align: center !important;
+                    text-align: justify !important;
                     width: 100%;
                 }
             }
